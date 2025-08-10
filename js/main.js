@@ -283,7 +283,7 @@ function initDropdown(triggerId, dropdownId, displayId, hiddenInputId, options) 
         const description = button.querySelector('.text-xs')?.textContent.toLowerCase() || '';
         
         if (label.includes(searchTerm) || description.includes(searchTerm)) {
-          button.style.display = 'block';
+          button.style.display = 'flex';
         } else {
           button.style.display = 'none';
         }
@@ -324,7 +324,7 @@ function initDropdown(triggerId, dropdownId, displayId, hiddenInputId, options) 
       searchInput.value = '';
       // Reset all options visibility
       const optionButtons = dropdown.querySelectorAll('[data-value]');
-      optionButtons.forEach(button => button.style.display = 'block');
+      optionButtons.forEach(button => button.style.display = 'flex');
     }
   }
 }
