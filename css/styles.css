@@ -1,0 +1,29 @@
+/* Custom styles and small utilities complementing Tailwind
+   This file is intentionally small since Tailwind CDN provides utilities. */
+
+html { scroll-behavior: smooth; }
+
+/* Scroll reveal animations */
+.reveal, .reveal-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.is-visible, .reveal-up.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Button focus outline tweak for better accessibility */
+.focus-outline {
+  outline: none;
+}
+.focus-outline:focus {
+  box-shadow: 0 0 0 3px rgba(79,70,229,.35);
+}
+
+/* Soft gradient ring utility */
+.ring-gradient {
+  box-shadow: 0 0 0 1px rgba(255,255,255,.2), 0 8px 24px rgba(2,6,23,.15);
+}
+
