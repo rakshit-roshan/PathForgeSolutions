@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PathForge Solutions — IT Consultancy for Students & Professionals</title>
+  <meta name="description" content="Final year project assistance, internships, career guidance, and job consultancy. Build your future with expert mentors and real projects." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          container: { center: true, padding: '1rem' },
+          colors: {
+            brand: { 50:'#eef2ff', 100:'#e0e7ff', 600:'#4f46e5', 700:'#4338ca' },
+            accent: { 500:'#06b6d4' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="antialiased text-slate-800 bg-white">
+  <div id="site-header"></div>
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-slate-50 to-white"></div>
+      <div class="max-w-7xl mx-auto px-4 pt-16 pb-20 grid md:grid-cols-2 gap-10 items-center">
+        <div class="reveal-up">
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+            Build your tech career with a trusted IT partner
+          </h1>
+          <p class="mt-4 text-lg text-slate-600 max-w-prose">
+            We mentor students and professionals through real projects, internships, career guidance, and complete job application support.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="services.html" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow hover:shadow-lg transition-shadow">Explore Services</a>
+            <a href="contact.html" class="inline-flex items-center justify-center px-6 py-3 rounded-md ring-1 ring-slate-300 hover:bg-slate-50">Book a Free Call</a>
+          </div>
+          <div class="mt-8 flex items-center gap-6 text-sm text-slate-600">
+            <div class="flex items-center gap-2"><img src="assets/icons/check.svg" alt="check" class="w-4 h-4 text-indigo-600">Mentors with industry experience</div>
+            <div class="flex items-center gap-2"><img src="assets/icons/check.svg" alt="check" class="w-4 h-4 text-indigo-600">Live project exposure</div>
+          </div>
+        </div>
+        <div class="reveal-up">
+          <img src="assets/images/hero-banner.png" alt="PathForge Solutions hero banner" class="w-full h-auto rounded-2xl ring-1 ring-slate-200 shadow-sm" loading="eager" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Services preview -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">What we offer</h2>
+        <p class="mt-2 text-slate-600 max-w-2xl">A complete support system to help you learn, build, and land opportunities in tech.</p>
+        <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <a href="services.html#projects" class="group rounded-xl border border-slate-200 p-6 hover:border-indigo-200 hover:shadow-sm transition-all reveal">
+            <div class="flex items-center gap-3">
+              <img src="assets/icons/graduation-cap.svg" alt="Projects" class="w-7 h-7 object-contain" loading="lazy" decoding="async" />
+              <h3 class="font-semibold">Final Year Projects</h3>
+            </div>
+            <p class="mt-3 text-sm text-slate-600">Guided research, architecture, and end-to-end build with documentation.</p>
+          </a>
+          <a href="internship.html" class="group rounded-xl border border-slate-200 p-6 hover:border-indigo-200 hover:shadow-sm transition-all reveal">
+            <div class="flex items-center gap-3">
+              <img src="assets/icons/briefcase.svg" alt="Internship" class="w-6 h-6 text-indigo-600" />
+              <h3 class="font-semibold">Internships</h3>
+            </div>
+            <p class="mt-3 text-sm text-slate-600">Structured training with live projects to build real-world skills.</p>
+          </a>
+          <a href="career-guidance.html" class="group rounded-xl border border-slate-200 p-6 hover:border-indigo-200 hover:shadow-sm transition-all reveal">
+            <div class="flex items-center gap-3">
+              <img src="assets/icons/users.svg" alt="Career" class="w-7 h-7 object-contain" loading="lazy" decoding="async" />
+              <h3 class="font-semibold">Career Guidance</h3>
+            </div>
+            <p class="mt-3 text-sm text-slate-600">Portfolio, resume, mock interviews, and learning path design.</p>
+          </a>
+          <a href="job-consultancy.html" class="group rounded-xl border border-slate-200 p-6 hover:border-indigo-200 hover:shadow-sm transition-all reveal">
+            <div class="flex items-center gap-3">
+              <img src="assets/icons/calendar.svg" alt="Jobs" class="w-6 h-6 text-indigo-600" />
+              <h3 class="font-semibold">Job Consultancy</h3>
+            </div>
+            <p class="mt-3 text-sm text-slate-600">Application assistance and interview scheduling made simple.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="rounded-2xl bg-gradient-to-r from-indigo-600 to-cyan-500 p-8 sm:p-12 text-white overflow-hidden relative">
+          <div class="relative z-10">
+            <h3 class="text-2xl font-semibold">Unsure where to start?</h3>
+            <p class="mt-2 text-white/90">Book a free 15-minute consultation. We'll chart your next steps.</p>
+            <div class="mt-6">
+              <a href="contact.html" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-white text-slate-900 font-medium shadow hover:shadow-lg">Talk to an expert</a>
+            </div>
+          </div>
+          <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full blur-2xl"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
+
