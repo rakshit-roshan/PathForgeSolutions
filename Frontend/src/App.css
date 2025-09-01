@@ -1,7 +1,9 @@
 /* Custom styles and small utilities complementing Tailwind
    This file is intentionally small since Tailwind CDN provides utilities. */
 
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+}
 
 /* Scroll reveal animations */
 .reveal, .reveal-up {
@@ -54,3 +56,13 @@ html { scroll-behavior: smooth; }
   scrollbar-color: #cbd5e1 #f1f5f9;
 }
 
+/* App specific styles */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
