@@ -68,9 +68,7 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-3">
             <Link
-              to="/login"
-              className="inline-flex items-center justify-center px-4 py-2 rounded-md bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow hover:shadow-lg transition-shadow"
-            >
+              to="/login"  className="inline-flex items-center justify-center px-4 py-2 rounded-md bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow hover:shadow-lg transition-shadow">
               Login
             </Link>
           </div>
@@ -119,8 +117,7 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
-          <Link
-            to="/login"
+          <Link to="/login"
             className="mt-2 inline-flex items-center justify-center px-4 py-2 rounded-md bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow"
             onClick={closeMobileMenu}
           >

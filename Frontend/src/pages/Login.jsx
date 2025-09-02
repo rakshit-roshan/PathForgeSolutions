@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { authAPI } from '../utils/api';
 
-const Login = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    rememberMe: false
-  });
+function Login(){
+
+  const [formData, setFormData] = useState({email: '', password: '', rememberMe: false });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState({ message: '', type: '' });
@@ -29,19 +27,32 @@ const Login = () => {
     setStatus({ message: '', type: '' });
 
     try {
-      // Simulate API call (replace with actual backend call)
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Call backend login API using centralized service
+      const response = await authAPI.login(formData.email, formData.password);
       
-      // For demo purposes, show success
-      setStatus({ message: 'Login successful! Redirecting...', type: 'success' });
-      
-      // Redirect to dashboard or home page
-      setTimeout(() => {
-        window.location.href = '/';
-      }, 1500);
+      if(response.data === 'Login successful') {
+        setStatus({ message: 'Login successful! Redirecting...', type: 'success' });
+        
+        // Store user info in localStorage if remember me is checked
+        if(formData.rememberMe) {
+          localStorage.setItem('userEmail', formData.email);
+        }
+        
+        // Redirect to dashboard or home page
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 1500);
+      } else {
+        setStatus({ message: response.data, type: 'error' });
+      }
       
     } catch (error) {
-      setStatus({ message: 'Login failed. Please check your credentials.', type: 'error' });
+      console.error('Login error:', error);
+      if(error.response) {
+        setStatus({ message: error.response.data || 'Login failed', type: 'error' });
+      } else {
+        setStatus({ message: 'Network error. Please check your connection.', type: 'error' });
+      }
     } finally {
       setIsLoading(false);
     }
@@ -154,7 +165,7 @@ const Login = () => {
                 disabled={isLoading}
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-700 hover:to-cyan-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50"
               >
-                {isLoading ? (
+                {isLoading ? ( 
                   <>
                     <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
