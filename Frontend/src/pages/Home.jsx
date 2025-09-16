@@ -9,7 +9,7 @@ import {
   checkIcon 
 } from '../utils/images';
 
-const Home = () => {
+const Home = () => {  // Home component
   useEffect(() => {
     // Initialize scroll reveal animations
     const initScrollReveal = () => {
