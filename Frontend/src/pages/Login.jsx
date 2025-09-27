@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import { authAPI } from '../utils/api';
 
 function Login(){
@@ -8,7 +8,8 @@ function Login(){
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState({ message: '', type: '' });
-
+  const navigate = useNavigate();
+  
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({
@@ -37,11 +38,10 @@ function Login(){
         if(formData.rememberMe) {
           localStorage.setItem('userEmail', formData.email);
         }
-        
+
         // Redirect to dashboard or home page
-        setTimeout(() => {
-          window.location.href = '/';
-        }, 1500);
+        navigate('/dashboard');
+
       } else {
         setStatus({ message: response.data, type: 'error' });
       }
