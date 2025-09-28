@@ -532,7 +532,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-semibold text-slate-900">Phone</p>
-                      <p className="text-slate-600">+1 (234) 567-8900</p>
+                      <p className="text-slate-600">+91 9709203002</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -544,7 +544,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-semibold text-slate-900">Location</p>
-                      <p className="text-slate-600">New Delhi, India</p>
+                      <p className="text-slate-600">Andheri East, Mumbai, India</p>
                     </div>
                   </div>
                 </div>
@@ -558,7 +558,7 @@ const Contact = () => {
                 </div>
                 <iframe 
                   title="Location" 
-                  src="https://maps.google.com/maps?q=New%20Delhi&t=&z=11&ie=UTF8&iwloc=&output=embed" 
+                  src="https://maps.google.com/maps?q=Mumbai&t=&z=11&ie=UTF8&iwloc=&output=embed" 
                   width="100%" 
                   height="200" 
                   style={{border:0}} 

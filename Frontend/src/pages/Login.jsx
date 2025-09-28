@@ -1,14 +1,29 @@
-import { useState } from 'react';
-import { Link, useNavigate  } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import { authAPI } from '../utils/api';
 
 function Login(){
-
+  const { login, isAuthenticated } = useAuth();
   const [formData, setFormData] = useState({email: '', password: '', rememberMe: false });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState({ message: '', type: '' });
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Redirect to dashboard if already authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      const from = location.state?.from?.pathname || '/dashboard';
+      navigate(from, { replace: true });
+    }
+  }, [isAuthenticated, navigate, location]);
+
+  // Don't render login form if already authenticated
+  if (isAuthenticated) {
+    return null; // or a loading spinner
+  }
   
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -34,12 +49,13 @@ function Login(){
       if(response.data === 'Login successful') {
         setStatus({ message: 'Login successful! Redirecting...', type: 'success' });
         
-        // Store user info in localStorage if remember me is checked
-        if(formData.rememberMe) {
-          localStorage.setItem('userEmail', formData.email);
-        }
+        // Use AuthContext to handle login
+        login({
+          email: formData.email,
+          rememberMe: formData.rememberMe
+        });
 
-        // Redirect to dashboard or home page
+        // Redirect to dashboard
         navigate('/dashboard');
 
       } else {
