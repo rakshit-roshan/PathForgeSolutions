@@ -7,6 +7,7 @@ const Contact = () => {
   const [selectedDuration, setSelectedDuration] = useState('');
   const [selectedExperience, setSelectedExperience] = useState('');
   const [showCustomIdea, setShowCustomIdea] = useState(false);
+  const [preferredContactMethod, setPreferredContactMethod] = useState('');
   
   // Dropdown states
   const [serviceDropdownOpen, setServiceDropdownOpen] = useState(false);
@@ -121,6 +122,13 @@ const Contact = () => {
     { value: 'advanced', label: 'Advanced (3+ years)', description: 'Experienced developer', icon: 'M13 10V3L4 14h7v7l9-11h-7z', color: 'purple' }
   ];
 
+  // Contact method options
+  const contactMethodOptions = [
+    { value: 'email', label: 'Email Response', description: 'We\'ll reply to your email within 24 hours', icon: 'M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', color: 'blue' },
+    { value: 'phone-call', label: 'Phone Call', description: 'Schedule a free 15-minute consultation call', icon: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z', color: 'green' },
+    { value: 'whatsapp', label: 'WhatsApp Chat', description: 'Quick chat on WhatsApp for immediate assistance', icon: 'M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z', color: 'emerald' }
+  ];
+
   // Filter options based on search
   const filteredServiceOptions = serviceOptions.filter(option =>
     option.label.toLowerCase().includes(serviceSearch.toLowerCase()) ||
@@ -140,6 +148,7 @@ const Contact = () => {
       orange: 'bg-orange-100 text-orange-600 group-hover:bg-orange-200',
       pink: 'bg-pink-100 text-pink-600 group-hover:bg-pink-200',
       indigo: 'bg-indigo-100 text-indigo-600 group-hover:bg-indigo-200',
+      emerald: 'bg-emerald-100 text-emerald-600 group-hover:bg-emerald-200',
       slate: 'bg-slate-100 text-slate-600 group-hover:bg-slate-200'
     };
     return colors[color] || colors.slate;
@@ -475,6 +484,95 @@ const Contact = () => {
                   ></textarea>
                 </div>
 
+                {/* Preferred Contact Method */}
+                <div className="space-y-2">
+                  <label className="block text-sm font-semibold text-slate-700">Preferred Contact Method *</label>
+                  <div className="grid sm:grid-cols-3 gap-4">
+                    {contactMethodOptions.map((option) => (
+                      <label key={option.value} className="relative cursor-pointer group">
+                        <input 
+                          type="radio" 
+                          name="contact-method" 
+                          value={option.value}
+                          onChange={(e) => setPreferredContactMethod(e.target.value)}
+                          className="sr-only peer"
+                          required
+                        />
+                        <div className={`p-4 rounded-xl border-2 transition-all duration-200 ${
+                          preferredContactMethod === option.value 
+                            ? 'border-blue-500 bg-blue-50 shadow-md' 
+                            : 'border-slate-200 bg-slate-50 hover:border-slate-300 hover:bg-white'
+                        }`}>
+                          <div className="flex items-center gap-3">
+                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-150 ${
+                              preferredContactMethod === option.value 
+                                ? getColorClasses(option.color) 
+                                : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200'
+                            }`}>
+                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={option.icon}></path>
+                              </svg>
+                            </div>
+                            <div className="flex-1">
+                              <div className={`font-medium transition-colors duration-200 ${
+                                preferredContactMethod === option.value ? 'text-blue-900' : 'text-slate-900'
+                              }`}>
+                                {option.label}
+                              </div>
+                              <div className={`text-xs transition-colors duration-200 ${
+                                preferredContactMethod === option.value ? 'text-blue-700' : 'text-slate-500'
+                              }`}>
+                                {option.description}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Phone Call Scheduling Fields */}
+                {preferredContactMethod === 'phone-call' && (
+                  <div className="space-y-4 p-4 bg-green-50 rounded-xl border border-green-200">
+                    <h4 className="text-sm font-semibold text-green-900">📞 Schedule Your Free Consultation Call</h4>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label htmlFor="preferred-date" className="block text-sm font-medium text-green-800">Preferred Date</label>
+                        <input 
+                          id="preferred-date" 
+                          name="preferred-date" 
+                          type="date" 
+                          min={new Date().toISOString().split('T')[0]}
+                          className="w-full px-3 py-2 rounded-lg border border-green-200 bg-white focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition-all duration-200" 
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label htmlFor="preferred-time" className="block text-sm font-medium text-green-800">Preferred Time</label>
+                        <select 
+                          id="preferred-time" 
+                          name="preferred-time"
+                          className="w-full px-3 py-2 rounded-lg border border-green-200 bg-white focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition-all duration-200"
+                        >
+                          <option value="">Select time</option>
+                          <option value="9:00 AM">9:00 AM</option>
+                          <option value="10:00 AM">10:00 AM</option>
+                          <option value="11:00 AM">11:00 AM</option>
+                          <option value="12:00 PM">12:00 PM</option>
+                          <option value="2:00 PM">2:00 PM</option>
+                          <option value="3:00 PM">3:00 PM</option>
+                          <option value="4:00 PM">4:00 PM</option>
+                          <option value="5:00 PM">5:00 PM</option>
+                          <option value="6:00 PM">6:00 PM</option>
+                        </select>
+                      </div>
+                    </div>
+                    <p className="text-xs text-green-700">
+                      💡 We'll confirm your call time via email and phone. Our team will call you for a free 15-minute consultation.
+                    </p>
+                  </div>
+                )}
+
                 {/* Consent */}
                 <div className="flex items-start gap-3">
                   <input 
@@ -498,10 +596,28 @@ const Contact = () => {
                   type="submit" 
                   className="w-full inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-[1.02] transform transition-all duration-200"
                 >
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                  </svg>
-                  Send Message
+                  {preferredContactMethod === 'phone-call' ? (
+                    <>
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                      </svg>
+                      Schedule Free Call
+                    </>
+                  ) : preferredContactMethod === 'whatsapp' ? (
+                    <>
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                      </svg>
+                      Start WhatsApp Chat
+                    </>
+                  ) : (
+                    <>
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                      </svg>
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             </div>
@@ -553,12 +669,28 @@ const Contact = () => {
 
             <div className="reveal">
               <div className="bg-white rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 overflow-hidden">
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">Office Location</h3>
+                <div className="px-6 pt-4 pb-2 flex items-center justify-between">
+                  <h3 className="text-xl font-bold text-slate-900">Office Location</h3>
+                  <button 
+                    onClick={() => {
+                      const iframe = document.getElementById('office-map');
+                      if (iframe) {
+                        iframe.src = iframe.src;
+                      }
+                    }}
+                    className="inline-flex items-center gap-2 px-3 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200"
+                    title="Reset map to office location"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                    Recenter
+                  </button>
                 </div>
                 <iframe 
+                  id="office-map"
                   title="Location" 
-                  src="https://maps.google.com/maps?q=Mumbai&t=&z=11&ie=UTF8&iwloc=&output=embed" 
+                  src="https://maps.google.com/maps?q=Andheri+East,+Mumbai,+Maharashtra,+India&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                   width="100%" 
                   height="200" 
                   style={{border:0}} 
@@ -572,11 +704,36 @@ const Contact = () => {
 
             <div className="reveal">
               <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-3">Ready to get started?</h3>
-                <p className="text-blue-100 mb-4">Book a free consultation call to discuss your needs and how we can help.</p>
-                <button className="w-full bg-white text-blue-700 font-semibold py-3 px-4 rounded-xl hover:bg-blue-50 transition-colors duration-200">
-                  Schedule Free Call
-                </button>
+                <h3 className="text-xl font-bold mb-3">Why Choose PathForge Solutions?</h3>
+                <div className="space-y-3 text-blue-100">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    </svg>
+                    <span className="text-sm">MSME Registered Company</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    </svg>
+                    <span className="text-sm">500+ Students Mentored</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    </svg>
+                    <span className="text-sm">95% Success Rate</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                    </svg>
+                    <span className="text-sm">Real Project Experience</span>
+                  </div>
+                </div>
+                <p className="text-blue-200 text-sm mt-4">
+                  💡 Fill out the form to get started with your preferred contact method!
+                </p>
               </div>
             </div>
           </div>

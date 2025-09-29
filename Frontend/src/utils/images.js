@@ -27,3 +27,8 @@ export const usersIcon = '/assets/icons/users.svg';
 export const briefcaseIcon = '/assets/icons/briefcase.svg';
 export const graduationCapIcon = '/assets/icons/graduation-cap.svg';
 export const checkIcon = '/assets/icons/check.svg';
+
+// Certification and badges
+export const msmeBadge = '/assets/images/msme-badge.png';
+export const makeInIndiaBadge = '/assets/images/makeInIndia.png';
+export const certificateSample = '/assets/images/Certificate.png';
