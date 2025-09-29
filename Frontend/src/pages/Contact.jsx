@@ -637,7 +637,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-semibold text-slate-900">Email</p>
-                      <p className="text-slate-600">info@PathForge Solutions.com</p>
+                      <p className="text-slate-600">rakshitros1@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">

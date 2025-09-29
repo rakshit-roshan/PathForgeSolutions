@@ -13,7 +13,7 @@ const Header = () => {
               className="opacity-90 hover:opacity-100 transition-opacity" 
               aria-label="Call us"
             >
-              +1 (234) 567-890
+              +91 9709203002
             </a>
             <span className="hidden md:inline">|</span>
             <a 
@@ -21,7 +21,7 @@ const Header = () => {
               className="opacity-90 hover:opacity-100 transition-opacity" 
               aria-label="Email us"
             >
-              info@PathForgeSolutions.com
+              rakshitros1@gmail.com
             </a>
           </div>
         </div>
