@@ -45,12 +45,7 @@ export const AuthProvider = ({ children }) => {
     sessionStorage.removeItem('userEmail');
   };
 
-  const value = {
-    isAuthenticated,
-    user,
-    login,
-    logout
-  };
+  const value = { isAuthenticated, user, login, logout };
 
   return (
     <AuthContext.Provider value={value}>

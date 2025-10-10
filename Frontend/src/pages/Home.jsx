@@ -67,7 +67,7 @@ const Home = () => {  // Home component
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-50 to-white"></div>
-        <div className="max-w-7xl mx-auto px-4 pt-16 pb-20 grid md:grid-cols-2 gap-10 items-center">
+        <div className="max-w-7xl mx-auto px-4 pt-16 grid md:grid-cols-2 gap-10 items-center">
           <div className="reveal-up">
             <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
               Build your tech career with a trusted IT partner

@@ -1,0 +1,78 @@
+### Contact API Test File
+### This file contains sample requests to test your contact API
+### Use this in VS Code with REST Client extension or any HTTP client
+
+### 1. Health Check - Test if API is working
+GET http://localhost:8080/main/contact/health
+
+### 2. Submit a basic contact inquiry
+POST http://localhost:8080/main/contact
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "phone": "+91 9876543210",
+  "serviceType": "project-assistance",
+  "message": "I need help with my final year project on web development.",
+  "preferredContactMethod": "email"
+}
+
+### 3. Submit an internship inquiry with all details
+POST http://localhost:8080/main/contact
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "email": "jane.smith@example.com",
+  "phone": "+91 9876543211",
+  "serviceType": "internship",
+  "internshipTrack": "fullstack",
+  "duration": "3-months",
+  "experienceLevel": "beginner",
+  "message": "I want to learn full-stack development through internship.",
+  "preferredContactMethod": "phone-call",
+  "preferredDate": "2024-01-15",
+  "preferredTime": "10:00 AM"
+}
+
+### 4. Submit a custom project idea inquiry
+POST http://localhost:8080/main/contact
+Content-Type: application/json
+
+{
+  "name": "Mike Johnson",
+  "email": "mike.johnson@example.com",
+  "phone": "+91 9876543212",
+  "serviceType": "internship",
+  "internshipTrack": "custom",
+  "duration": "6-months",
+  "experienceLevel": "intermediate",
+  "customIdea": "I want to build an AI-powered e-commerce recommendation system using machine learning and web technologies.",
+  "message": "I have a specific project idea and need guidance on implementation.",
+  "preferredContactMethod": "whatsapp"
+}
+
+### 5. Get all contact inquiries (Admin)
+GET http://localhost:8080/main/contact/all
+
+### 6. Get contact inquiry by ID (replace 1 with actual ID)
+GET http://localhost:8080/main/contact/1
+
+### 7. Get contact inquiries by email
+GET http://localhost:8080/main/contact/email/john.doe@example.com
+
+### 8. Get contact inquiries by service type
+GET http://localhost:8080/main/contact/service/internship
+
+### 9. Get contact inquiries by status
+GET http://localhost:8080/main/contact/status/NEW
+
+### 10. Get recent contact inquiries (last 30 days)
+GET http://localhost:8080/main/contact/recent
+
+### 11. Update contact status (replace 1 with actual ID)
+PUT http://localhost:8080/main/contact/1/status?status=CONTACTED
+
+### 12. Get contact statistics
+GET http://localhost:8080/main/contact/statistics
