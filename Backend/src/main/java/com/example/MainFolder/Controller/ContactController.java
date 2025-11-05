@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/main")
-@CrossOrigin(origins = "http://localhost:5173") // Allow frontend to access the API
+// CORS is handled globally in SecurityConfig - no need for @CrossOrigin here
 public class ContactController {
     
     @Autowired

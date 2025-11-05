@@ -87,7 +87,7 @@ const Contact = () => {
     setTrackSearch('');
   };
 
-  // Handle form submission - Beginner friendly with clear feedback
+  // Handle form submission - with clear feedback
   const handleSubmit = async (e) => {
     e.preventDefault();
     

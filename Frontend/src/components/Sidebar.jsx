@@ -19,7 +19,7 @@ const menuItems = [
 ];
 
 const Sidebar = () => (
-  <Drawer variant="permanent" sx={{ width: 220, [`& .MuiDrawer-paper`]: { width: 220, boxSizing: 'border-box', bgcolor: '#fff' } }}>
+  <Drawer variant="permanent" sx={{ width: 250, [`& .MuiDrawer-paper`]: { width: 250, boxSizing: 'border-box', bgcolor: '#fff' } }}>
     <Toolbar />
     <List>
       {menuItems.map((item) => (
