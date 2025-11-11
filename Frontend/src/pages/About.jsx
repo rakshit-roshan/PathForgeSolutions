@@ -26,19 +26,21 @@ const About = () => {
   const teamMembers = [
     {
       image: team1,
-      name: 'Alex Turner',
+      name: 'Rakshit Roshan',
       role: 'Founder • Full‑Stack Architect'
     },
     {
       image: team2,
-      name: 'Priya Sharma',
-      role: 'Programs • Careers'
-    },
-    {
-      image: team3,
-      name: 'Michael Lee',
-      role: 'Mentor • Cloud & DevOps'
+      name: 'Sukanya Patil',
+      role: 'Co-Founder • Business Consultant'
     }
+    // ,
+    // {
+    //   image: team3,
+    //   name: 'Michael Lee',
+    //   role: 'Mentor • Cloud & DevOps'
+    // }
+
   ];
 
   const whyChooseUs = [
