@@ -31,7 +31,7 @@ public class UserService {
     }
     
     public String loginUser(LoginRequestDto loginRequestDto){
-        var userOptional = userRepository.findByEmail(loginRequestDto.getEmail());
+        var userOptional = userRepository.findByUsername(loginRequestDto.getUsername());
         
         if(userOptional.isEmpty()){
             return "User not found";
