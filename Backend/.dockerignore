@@ -1,0 +1,10 @@
+target/
+.git
+.gitignore
+*.md
+test-*.http
+data/
+mvnw
+mvnw.cmd
+.DS_Store
+
