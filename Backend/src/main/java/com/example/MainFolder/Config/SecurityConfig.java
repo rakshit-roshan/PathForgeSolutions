@@ -10,7 +10,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 public class SecurityConfig {
@@ -34,25 +36,36 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         
-        // Allow localhost for local development
-        // Allow all Netlify domains (supports any subdomain)
-        // You can add your specific Netlify URL via environment variable if needed
+        // Always use patterns for flexibility (supports both exact URLs and wildcards)
+        List<String> allowedOriginPatterns = new ArrayList<>();
+        
+        // Add localhost for local development
+        allowedOriginPatterns.add("http://localhost:*");
+        allowedOriginPatterns.add("https://localhost:*");
+        
+        // Add Netlify domains (supports any subdomain)
+        allowedOriginPatterns.add("https://*.netlify.app");
+        allowedOriginPatterns.add("https://*.netlify.com");
+        
+        // Add custom origins from environment variable if set
         String allowedOrigins = System.getenv("ALLOWED_ORIGINS");
         if (allowedOrigins != null && !allowedOrigins.isEmpty()) {
-            // Use environment variable if set (comma-separated list)
-            configuration.setAllowedOrigins(Arrays.asList(allowedOrigins.split(",")));
-        } else {
-            // Default: localhost + all Netlify domains
-            configuration.setAllowedOriginPatterns(Arrays.asList(
-                "http://localhost:*",           // Local development (any port)
-                "https://*.netlify.app",         // Netlify app subdomains
-                "https://*.netlify.com"          // Netlify custom domains
-            ));
+            // Split by comma and trim each origin
+            String[] origins = allowedOrigins.split(",");
+            for (String origin : origins) {
+                String trimmed = origin.trim();
+                if (!trimmed.isEmpty()) {
+                    allowedOriginPatterns.add(trimmed);
+                }
+            }
         }
         
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        // Use setAllowedOriginPatterns (supports both exact URLs and wildcards)
+        configuration.setAllowedOriginPatterns(allowedOriginPatterns);
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
+        configuration.setMaxAge(3600L); // Cache preflight for 1 hour
         
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
