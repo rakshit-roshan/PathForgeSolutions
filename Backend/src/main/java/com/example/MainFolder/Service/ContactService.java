@@ -5,6 +5,9 @@ import com.example.MainFolder.Dto.ContactRequestDto;
 import com.example.MainFolder.Repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -12,16 +15,30 @@ import java.util.Optional;
 @Service
 public class ContactService {
     
+    private static final Logger logger = LoggerFactory.getLogger(ContactService.class);
+    
     @Autowired
     private ContactRepository contactRepository;
     
     // Save a new contact inquiry
+    @Transactional
     public String saveContactInquiry(ContactRequestDto contactRequestDto) {
+        // DEBUG: System.out always works - use to verify code execution
+        System.out.println("========== CONTACT SERVICE CALLED ==========");
+        System.out.println("Email: " + (contactRequestDto != null ? contactRequestDto.getEmail() : "NULL"));
+        
         try {
+            logger.info("Received contact inquiry request for email: {}", contactRequestDto.getEmail());
+            System.out.println("[LOGGER] INFO: Received contact inquiry request");
+            
             // Validate the request
             if (!contactRequestDto.isValid()) {
-                return "Invalid request data. Please fill all required fields.";
+                System.out.println("[LOGGER] WARN: Invalid contact request data");
+                logger.warn("Invalid contact request data received");
+                throw new IllegalArgumentException("Invalid request data. Please fill all required fields.");
             }
+            
+            System.out.println("[SERVICE] Validation passed - creating entity");
             
             // Create new contact entity
             ContactEntity contactEntity = new ContactEntity();
@@ -55,14 +72,34 @@ public class ContactService {
             }
             
             // Save to database
+            System.out.println("[SERVICE] Attempting to save to database...");
+            logger.debug("Attempting to save contact entity to database");
             ContactEntity savedContact = contactRepository.save(contactEntity);
+            System.out.println("[SERVICE] Saved with ID: " + savedContact.getId());
+            logger.info("Contact inquiry saved successfully with ID: {}", savedContact.getId());
             
-            return "Contact inquiry submitted successfully! Your inquiry ID is: " + savedContact.getId() + 
+            // Verify the save by checking if ID is generated
+            if (savedContact.getId() == null) {
+                System.out.println("[ERROR] ID is NULL after save!");
+                logger.error("Contact entity saved but ID is null - possible database issue");
+                throw new RuntimeException("Failed to save contact inquiry - ID not generated");
+            }
+            
+            String successMsg = "Contact inquiry submitted successfully! Your inquiry ID is: " + savedContact.getId() + 
                    ". We will contact you within 24 hours using your preferred method: " + 
                    contactRequestDto.getPreferredContactMethod();
+            System.out.println("[SERVICE] SUCCESS: " + successMsg);
+            return successMsg;
                    
+        } catch (IllegalArgumentException e) {
+            System.out.println("[LOGGER] ERROR: Validation error - " + e.getMessage());
+            logger.error("Validation error: {}", e.getMessage());
+            throw e; // Re-throw validation errors
         } catch (Exception e) {
-            return "Error saving contact inquiry: " + e.getMessage();
+            System.out.println("[LOGGER] ERROR: Exception - " + e.getMessage());
+            e.printStackTrace(); // Print full stack trace
+            logger.error("Error saving contact inquiry: {}", e.getMessage(), e);
+            throw new RuntimeException("Error saving contact inquiry: " + e.getMessage(), e);
         }
     }
     

@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.MainFolder.Service.ContactService;
 import com.example.MainFolder.Dto.ContactRequestDto;
 import com.example.MainFolder.Entity.ContactEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,17 +16,39 @@ import java.util.Optional;
 // CORS is handled globally in SecurityConfig - no need for @CrossOrigin here
 public class ContactController {
     
+    private static final Logger logger = LoggerFactory.getLogger(ContactController.class);
+    
     @Autowired
     private ContactService contactService;
     
     // Submit a new contact inquiry
     @PostMapping("/contact")
     public ResponseEntity<String> submitContactInquiry(@RequestBody ContactRequestDto contactRequestDto) {
+        // DEBUG: System.out always works - use to verify code execution
+        System.out.println("========== CONTACT CONTROLLER CALLED ==========");
+        System.out.println("Email: " + contactRequestDto.getEmail());
+        System.out.println("Name: " + contactRequestDto.getName());
+        
+        logger.info("ContactController: Received POST request to /main/contact");
+        logger.debug("ContactController: Request data - Email: {}, Name: {}", 
+                     contactRequestDto.getEmail(), contactRequestDto.getName());
+        
         try {
             String result = contactService.saveContactInquiry(contactRequestDto);
+            System.out.println("========== SUCCESS: " + result + " ==========");
+            logger.info("ContactController: Successfully processed contact inquiry");
             return ResponseEntity.ok(result);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
+            System.out.println("========== VALIDATION ERROR: " + e.getMessage() + " ==========");
+            logger.warn("ContactController: Validation error - {}", e.getMessage());
+            // Validation errors - return 400 Bad Request
             return ResponseEntity.badRequest().body("Error: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("========== EXCEPTION: " + e.getMessage() + " ==========");
+            e.printStackTrace(); // Print full stack trace
+            logger.error("ContactController: Error processing contact inquiry", e);
+            // Other errors - return 500 Internal Server Error
+            return ResponseEntity.status(500).body("Error: " + e.getMessage());
         }
     }
     
@@ -123,6 +147,18 @@ public class ContactController {
     // Health check endpoint
     @GetMapping("/contact/health")
     public ResponseEntity<String> healthCheck() {
+        System.out.println("========== HEALTH CHECK CALLED ==========");
+        logger.info("Health check endpoint called");
         return ResponseEntity.ok("Contact API is working properly!");
+    }
+    
+    // Debug test endpoint - to verify logging works
+    @GetMapping("/contact/test-debug")
+    public ResponseEntity<String> testDebug() {
+        System.out.println("========== DEBUG TEST ENDPOINT CALLED ==========");
+        System.out.println("Current Time: " + new java.util.Date());
+        logger.info("Test debug endpoint called");
+        logger.debug("Debug level message from test endpoint");
+        return ResponseEntity.ok("Debug test successful! Check console and logs/application.log");
     }
 }

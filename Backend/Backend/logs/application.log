@@ -1,0 +1,36 @@
+2025-11-21 02:12:05.330 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - Starting MainFolderApplication using Java 25 with PID 16564 (D:\Spring\PathForgeSolutions\Backend\target\classes started by Admin in D:\Spring\PathForgeSolutions\Backend)
+2025-11-21 02:12:05.334 [restartedMain] DEBUG com.example.MainFolder.MainFolderApplication - Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-11-21 02:12:05.336 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-21 02:12:09.656 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-21 02:12:12.649 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-21 02:12:12.705 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: e7d3e3f1-31da-4081-b5f9-856846961ef5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-21 02:12:13.626 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - Started MainFolderApplication in 9.18 seconds (process running for 10.24)
+2025-11-21 02:12:22.243 [http-nio-8080-exec-2] INFO  c.example.MainFolder.Controller.ContactController - ContactController: Received POST request to /main/contact
+2025-11-21 02:12:22.243 [http-nio-8080-exec-2] DEBUG c.example.MainFolder.Controller.ContactController - ContactController: Request data - Email: john.doe@example.com, Name: John Doe
+2025-11-21 02:12:22.257 [http-nio-8080-exec-2] INFO  com.example.MainFolder.Service.ContactService - Received contact inquiry request for email: john.doe@example.com
+2025-11-21 02:12:22.258 [http-nio-8080-exec-2] DEBUG com.example.MainFolder.Service.ContactService - Attempting to save contact entity to database
+2025-11-21 02:12:22.390 [http-nio-8080-exec-2] INFO  com.example.MainFolder.Service.ContactService - Contact inquiry saved successfully with ID: 4
+2025-11-21 02:12:22.413 [http-nio-8080-exec-2] INFO  c.example.MainFolder.Controller.ContactController - ContactController: Successfully processed contact inquiry
+2025-11-21 02:15:51.621 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - Starting MainFolderApplication using Java 25 with PID 20836 (D:\Spring\PathForgeSolutions\Backend\target\classes started by Admin in D:\Spring\PathForgeSolutions\Backend)
+2025-11-21 02:15:51.625 [restartedMain] DEBUG com.example.MainFolder.MainFolderApplication - Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-11-21 02:15:51.627 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-21 02:15:55.495 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-21 02:15:58.149 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-21 02:15:58.206 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 80ceb94b-8399-4693-bd8d-c27b7e757c12
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-21 02:15:59.077 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - Started MainFolderApplication in 8.369 seconds (process running for 9.551)
+2025-11-21 02:16:24.247 [http-nio-8080-exec-4] INFO  c.example.MainFolder.Controller.ContactController - ContactController: Received POST request to /main/contact
+2025-11-21 02:16:24.247 [http-nio-8080-exec-4] DEBUG c.example.MainFolder.Controller.ContactController - ContactController: Request data - Email: john.doe@example.com, Name: John Doe
+2025-11-21 02:16:24.260 [http-nio-8080-exec-4] INFO  com.example.MainFolder.Service.ContactService - Received contact inquiry request for email: john.doe@example.com
+2025-11-21 02:16:24.261 [http-nio-8080-exec-4] DEBUG com.example.MainFolder.Service.ContactService - Attempting to save contact entity to database
+2025-11-21 02:16:24.397 [http-nio-8080-exec-4] INFO  com.example.MainFolder.Service.ContactService - Contact inquiry saved successfully with ID: 6
+2025-11-21 02:16:24.417 [http-nio-8080-exec-4] INFO  c.example.MainFolder.Controller.ContactController - ContactController: Successfully processed contact inquiry
