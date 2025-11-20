@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +20,9 @@ public class ContactService {
     
     @Autowired
     private ContactRepository contactRepository;
+    
+    @Autowired
+    private EmailNotificationService emailNotificationService;
     
     // Save a new contact inquiry
     @Transactional
@@ -85,6 +89,8 @@ public class ContactService {
                 throw new RuntimeException("Failed to save contact inquiry - ID not generated");
             }
             
+            notifyAdmins(savedContact);
+            
             String successMsg = "Contact inquiry submitted successfully! Your inquiry ID is: " + savedContact.getId() + 
                    ". We will contact you within 24 hours using your preferred method: " + 
                    contactRequestDto.getPreferredContactMethod();
@@ -100,6 +106,14 @@ public class ContactService {
             e.printStackTrace(); // Print full stack trace
             logger.error("Error saving contact inquiry: {}", e.getMessage(), e);
             throw new RuntimeException("Error saving contact inquiry: " + e.getMessage(), e);
+        }
+    }
+    
+    private void notifyAdmins(ContactEntity contact) {
+        try {
+            emailNotificationService.sendContactSubmissionNotification(contact);
+        } catch (Exception ex) {
+            logger.warn("Contact saved but failed to trigger admin notification email: {}", ex.getMessage());
         }
     }
     

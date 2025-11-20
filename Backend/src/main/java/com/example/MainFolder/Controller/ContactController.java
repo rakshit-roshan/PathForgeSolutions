@@ -25,10 +25,6 @@ public class ContactController {
     @PostMapping("/contact")
     public ResponseEntity<String> submitContactInquiry(@RequestBody ContactRequestDto contactRequestDto) {
         // DEBUG: System.out always works - use to verify code execution
-        System.out.println("========== CONTACT CONTROLLER CALLED ==========");
-        System.out.println("Email: " + contactRequestDto.getEmail());
-        System.out.println("Name: " + contactRequestDto.getName());
-        
         logger.info("ContactController: Received POST request to /main/contact");
         logger.debug("ContactController: Request data - Email: {}, Name: {}", 
                      contactRequestDto.getEmail(), contactRequestDto.getName());
