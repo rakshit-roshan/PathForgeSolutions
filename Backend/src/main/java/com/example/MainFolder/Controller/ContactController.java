@@ -157,4 +157,32 @@ public class ContactController {
         logger.debug("Debug level message from test endpoint");
         return ResponseEntity.ok("Debug test successful! Check console and logs/application.log");
     }
+    
+    // Email configuration test endpoint
+    @GetMapping("/contact/test-email")
+    public ResponseEntity<String> testEmail() {
+        try {
+            logger.info("Email test endpoint called");
+            System.out.println("========== EMAIL TEST ENDPOINT CALLED ==========");
+            
+            // Create a test contact entity
+            ContactEntity testContact = new ContactEntity();
+            testContact.setId(999L);
+            testContact.setName("Test User");
+            testContact.setEmail("test@example.com");
+            testContact.setPhone("1234567890");
+            testContact.setServiceType("Test Service");
+            testContact.setMessage("This is a test email to verify email configuration.");
+            testContact.setPreferredContactMethod("Email");
+            testContact.setCreatedAt(java.time.LocalDateTime.now());
+            
+            // Try to send test email
+            contactService.testEmailNotification(testContact);
+            
+            return ResponseEntity.ok("Test email sent! Check your admin email inbox and application logs.");
+        } catch (Exception e) {
+            logger.error("Email test failed: {}", e.getMessage(), e);
+            return ResponseEntity.status(500).body("Email test failed: " + e.getMessage() + ". Check logs for details.");
+        }
+    }
 }

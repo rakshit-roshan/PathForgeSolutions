@@ -111,9 +111,16 @@ public class ContactService {
     
     private void notifyAdmins(ContactEntity contact) {
         try {
+            System.out.println("[EMAIL] Attempting to send admin notification for contact ID: " + contact.getId());
+            logger.info("Triggering admin email notification for contact inquiry id {}", contact.getId());
             emailNotificationService.sendContactSubmissionNotification(contact);
+            System.out.println("[EMAIL] Email notification process completed for contact ID: " + contact.getId());
         } catch (Exception ex) {
-            logger.warn("Contact saved but failed to trigger admin notification email: {}", ex.getMessage());
+            logger.error("Contact saved (ID: {}) but failed to trigger admin notification email: {}", 
+                        contact.getId(), ex.getMessage(), ex);
+            System.out.println("[EMAIL] ERROR: Failed to send notification - " + ex.getMessage());
+            ex.printStackTrace();
+            // Don't throw - we don't want email failures to break the contact submission
         }
     }
     
@@ -188,5 +195,11 @@ public class ContactService {
         } catch (Exception e) {
             return "Error getting statistics: " + e.getMessage();
         }
+    }
+    
+    // Test email notification (for testing email configuration)
+    public void testEmailNotification(ContactEntity testContact) {
+        logger.info("Test email notification requested");
+        emailNotificationService.sendContactSubmissionNotification(testContact);
     }
 }

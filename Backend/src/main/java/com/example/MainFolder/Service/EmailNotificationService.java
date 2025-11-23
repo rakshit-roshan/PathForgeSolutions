@@ -26,41 +26,106 @@ public class EmailNotificationService {
     private final String adminRecipients;
     private final String companyName;
     private final String companyLogoUrl;
+    private final String fromEmail;
 
     public EmailNotificationService(JavaMailSender mailSender,
                                     @Value("${mail.notifications.admin:}") String adminRecipients,
                                     @Value("${mail.notifications.company-name:PathForge Solutions}") String companyName,
-                                    @Value("${mail.notifications.company-logo-url:}") String companyLogoUrl) {
+                                    @Value("${mail.notifications.company-logo-url:}") String companyLogoUrl,
+                                    @Value("${spring.mail.username:}") String fromEmail) {
         this.mailSender = mailSender;
         this.adminRecipients = adminRecipients;
         this.companyName = companyName;
         this.companyLogoUrl = companyLogoUrl;
+        this.fromEmail = fromEmail;
+        
+        // Log configuration status on startup
+        logger.info("EmailNotificationService initialized - Admin recipients: {}, From email: {}", 
+                   adminRecipients.isEmpty() ? "NOT CONFIGURED" : adminRecipients, 
+                   fromEmail.isEmpty() ? "NOT CONFIGURED" : fromEmail);
     }
 
     /**
      * Sends an HTML email to the admin(s) whenever a new contact inquiry is submitted.
      */
     public void sendContactSubmissionNotification(@NonNull ContactEntity contact) {
+        // Validate configuration
         if (!StringUtils.hasText(adminRecipients)) {
             logger.warn("Admin email notification skipped: 'mail.notifications.admin' is not configured.");
+            System.out.println("========== EMAIL SKIPPED: Admin recipients not configured ==========");
+            return;
+        }
+
+        if (!StringUtils.hasText(fromEmail)) {
+            logger.error("Cannot send email: 'spring.mail.username' (from email) is not configured.");
+            System.out.println("========== EMAIL ERROR: From email (spring.mail.username) not configured ==========");
+            return;
+        }
+
+        if (mailSender == null) {
+            logger.error("Cannot send email: JavaMailSender bean is not available.");
+            System.out.println("========== EMAIL ERROR: JavaMailSender bean not available ==========");
+            return;
+        }
+
+        String[] recipients = parseRecipients(adminRecipients);
+        if (recipients.length == 0) {
+            logger.warn("Admin email notification skipped: No valid recipient emails found.");
+            System.out.println("========== EMAIL SKIPPED: No valid recipient emails ==========");
             return;
         }
 
         try {
+            logger.info("Attempting to send email notification for contact id {} to recipients: {}", 
+                       contact.getId(), String.join(", ", recipients));
+            System.out.println("========== SENDING EMAIL ==========");
+            System.out.println("From: " + fromEmail);
+            System.out.println("To: " + String.join(", ", recipients));
+            System.out.println("Contact ID: " + contact.getId());
+
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, StandardCharsets.UTF_8.name());
 
-            helper.setTo(parseRecipients(adminRecipients));
+            // Set FROM address (required by SMTP servers)
+            helper.setFrom(fromEmail, companyName);
+            
+            // Set recipients
+            helper.setTo(recipients);
+            
+            // Set subject
             helper.setSubject(String.format("[%s] New %s Inquiry from %s",
                     companyName, safe(contact.getServiceType()), safe(contact.getName())));
+            
+            // Set HTML body
             helper.setText(buildHtmlBody(contact), true);
 
+            // Send email
             mailSender.send(message);
-            logger.info("Admin notification email sent for contact inquiry id {}", contact.getId());
+            
+            logger.info("✓ Admin notification email sent successfully for contact inquiry id {} to {}", 
+                       contact.getId(), String.join(", ", recipients));
+            System.out.println("========== EMAIL SENT SUCCESSFULLY ==========");
+            
         } catch (MessagingException e) {
-            logger.error("Failed to construct admin notification email: {}", e.getMessage(), e);
+            logger.error("Failed to construct admin notification email for contact id {}: {}", 
+                       contact.getId(), e.getMessage(), e);
+            System.out.println("========== EMAIL CONSTRUCTION ERROR ==========");
+            System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
+        } catch (org.springframework.mail.MailException e) {
+            logger.error("Failed to send admin notification email for contact id {}: {}", 
+                       contact.getId(), e.getMessage(), e);
+            System.out.println("========== EMAIL SEND ERROR ==========");
+            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error Class: " + e.getClass().getName());
+            e.printStackTrace();
         } catch (Exception e) {
-            logger.error("Failed to send admin notification email: {}", e.getMessage(), e);
+            logger.error("Unexpected error sending admin notification email for contact id {}: {}", 
+                       contact.getId(), e.getMessage(), e);
+            System.out.println("========== UNEXPECTED EMAIL ERROR ==========");
+            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error Class: " + e.getClass().getName());
+            e.printStackTrace();
         }
     }
 

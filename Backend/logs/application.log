@@ -1,0 +1,49 @@
+2025-11-23 19:07:10.218 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - Starting MainFolderApplication using Java 25 with PID 24860 (D:\Spring\PathForgeSolutions\Backend\target\classes started by Admin in D:\Spring\PathForgeSolutions\Backend)
+2025-11-23 19:07:10.218 [restartedMain] DEBUG com.example.MainFolder.MainFolderApplication - Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-11-23 19:07:10.223 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-23 19:07:14.921 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-23 19:07:16.758 [restartedMain] INFO  com.example.MainFolder.Config.DotEnvConfig_Old - ✓ .env file loaded successfully
+2025-11-23 19:07:18.291 [restartedMain] INFO  c.e.MainFolder.Service.EmailNotificationService - EmailNotificationService initialized - Admin recipients: rakshitros1@gmail.com,sukanyapatil7875@gmail.com, From email: rakshitros1@gmail.com
+2025-11-23 19:07:18.455 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-23 19:07:18.535 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: b0256e41-bbfe-42ff-907e-b37510aac6dc
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-23 19:07:19.879 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - Started MainFolderApplication in 10.603 seconds (process running for 12.47)
+2025-11-23 19:41:38.330 [HikariPool-1:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m23s323ms701µs600ns).
+2025-11-23 19:53:56.004 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - Starting MainFolderApplication using Java 25 with PID 24860 (D:\Spring\PathForgeSolutions\Backend\target\classes started by Admin in D:\Spring\PathForgeSolutions\Backend)
+2025-11-23 19:53:56.006 [restartedMain] DEBUG com.example.MainFolder.MainFolderApplication - Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-11-23 19:53:56.006 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-23 19:53:57.497 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-23 19:53:57.952 [restartedMain] INFO  com.example.MainFolder.Config.DotEnvConfig_Old - ✓ .env file loaded successfully
+2025-11-23 19:53:58.399 [restartedMain] INFO  c.e.MainFolder.Service.EmailNotificationService - EmailNotificationService initialized - Admin recipients: rakshitros1@gmail.com,sukanyapatil7875@gmail.com, From email: rakshitros1@gmail.com
+2025-11-23 19:53:58.590 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-23 19:53:58.615 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 37ca9db1-677a-49c9-9ecc-8dd920633bea
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-23 19:53:59.292 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - Started MainFolderApplication in 3.488 seconds (process running for 2812.06)
+2025-11-23 19:54:00.815 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - Starting MainFolderApplication using Java 25 with PID 24860 (D:\Spring\PathForgeSolutions\Backend\target\classes started by Admin in D:\Spring\PathForgeSolutions\Backend)
+2025-11-23 19:54:00.819 [restartedMain] DEBUG com.example.MainFolder.MainFolderApplication - Running with Spring Boot v3.5.4, Spring v6.2.9
+2025-11-23 19:54:00.820 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-23 19:54:01.663 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-23 19:54:01.895 [restartedMain] INFO  com.example.MainFolder.Config.DotEnvConfig_Old - ✓ .env file loaded successfully
+2025-11-23 19:54:02.013 [restartedMain] INFO  c.e.MainFolder.Service.EmailNotificationService - EmailNotificationService initialized - Admin recipients: rakshitros1@gmail.com,sukanyapatil7875@gmail.com, From email: rakshitros1@gmail.com
+2025-11-23 19:54:02.070 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-23 19:54:02.091 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: f1cd8841-4c1d-4f53-b7f7-4ea5651b4631
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-23 19:54:02.298 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - Started MainFolderApplication in 1.545 seconds (process running for 2815.065)
+2025-11-23 20:52:44.275 [HikariPool-3:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=1m11s712ms855µs800ns).
+2025-11-23 22:10:36.998 [HikariPool-3:housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=1h7m52s658ms63µs500ns).
+2025-11-23 22:16:38.194 [http-nio-8080-exec-1] INFO  c.example.MainFolder.Controller.ContactController - Email test endpoint called
+2025-11-23 22:16:38.210 [http-nio-8080-exec-1] INFO  com.example.MainFolder.Service.ContactService - Test email notification requested
+2025-11-23 22:16:38.210 [http-nio-8080-exec-1] INFO  c.e.MainFolder.Service.EmailNotificationService - Attempting to send email notification for contact id 999 to recipients: rakshitros1@gmail.com, sukanyapatil7875@gmail.com
+2025-11-23 22:16:45.039 [http-nio-8080-exec-1] INFO  c.e.MainFolder.Service.EmailNotificationService - ✓ Admin notification email sent successfully for contact inquiry id 999 to rakshitros1@gmail.com, sukanyapatil7875@gmail.com

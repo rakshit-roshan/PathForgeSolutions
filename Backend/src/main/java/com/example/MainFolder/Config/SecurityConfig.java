@@ -25,6 +25,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(api -> api
                 .requestMatchers("/main/auth/**").permitAll() // allow all auth endpoints
                 .requestMatchers("/main/contact").permitAll() // allow contact form submission (public)
+                .requestMatchers("/main/contact/test-email").permitAll()
                 .requestMatchers("/main/contact/health").permitAll() // allow health check (public)
                 .anyRequest().authenticated() // all other endpoints require authentication
             );
