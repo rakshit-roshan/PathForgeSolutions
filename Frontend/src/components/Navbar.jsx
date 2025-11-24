@@ -44,8 +44,8 @@ const Navbar = () => {
     <nav className={`backdrop-blur bg-white/70 supports-backdrop:bg-white/60 border-b border-slate-200 ${isScrolled ? 'shadow-md' : ''}`}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2 group" aria-label="PathForge Solutions Home">
-            <img src={logo2} alt="PathForge Solutions Logo" className="h-48 w-auto" />
+          <Link to="/" className="flex items-center gap-2 group" aria-label="RasuTech Consulting Home">
+            <img src={logo2} alt="RasuTech Consulting Logo" className="h-48 w-auto" />
           </Link>
 
           <ul className="hidden md:flex items-center gap-6 text-sm font-medium">

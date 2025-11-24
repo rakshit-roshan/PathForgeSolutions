@@ -3,7 +3,6 @@
 
 // Logo images
 export const logo2 = '/assets/images/logo2.png';
-export const logo = '/assets/images/Logo.png';
 
 // Hero and banner images
 export const heroBanner = '/assets/images/hero-banner.png';

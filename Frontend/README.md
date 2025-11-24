@@ -1,6 +1,6 @@
-# PathForge Solutions - React Frontend
+# RasuTech Consulting - React Frontend
 
-A modern React application for PathForge Solutions, an IT consultancy platform for students and professionals.
+A modern React application for RasuTech Consulting, an IT consultancy platform for students and professionals.
 
 ## 🚀 Features
 
@@ -150,7 +150,7 @@ src/
 
 ## 📄 License
 
-This project is part of the PathForge Solutions platform.
+This project is part of the RasuTech Consulting platform.
 
 ---
 

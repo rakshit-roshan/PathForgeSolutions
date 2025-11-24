@@ -28,7 +28,7 @@ const Internship = () => {
       {/* Header Section */}
       <section className="bg-slate-50 border-b border-slate-200/60">
         <div className="max-w-7xl mx-auto px-4 py-12">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Internship Programs</h1>
+          <h1 className="text-4xl sm:text-5xl font-semibold text-slate-600">Internship Programs</h1>
           <p className="mt-3 text-slate-600 max-w-3xl">Choose a track, build real projects, and get industry-ready.</p>
         </div>
       </section>

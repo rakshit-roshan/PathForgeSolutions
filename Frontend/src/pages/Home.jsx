@@ -69,7 +69,7 @@ const Home = () => {  // Home component
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-50 to-white"></div>
         <div className="max-w-7xl mx-auto px-4 pt-16 grid md:grid-cols-2 gap-10 items-center">
           <div className="reveal-up">
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+            <h1 className="text-6xl sm:text-6xl font-semibold text-slate-700 leading-tight">
               Build your tech career with a trusted IT partner
             </h1>
             <p className="mt-4 text-lg text-slate-600 max-w-prose">
@@ -103,7 +103,7 @@ const Home = () => {  // Home component
           <div className="reveal-up">
             <img
               src={heroBanner}
-              alt="PathForge Solutions hero banner"
+              alt="RasuTech Consulting hero banner"
               className="w-full h-auto rounded-2xl ring-1 ring-slate-200 shadow-sm"
               loading="eager"
               decoding="async"

@@ -244,7 +244,7 @@ const Contact = () => {
       <section className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 border-b border-slate-200/60">
         <div className="max-w-7xl mx-auto px-4 py-16">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent">
+            <h1 className="text-5xl sm:text-6xl font-semibold text-slate-900 bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent">
               Get in touch
             </h1>
             <p className="mt-4 text-lg text-slate-600">Ready to start your journey? We're here to help you succeed.</p>
@@ -806,7 +806,7 @@ const Contact = () => {
 
             <div className="reveal">
               <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-3">Why Choose PathForge Solutions?</h3>
+                <h3 className="text-xl font-bold mb-3">Why Choose RasuTech Consulting?</h3>
                 <div className="space-y-3 text-blue-100">
                   <div className="flex items-center gap-2">
                     <svg className="w-4 h-4 text-blue-200" fill="currentColor" viewBox="0 0 20 20">

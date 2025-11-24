@@ -61,7 +61,7 @@ const About = () => {
     {
       name: 'Sarah Johnson',
       role: 'Software Engineer at Microsoft',
-      content: 'PathForge Solutions transformed my career. Their mentorship and real-world project experience gave me the confidence to land my dream job at Microsoft.',
+      content: 'RasuTech Consulting transformed my career. Their mentorship and real-world project experience gave me the confidence to land my dream job at Microsoft.',
       rating: 5
     },
     {
@@ -84,8 +84,8 @@ const About = () => {
       <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-4 py-16">
           <div className="text-center reveal-up">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6">
-              About PathForge Solutions
+            <h1 className="text-6xl sm:text-6xl font-semibold text-slate-700 mb-6">
+              About RasuTech Consulting
             </h1>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
               A trusted MSME registered company dedicated to transforming careers through expert mentorship, 
@@ -245,7 +245,7 @@ const About = () => {
               <div className="bg-slate-50 rounded-2xl p-6 shadow-lg ring-1 ring-slate-200">
                 <img 
                   src={certificateSample} 
-                  alt="PathForge Solutions Internship Certificate Sample" 
+                  alt="RasuTech Consulting Internship Certificate Sample" 
                   className="w-full h-auto rounded-xl shadow-md hover:shadow-lg transition-shadow"
                   loading="lazy"
                   decoding="async"
@@ -358,7 +358,7 @@ const About = () => {
           <div className="reveal">
             <h2 className="text-3xl font-bold text-white mb-4">Ready to Transform Your Career?</h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Join hundreds of successful professionals who started their journey with PathForge Solutions.
+              Join hundreds of successful professionals who started their journey with RasuTech Consulting.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

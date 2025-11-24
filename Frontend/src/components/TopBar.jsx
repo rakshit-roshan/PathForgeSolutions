@@ -30,7 +30,7 @@ const TopBar = () => {
     <AppBar position="static" elevation={0} sx={{ bgcolor: '#fff', color: '#222' }}>
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          PathForge Solutions Dashboard
+          RasuTech Consulting Dashboard
         </Typography>
         {user && (
           <Typography variant="body2" sx={{ mr: 2, color: 'text.secondary' }}>

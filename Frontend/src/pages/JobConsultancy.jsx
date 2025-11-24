@@ -27,7 +27,7 @@ const JobConsultancy = () => {
       {/* Header Section */}
       <section className="bg-slate-50 border-b border-slate-200/60">
         <div className="max-w-7xl mx-auto px-4 py-12">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Job Consultancy</h1>
+          <h1 className="text-4xl sm:text-5xl font-semibold text-slate-600">Job Consultancy</h1>
           <p className="mt-3 text-slate-600 max-w-3xl">Focus on interviews while we take care of the logistics.</p>
         </div>
       </section>

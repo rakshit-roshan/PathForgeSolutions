@@ -45,12 +45,12 @@ public class EmailNotificationService {
             @Autowired(required = false) JavaMailSender mailSender,
             @Value("${mail.provider:brevo}") String emailProvider,
             @Value("${mail.notifications.admin:}") String adminRecipients,
-            @Value("${mail.notifications.company-name:PathForge Solutions}") String companyName,
+            @Value("${mail.notifications.company-name:RasuTech Consulting}") String companyName,
             @Value("${mail.notifications.company-logo-url:}") String companyLogoUrl,
             @Value("${spring.mail.username:}") String fromEmail,
             @Value("${brevo.api.key:}") String brevoApiKey,
             @Value("${brevo.sender.email:}") String brevoSenderEmail,
-            @Value("${brevo.sender.name:PathForge Solutions}") String brevoSenderName) {
+            @Value("${brevo.sender.name:RasuTech Consulting}") String brevoSenderName) {
         this.mailSender = mailSender;
         this.emailProvider = emailProvider != null ? emailProvider.toLowerCase() : "brevo";
         this.adminRecipients = adminRecipients;

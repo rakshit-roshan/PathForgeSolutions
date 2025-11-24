@@ -17,7 +17,7 @@ const Header = () => {
             </a>
             <span className="hidden md:inline">|</span>
             <a 
-              href="mailto:info@PathForgeSolutions.com" 
+              href="mailto:rakshitros1@gmail.com" 
               className="opacity-90 hover:opacity-100 transition-opacity" 
               aria-label="Email us"
             >
