@@ -65,7 +65,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 py-14 grid gap-10 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <span className="inline-flex h-9 w-9 rounded-lg bg-gradient-to-tr from-indigo-600 to-cyan-500 ring-1 ring-white/10"></span>
+            {/* <span className="inline-flex h-9 w-9 rounded-lg bg-gradient-to-tr from-indigo-600 to-cyan-500 ring-1 ring-white/10"></span> */}
+            <span className="inline-flex"><img className="w-[20px]"  src="/assets/images/Logo.png" alt="logo" /></span>
             <span className="font-semibold text-white text-lg">RasuTech Consulting</span>
           </div>
           <p className="text-slate-400 leading-relaxed">

@@ -1,5 +1,8 @@
 import React from 'react';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText, Toolbar } from '@mui/material';
+import { 
+  Drawer, List, ListItem, ListItemButton, 
+  ListItemIcon, ListItemText, Toolbar 
+} from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
 import AssignmentIcon from '@mui/icons-material/Assignment';
@@ -18,14 +21,61 @@ const menuItems = [
   { text: 'Logout', icon: <LogoutIcon /> },
 ];
 
-const Sidebar = () => (
-  <Drawer variant="permanent" sx={{ width: 250, [`& .MuiDrawer-paper`]: { width: 250, boxSizing: 'border-box', bgcolor: '#fff' } }}>
-    <Toolbar />
+const drawerWidth = 250;
+const collapsedWidth = 65;
+
+const Sidebar = ({ open }) => (
+  <Drawer
+    variant="permanent"
+    sx={{
+      width: open ? drawerWidth : collapsedWidth,
+      flexShrink: 0,
+      whiteSpace: 'nowrap',
+      boxSizing: 'border-box',
+      // Transitions for the container
+      transition: (theme) => theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+      [`& .MuiDrawer-paper`]: {
+        width: open ? drawerWidth : collapsedWidth,
+        transition: (theme) => theme.transitions.create('width', {
+          easing: theme.transitions.easing.sharp,
+          duration: theme.transitions.duration.enteringScreen,
+        }),
+        overflowX: 'hidden',
+        bgcolor: '#fff',
+      },
+    }}
+  >
+    {/* This Toolbar pushes the list down so it isn't hidden behind TopBar */}
+    <Toolbar /> 
+    
     <List>
       {menuItems.map((item) => (
-        <ListItem button key={item.text}>
-          <ListItemIcon>{item.icon}</ListItemIcon>
-          <ListItemText primary={item.text} />
+        <ListItem key={item.text} disablePadding sx={{ display: 'block' }}>
+          <ListItemButton
+            sx={{
+              minHeight: 48,
+              justifyContent: open ? 'initial' : 'center', // Center icon when collapsed
+              px: 2.5,
+            }}
+          >
+            <ListItemIcon
+              sx={{
+                minWidth: 0,
+                mr: open ? 3 : 'auto', // Add margin only when open
+                justifyContent: 'center',
+              }}
+            >
+              {item.icon}
+            </ListItemIcon>
+            
+            <ListItemText 
+              primary={item.text} 
+              sx={{ opacity: open ? 1 : 0 }} // Fade text out when collapsed
+            />
+          </ListItemButton>
         </ListItem>
       ))}
     </List>
