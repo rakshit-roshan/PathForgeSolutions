@@ -19,6 +19,8 @@ export const heroIllustration = '/assets/images/hero-illustration.svg';
 export const team1 = '/assets/images/team-1.svg';
 export const team2 = '/assets/images/team-2.svg';
 export const team3 = '/assets/images/team-3.svg';
+export const Founder2 = '/assets/images/Founder2.png';
+export const Founder3 = '/assets/images/Founder3.png';
 
 // Icons
 export const calendarIcon = '/assets/icons/calendar.svg';

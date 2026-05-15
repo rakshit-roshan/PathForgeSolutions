@@ -84,6 +84,70 @@ public class EmailNotificationService {
     /**
      * Sends an HTML email to the admin(s) whenever a new contact inquiry is submitted.
      */
+    /**
+     * Sends a generic plain text email.
+     */
+    public void sendSimpleEmail(String to, String subject, String body) {
+        if ("brevo".equals(emailProvider)) {
+            sendSimpleEmailViaBrevo(to, subject, body);
+        } else if ("gmail".equals(emailProvider)) {
+            sendSimpleEmailViaGmail(to, subject, body);
+        } else {
+            logger.warn("Simulating email send (No provider) to: {}, Subject: {}", to, subject);
+            System.out.println("========== MOCK EMAIL SENT ==========");
+            System.out.println("To: " + to);
+            System.out.println("Subject: " + subject);
+            System.out.println("Body: " + body);
+        }
+    }
+
+    private void sendSimpleEmailViaBrevo(String to, String subject, String body) {
+        if (!StringUtils.hasText(brevoApiKey)) {
+            System.out.println("========== MOCK EMAIL (BREVO API KEY MISSING) ==========");
+            System.out.println("To: " + to);
+            System.out.println("Subject: " + subject);
+            return;
+        }
+        try {
+            Map<String, Object> sender = new HashMap<>();
+            sender.put("email", fromEmail);
+            sender.put("name", brevoSenderName);
+
+            Map<String, Object> recipient = new HashMap<>();
+            recipient.put("email", to);
+
+            Map<String, Object> payload = new HashMap<>();
+            payload.put("sender", sender);
+            payload.put("to", List.of(recipient));
+            payload.put("subject", subject);
+            payload.put("textContent", body);
+
+            webClient.post()
+                    .header("api-key", brevoApiKey)
+                    .bodyValue(payload)
+                    .retrieve()
+                    .bodyToMono(String.class)
+                    .block();
+        } catch (Exception e) {
+            logger.error("Brevo email failed: {}", e.getMessage());
+        }
+    }
+
+    private void sendSimpleEmailViaGmail(String to, String subject, String body) {
+        if (mailSender == null) return;
+        try {
+            MimeMessage message = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, false);
+            helper.setFrom(fromEmail, companyName);
+            helper.setTo(to);
+            helper.setSubject(subject);
+            helper.setText(body);
+            mailSender.send(message);
+        } catch (Exception e) {
+            logger.error("Gmail email failed: {}", e.getMessage());
+        }
+    }
+
     public void sendContactSubmissionNotification(@NonNull ContactEntity contact) {
         // Validate configuration
         if (!StringUtils.hasText(adminRecipients)) {

@@ -134,7 +134,8 @@ if ($distributionSha256Sum) {
 
 # unzip and move
 Expand-Archive "$TMP_DOWNLOAD_DIR/$distributionUrlName" -DestinationPath "$TMP_DOWNLOAD_DIR" | Out-Null
-Rename-Item -Path "$TMP_DOWNLOAD_DIR/$distributionUrlNameMain" -NewName $MAVEN_HOME_NAME | Out-Null
+Start-Sleep -Milliseconds 500
+Move-Item -Path "$TMP_DOWNLOAD_DIR/$distributionUrlNameMain" -Destination "$TMP_DOWNLOAD_DIR/$MAVEN_HOME_NAME" -Force | Out-Null
 try {
   Move-Item -Path "$TMP_DOWNLOAD_DIR/$MAVEN_HOME_NAME" -Destination $MAVEN_HOME_PARENT | Out-Null
 } catch {

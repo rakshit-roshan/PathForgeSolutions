@@ -1,10 +1,9 @@
 import axios from 'axios';
 
-// Use Vite environment variable in production, fallback to localhost in development
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
-
+// Create an axios instance with base configuration
 const api = axios.create({
-  baseURL: API_BASE_URL,
+  // Fallback to localhost if environment variable is not set
+  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080',
   headers: {
     'Content-Type': 'application/json',
   },
