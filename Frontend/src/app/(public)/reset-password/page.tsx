@@ -21,7 +21,7 @@ function ResetPasswordForm() {
       <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-7 text-center">
         <h3 className="text-lg font-bold text-red-600 mb-2">Invalid Link</h3>
         <p className="text-sm text-slate-600 mb-6">No reset token provided in the URL.</p>
-        <Link href="/forgot-password" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-700 hover:to-cyan-600 shadow-lg">
+        <Link href="/forgot-password" className="group relative w-full flex justify-center btn-premium-gradient !py-2.5 !px-4 !rounded-lg text-sm transition-all duration-200">
           Request new link
         </Link>
       </div>
@@ -109,7 +109,7 @@ function ResetPasswordForm() {
         <button
           type="submit"
           disabled={isLoading}
-          className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-700 hover:to-cyan-600 shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50"
+          className="group relative w-full flex justify-center btn-premium-gradient !py-2.5 !px-4 !rounded-lg text-sm transition-all duration-200 disabled:opacity-50"
         >
           {isLoading ? ( 
             <>

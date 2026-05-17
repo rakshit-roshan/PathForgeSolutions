@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>PathForge Solutions | Build, Scale &amp; Accelerate</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1b1b1f",
+                        "on-primary-container": "#788ac5",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e3e2e7",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary-fixed": "#001848",
+                        "on-secondary-fixed": "#001849",
+                        "on-error": "#ffffff",
+                        "surface": "#fbf8fe",
+                        "secondary-fixed-dim": "#b2c5ff",
+                        "background": "#fbf8fe",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container-highest": "#e3e2e7",
+                        "secondary-fixed": "#dae2ff",
+                        "surface-tint": "#4a5c94",
+                        "secondary-container": "#a7bdfe",
+                        "surface-container-low": "#f5f3f8",
+                        "on-background": "#1b1b1f",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#32447a",
+                        "inverse-surface": "#303034",
+                        "secondary": "#465c97",
+                        "tertiary-fixed-dim": "#b2c5ff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#dae2ff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#45464f",
+                        "surface-bright": "#fbf8fe",
+                        "surface-container-high": "#e9e7ed",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#efedf2",
+                        "inverse-on-surface": "#f2f0f5",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed-dim": "#b4c5ff",
+                        "outline-variant": "#c5c6d1",
+                        "tertiary-container": "#032159",
+                        "primary": "#000d32",
+                        "outline": "#757680",
+                        "on-secondary-container": "#344b84",
+                        "tertiary": "#000d30",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary-fixed-variant": "#2e447e",
+                        "on-tertiary-fixed-variant": "#2e447d",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#0a2156",
+                        "surface-dim": "#dbd9de"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "container-max": "1440px",
+                        "margin-desktop": "64px",
+                        "section-gap": "128px",
+                        "gutter": "32px",
+                        "margin-mobile": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-xl": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Manrope"],
+                        "display-xl": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "headline-xl-mobile": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1", "fontWeight": "500" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-xl": ["80px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "headline-xl-mobile": ["36px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+            border-left: 1px solid rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(10, 33, 86, 0.05);
+            border-right: 1px solid rgba(10, 33, 86, 0.05);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-primary">
+    <!-- Top Navigation Bar -->
+    <nav
+        class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-container-max rounded-full border border-white/80 bg-white/55 backdrop-blur-xl shadow-[0_40px_100px_rgba(10,33,86,0.05)] z-50 flex justify-between items-center px-8 py-4">
+        <div class="text-headline-md font-headline-md font-bold text-primary dark:text-on-primary-fixed">PathForge</div>
+        <div class="hidden md:flex items-center gap-gutter">
+            <a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-md font-label-md"
+                href="#">Home</a>
+            <a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300 hover:scale-105"
+                href="#">Solutions</a>
+            <a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300 hover:scale-105"
+                href="#">Mentorship</a>
+            <a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300 hover:scale-105"
+                href="#">Insights</a>
+            <a class="text-on-surface-variant font-label-md hover:text-primary transition-all duration-300 hover:scale-105"
+                href="#">About</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="text-on-surface-variant font-label-md hover:text-primary transition-colors">Login</button>
+            <button
+                class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md transition-transform active:scale-95">Consultation</button>
+        </div>
+    </nav>
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-48 pb-section-gap px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+                <!-- Hero Left Content -->
+                <div class="max-w-[640px]">
+                    <span
+                        class="inline-block bg-primary-fixed text-on-primary-fixed-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm mb-6">Redefining
+                        Excellence in Tech</span>
+                    <h1 class="font-display-xl text-display-xl text-primary mb-8 tracking-tighter">
+                        Build, Scale &amp; Accelerate Your Tech <span class="text-on-primary-container">Career</span>
+                        and Business
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-[500px]">
+                        Architectural mentorship and high-performance engineering strategy designed for the elite tier
+                        of IT consultancy.
+                    </p>
+                    <div class="flex items-center gap-6">
+                        <button
+                            class="bg-primary-container text-white px-8 py-4 rounded-xl font-headline-md text-headline-md shadow-lg transition-transform hover:-translate-y-1">Explore
+                            Careers</button>
+                        <button
+                            class="glass-card px-8 py-4 rounded-xl font-headline-md text-headline-md text-primary flex items-center gap-2">
+                            Our Portfolio <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Hero Right Visuals -->
+                <div class="relative h-[600px] mt-12 lg:mt-0">
+                    <!-- Main Image Base -->
+                    <div class="absolute inset-0 rounded-[48px] overflow-hidden shadow-2xl">
+                        <img alt="Modern architectural workspace" class="w-full h-full object-cover"
+                            data-alt="A wide-angle shot of a minimalist, high-end corporate architectural space with expansive glass walls and sleek furniture. The lighting is bright and airy, reflecting a professional and high-tech atmosphere. A soft blue and white color palette dominates the scene, evoking a sense of calm power and focused engineering excellence."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvC4sN5iWnaRdWau_QUzfug1xUN207zYXdwZOu2EFTypyzHEQWqVwGIlsphhuq-DL93hMt3sIr7uwbN6ENjiPpajXc5fQb3di41ACIVJLPoMxiq34XVrOX3_p6K9jN7PK_xCVLAi6k9IzbeqOP60LPDuZuBjwOjqjAoByLozV5Q_DCgzMKXj2yMqbv9514cycYMWSh1G2RbDvmXDCRQBLf2BnULRV_vknZPO1V5mvIpSuPZSBXY03ayxUQ_2CvYY15ZKHY0d47qfs">
+                    </div>
+                    <!-- Floating KPI Card 1 -->
+                    <div
+                        class="glass-card absolute top-12 -left-12 p-6 rounded-3xl w-64 shadow-[0_40px_100px_rgba(10,33,86,0.1)]">
+                        <div class="flex items-center gap-4 mb-2">
+                            <div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center">
+                                <span class="material-symbols-outlined text-primary"
+                                    style="font-variation-settings: &quot;FILL&quot; 1;">trending_up</span>
+                            </div>
+                            <div>
+                                <div class="text-label-sm font-label-sm text-on-surface-variant">EFFICIENCY</div>
+                                <div class="text-headline-md font-headline-md text-primary">+84%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Floating KPI Card 2 -->
+                    <div
+                        class="glass-card absolute bottom-24 -right-8 p-6 rounded-3xl w-72 shadow-[0_40px_100px_rgba(10,33,86,0.1)]">
+                        <div class="text-label-sm font-label-sm text-on-surface-variant mb-4">ACTIVE MENTORSHIP PATHS
+                        </div>
+                        <div class="flex -space-x-3 mb-4">
+                            <img alt="User" class="w-10 h-10 rounded-full border-2 border-white object-cover"
+                                data-alt="A professional headshot of a diverse male executive in a well-lit office setting. He is wearing a modern business casual shirt and has a friendly, confident expression. The background is softly blurred to keep focus on the subject."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-0fT_52eWYmawib92In6rCDkrDpI0lG5U6rJRZb2fkaiihoMnPDUJvQhD-sj2eJCg569_MzEDGh9PUGv794NX1o4Ry7csJe9lxBw5wz0Bi7GOm41UVGClbkMGa7wNYKJE3jaNZNDlB6veT14Wofs_P46mgYXOYBBfMbLPJZzO7WZ-m8k1gG8AdQygTPBg8PcivaMf_T6olPaGV0Bc_ke-qK4HiZxvezUpDyB9bwmH_wVEvKBf_aQUIwSOnVyTi73OjT9Z8nCb-EE">
+                            <img alt="User" class="w-10 h-10 rounded-full border-2 border-white object-cover"
+                                data-alt="A professional headshot of a confident female lead engineer in a minimalist modern workspace. She has a subtle smile and looks directly at the camera, conveying expertise and leadership. The color palette is clean with high-key lighting."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXgOi29LdlSmImMkOQtZbeAeMrrgPPX-o8uyLGNsR4_e720hKC3R7yBSHww_K7QYRNshvINyrNLeilRERDfIm5nT5Nu5Xte9wgiwW7VINR4gOAug3s1zvmeIg-6V7doSuReqqFzr3rI0VF400kIA0b-8xUjCF9cm_cjWux9R6erUCwQnVUR050X1Zu1_pcNxmA2gu9dmwg8Yk9rFQ9MLG671PQbGBsnIfNJBEOA7lzk_Gyc4wFUuQcdp4MEOUsd6MK5L7mgetamYU">
+                            <img alt="User" class="w-10 h-10 rounded-full border-2 border-white object-cover"
+                                data-alt="A professional headshot of a young male tech professional against a bright corporate background. He has a focused and reliable appearance, wearing a tailored blazer. The aesthetic is modern, professional, and sophisticated."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeNHiR88JybrLOhP5jBXCERCWbDlXbgN5epELmMBZyG1pVHMEFIJL_kUpUsepd9HW_GlDaXJADq-4_BW47GdF8f6OMo_LXVoRlvJVcDlTrcKhSzoEUoMFWqIT6ewcrkbjfaAOUJJp-b7lti8u_vMPBBMKDaH9Q-PIg0nLV6mIsmZoTYbBO04PYKjGMZtVAva3pGzHdv8WRpC6dxrDyegkv1s92TUh8oCEqgOdHmmDVCBGXjUZBlawt3J2ihWtWeBQ-p_YydySAA2M">
+                            <div
+                                class="w-10 h-10 rounded-full border-2 border-white bg-primary text-white text-[10px] flex items-center justify-center">
+                                +42</div>
+                        </div>
+                        <div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+                            <div class="h-full bg-primary w-3/4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Trust Section -->
+        <section class="bg-primary py-24 text-white overflow-hidden">
+            <div class="max-w-container-max mx-auto px-margin-desktop">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+                    <div class="max-w-md">
+                        <h2 class="font-headline-xl text-headline-xl mb-4">Trusted by industry leaders worldwide</h2>
+                        <p class="font-body-md text-body-md text-secondary-fixed-dim/70">Building digital excellence
+                            through precision and architectural foresight.</p>
+                    </div>
+                    <div class="flex gap-16 md:gap-24">
+                        <div class="text-center">
+                            <div class="text-[64px] font-bold tracking-tighter leading-none mb-2">500+</div>
+                            <div class="text-label-md font-label-md text-secondary-fixed-dim">PROFESSIONALS</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-[64px] font-bold tracking-tighter leading-none mb-2">150+</div>
+                            <div class="text-label-md font-label-md text-secondary-fixed-dim">PROJECTS</div>
+                        </div>
+                        <div class="text-center hidden sm:block">
+                            <div class="text-[64px] font-bold tracking-tighter leading-none mb-2">98%</div>
+                            <div class="text-label-md font-label-md text-secondary-fixed-dim">SATISFACTION</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services Preview Bento Grid -->
+        <section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <span class="text-primary font-label-md tracking-widest uppercase mb-4 block">Our Expertise</span>
+                    <h2 class="font-headline-xl text-headline-xl text-primary">Strategic Architecture &amp; Growth</h2>
+                </div>
+                <button class="text-primary font-label-md flex items-center gap-2 group">
+                    View All Services <span
+                        class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_right_alt</span>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-2 gap-6 h-auto md:h-[700px]">
+                <!-- Bento Item 1: Large Main Service -->
+                <div
+                    class="md:col-span-2 md:row-span-2 glass-card rounded-[40px] p-12 flex flex-col justify-between group hover:shadow-2xl transition-all duration-500">
+                    <div>
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-primary-container flex items-center justify-center mb-8 text-white">
+                            <span class="material-symbols-outlined text-[32px]">architecture</span>
+                        </div>
+                        <h3 class="font-headline-xl text-headline-xl text-primary mb-6">Technical Architecture &amp;
+                            Engineering</h3>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">We design scalable,
+                            high-performance systems that form the backbone of modern enterprises, ensuring stability
+                            and speed.</p>
+                    </div>
+                    <div class="mt-12 overflow-hidden rounded-2xl h-64">
+                        <img alt="Data visualization dashboard"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            data-alt="A sophisticated data visualization dashboard displayed on a clean glass screen. The UI features elegant line charts, glowing data points, and futuristic interfaces in shades of deep navy and electric blue. The overall atmosphere is highly technical, organized, and professional, perfectly capturing an engineering-focused aesthetic."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_uh8od1rv-aO13hiHaQ-334uUxhVEpXB_s5VxkZ3ycZYqQbchfDkvM8xh2ot9m8fDsqapueHOvPUoyfZTSUlJEaLRVeADAMfK-IIvYtuWtEjDjg4tcBu9AATe6sxtoReSon4V5dKF5z3nfIk_i1spSzNs2G2o9xNtj3UcoadPUju6wH5b_iwlSv5GcuoN-VnZPMC_1QBWkQt5Im3EKCi0wednthrFD9H-XdXflcloaXhDz2BrTKH3v4lxG-6xlClHpYkEHwCbuD8">
+                    </div>
+                </div>
+                <!-- Bento Item 2: Mentorship -->
+                <div
+                    class="glass-card rounded-[40px] p-10 flex flex-col group hover:shadow-2xl transition-all duration-500">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center mb-6 text-primary-container">
+                        <span class="material-symbols-outlined">psychology</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-4">Elite Mentorship</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">Personalized career paths for
+                        senior engineers moving into executive roles.</p>
+                    <div class="flex items-center gap-4 mt-auto">
+                        <span
+                            class="text-label-sm font-label-sm px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Career
+                            Path</span>
+                        <span
+                            class="text-label-sm font-label-sm px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Leadership</span>
+                    </div>
+                </div>
+                <!-- Bento Item 3: Business Scale -->
+                <div
+                    class="glass-card rounded-[40px] p-10 flex flex-col group hover:shadow-2xl transition-all duration-500">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-on-primary-container/20 flex items-center justify-center mb-6 text-primary-container">
+                        <span class="material-symbols-outlined">rocket_launch</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-4">Scale Consulting</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6">Optimizing organizational
+                        structures and deployment pipelines for rapid growth.</p>
+                    <div class="flex items-center gap-4 mt-auto">
+                        <span
+                            class="text-label-sm font-label-sm px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">DevOps</span>
+                        <span
+                            class="text-label-sm font-label-sm px-3 py-1 bg-surface-variant rounded-full text-on-surface-variant">Strategy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Social Proof Editorial Quotes -->
+        <section class="bg-surface-container-low py-section-gap">
+            <div class="max-w-container-max mx-auto px-margin-desktop">
+                <div class="text-center mb-20">
+                    <h2 class="font-headline-xl text-headline-xl text-primary">Voices of Excellence</h2>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Quote Card 1 -->
+                    <div class="flex flex-col md:flex-row gap-8 items-start p-8">
+                        <div class="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow-xl">
+                            <img alt="Marcus Thorne" class="w-full h-full object-cover"
+                                data-alt="A professional close-up portrait of a mature male executive with silver hair and a sharp, tailored suit. He exclaims confidence and wisdom. The lighting is soft and directed, creating an editorial feel against a muted gray corporate backdrop."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw6-mdS-YlbJhpDTIdmtKYeRPXBPHJg_b62tKyStNxRqtn6xvXkH-wIbypEl6D3Xc93YAofX3PYMRDAzHiLccl-NeFH_shCuil2BXLO_YKfBaFYhjmQDQV7HVek0DAm1GWAvX2h5SSPPKHANtwSoAtIiiA_XwKNXNYI_GI6ssiv-njLFm8RndrNJbmyhRFGTabhY-UT6oQmrZP1zboyI9dA0mRJVn9sd8QsSgyiVffrip6DeckQXy8kQwabPvFX7Uxe5jiZo_26Yg">
+                        </div>
+                        <div>
+                            <span
+                                class="material-symbols-outlined text-primary-container text-4xl mb-4">format_quote</span>
+                            <p class="font-display-lg text-headline-md italic text-primary leading-relaxed mb-6">
+                                "PathForge didn't just help us scale; they redefined our entire approach to engineering
+                                culture. The transformation was profound and immediate."
+                            </p>
+                            <div>
+                                <h4 class="font-headline-md text-headline-md text-primary">Marcus Thorne</h4>
+                                <p
+                                    class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">
+                                    CTO, Vertex Dynamics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quote Card 2 -->
+                    <div class="flex flex-col md:flex-row gap-8 items-start p-8">
+                        <div class="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow-xl">
+                            <img alt="Sarah Jenkins" class="w-full h-full object-cover"
+                                data-alt="A professional headshot of a female tech entrepreneur in a modern office environment. She has a bright, intellectual expression and is wearing a sleek navy blazer. The image is clean, sharp, and reflects high-level professional success."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNWxRGIF26_KlCyVsAWzkgKHbi-hPfvAiTQoKnIIEQy7lQY0PcdGoBp1NiRyY3M8O8BVmD99ckfCT_vzYPW0gX4Ek552ugCtBRLZu8pYAmh3xDltOywlxAQI809VLD7X6PMAfvsOeJItSvHu1ssRiwJ9v39rRPj13_Z6urYNz9aF9BUzR0nlHfaC2jHHPaVqCGAA62Zaj2PYxqObAgV51N4p884hgz5rpYM0SnYNJe1h0gGDkolQFWq2Ve_Jcy94SUGIRp98bHkis">
+                        </div>
+                        <div>
+                            <span
+                                class="material-symbols-outlined text-primary-container text-4xl mb-4">format_quote</span>
+                            <p class="font-display-lg text-headline-md italic text-primary leading-relaxed mb-6">
+                                "The mentorship program bridge the gap between technical mastery and executive
+                                leadership. It's the highest ROI investment I've made."
+                            </p>
+                            <div>
+                                <h4 class="font-headline-md text-headline-md text-primary">Sarah Jenkins</h4>
+                                <p
+                                    class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">
+                                    VP of Engineering, CloudCore</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Final CTA -->
+        <section class="px-margin-desktop py-section-gap max-w-container-max mx-auto">
+            <div class="relative rounded-[64px] overflow-hidden bg-primary p-16 md:p-32 text-center">
+                <!-- Background Gradient Pattern -->
+                <div class="absolute inset-0 opacity-20 pointer-events-none"
+                    style="background: radial-gradient(circle at 50% 50%, #A5BBFC 0%, transparent 70%);"></div>
+                <div class="relative z-10 max-w-2xl mx-auto">
+                    <h2 class="font-display-lg text-headline-xl text-white mb-8">Ready to Build Something Meaningful?
+                    </h2>
+                    <p class="font-body-lg text-body-lg text-secondary-fixed-dim/80 mb-12">Join the ranks of architects
+                        and leaders shaping the future of global technology.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button
+                            class="bg-white text-primary px-10 py-5 rounded-full font-headline-md text-headline-md hover:bg-secondary-fixed transition-colors">Start
+                            Your Path</button>
+                        <button
+                            class="border border-white/20 text-white px-10 py-5 rounded-full font-headline-md text-headline-md hover:bg-white/10 transition-colors">Schedule
+                            Consultation</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="w-full rounded-t-[64px] bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container">
+        <div
+            class="max-w-container-max mx-auto px-margin-desktop py-section-gap flex flex-col md:flex-row justify-between gap-gutter">
+            <div class="max-w-sm">
+                <div class="text-headline-xl font-headline-xl text-white mb-8">PathForge</div>
+                <p class="font-body-md text-body-md text-primary-fixed-dim/70 mb-8">
+                    Elevating the standards of technology mentorship and architectural engineering. Excellence is not an
+                    act, but a habit.
+                </p>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">public</span>
+                    </a>
+                    <a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"
+                        href="#">
+                        <span class="material-symbols-outlined text-sm">share</span>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+                <div>
+                    <h5 class="text-white font-label-md text-label-md mb-6 uppercase tracking-widest">Platform</h5>
+                    <ul class="space-y-4">
+                        <li class=""><a
+                                class="text-primary-fixed-dim/70 font-label-sm hover:text-white transition-colors"
+                                href="#">Expertise</a></li>
+                        <li class=""><a
+                                class="text-primary-fixed-dim/70 font-label-sm hover:text-white transition-colors"
+                                href="#">Mentorship</a></li>
+                        <li class=""><a
+                                class="text-primary-fixed-dim/70 font-label-sm hover:text-white transition-colors"
+                                href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-label-md text-label-md mb-6 uppercase tracking-widest">Company</h5>
+                    <ul class="space-y-4">
+                        <li class=""><a
+                                class="text-primary-fixed-dim/70 font-label-sm hover:text-white transition-colors"
+                                href="#">Career Path</a></li>
+                        <li class=""><a
+                                class="text-primary-fixed-dim/70 font-label-sm hover:text-white transition-colors"
+                                href="#">Privacy Policy</a></li>
+                        <li class=""><a
+                                class="text-primary-fixed-dim/70 font-label-sm hover:text-white transition-colors"
+                                href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-2 md:col-span-1">
+                    <h5 class="text-white font-label-md text-label-md mb-6 uppercase tracking-widest">Connect</h5>
+                    <ul class="space-y-4">
+                        <li class=""><a
+                                class="text-secondary-fixed font-bold font-label-sm hover:text-white transition-colors"
+                                href="#">LinkedIn</a></li>
+                        <li class=""><a
+                                class="text-primary-fixed-dim/70 font-label-sm hover:text-white transition-colors"
+                                href="#">Twitter</a></li>
+                        <li class=""><a
+                                class="text-primary-fixed-dim/70 font-label-sm hover:text-white transition-colors"
+                                href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-container-max mx-auto px-margin-desktop py-8 border-t border-white/10">
+            <p class="text-label-sm font-label-sm text-primary-fixed-dim/40 text-center md:text-left">
+                © 2024 PathForge Solutions. Excellence in Architecture.
+            </p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
