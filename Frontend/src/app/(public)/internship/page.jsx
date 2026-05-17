@@ -29,9 +29,9 @@ export default function Page() {
     <>
       <main>
         {/*  Hero Section  */}
-        <section className="relative pt-24 md:pt-32 pb-12 px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+        <section className="relative pt-20 md:pt-32 pb-8 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-fixed-dim/20 blur-[120px] rounded-full"></div>
-          <div className="relative z-10 grid lg:grid-cols-2 gap-gutter items-center">
+          <div className="relative z-10 grid lg:grid-cols-2 gap-gutter items-start">
             <div>
               <span className="inline-block px-4 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm mb-6">
                 Internship Cohort 2024
@@ -86,7 +86,7 @@ export default function Page() {
         </section>
 
         {/*  Track Grid Section  */}
-        <section className="py-section-gap px-margin-desktop max-w-container-max mx-auto bg-surface-container-low rounded-[64px]">
+        <section className="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface-container-low rounded-[64px]">
           <div className="text-center mb-20">
             <h2 className="font-headline-xl text-headline-xl text-primary mb-4">Engineering Specializations</h2>
             <p className="text-body-md text-on-surface-variant max-w-2xl mx-auto">
@@ -173,7 +173,7 @@ export default function Page() {
         </section>
 
         {/*  Cohort Hierarchy Section  */}
-        <section className="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+        <section className="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
           <div className="grid lg:grid-cols-12 gap-gutter">
             <div className="lg:col-span-4">
               <h2 className="font-headline-xl text-headline-xl text-primary mb-8">The Mentor Hierarchy</h2>
@@ -230,7 +230,7 @@ export default function Page() {
         </section>
 
         {/*  Bento Certification Section  */}
-        <section className="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+        <section className="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
           <div className="grid lg:grid-cols-3 grid-rows-2 gap-8 h-auto lg:h-[700px]">
             <div className="lg:col-span-2 glass-card p-16 rounded-[64px] flex flex-col justify-between overflow-hidden relative group">
               <div className="relative z-10">

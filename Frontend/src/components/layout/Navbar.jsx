@@ -6,9 +6,11 @@ import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isAppDropdownOpen, setIsAppDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const drawerRef = useRef(null);
+  const appDropdownRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,18 +23,21 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close drawer on click outside
+  // Close drawer and app dropdown on click outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (drawerRef.current && !drawerRef.current.contains(event.target)) {
         setIsDrawerOpen(false);
       }
+      if (appDropdownRef.current && !appDropdownRef.current.contains(event.target)) {
+        setIsAppDropdownOpen(false);
+      }
     };
-    if (isDrawerOpen) {
+    if (isDrawerOpen || isAppDropdownOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isDrawerOpen]);
+  }, [isDrawerOpen, isAppDropdownOpen]);
 
   const isActive = (path) => {
     return pathname === path;
@@ -87,7 +92,42 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
+            <div className="relative" ref={appDropdownRef}>
+              <button
+                onClick={() => setIsAppDropdownOpen(!isAppDropdownOpen)}
+                className="text-on-surface-variant font-label-md hover:text-primary transition-all flex items-center gap-1.5 cursor-pointer bg-transparent border-0 outline-none"
+              >
+                <span className="material-symbols-outlined text-[20px] leading-none">install_mobile</span>
+                Download App
+              </button>
+              {isAppDropdownOpen && (
+                <div className="absolute right-0 top-full mt-3 w-80 bg-white/95 backdrop-blur-xl border border-slate-200/60 rounded-[32px] p-6 shadow-[0_20px_60px_rgba(10,33,86,0.15)] z-50 transition-all duration-300">
+                  <div className="text-center">
+                    <h4 className="font-headline text-base font-bold text-[#0A2156] mb-2">Get PathForge Mobile</h4>
+                    <p className="text-[11px] text-on-surface-variant mb-4">Scan the QR code to download the official Android APK directly to your device.</p>
+                    
+                    <div className="w-44 h-44 mx-auto bg-slate-50 border border-slate-100 rounded-2xl p-3 mb-4 flex items-center justify-center relative overflow-hidden">
+                      <img 
+                        src="/assets/images/app_qr_code.png" 
+                        alt="Scan to Download APK" 
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    
+                    <a 
+                      href="/assets/api-link/app.apk" 
+                      download 
+                      className="inline-flex items-center gap-2 btn-premium-gradient w-full !py-2.5 !px-4 !rounded-xl text-xs font-bold justify-center"
+                    >
+                      <span className="material-symbols-outlined text-sm">download</span>
+                      Direct Download (.APK)
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+
             <Link
               href="/login"
               className="text-on-surface-variant font-label-md hover:text-primary transition-all"
@@ -201,6 +241,21 @@ const Navbar = () => {
                   <span className="font-medium text-sm">{link.label}</span>
                 </Link>
               ))}
+
+              {/* Mobile app download link card */}
+              <div className="mt-2 p-4 rounded-2xl bg-slate-50 border border-slate-100/80 text-center">
+                <span className="material-symbols-outlined text-xl text-primary mb-1.5 block">install_mobile</span>
+                <h5 className="font-headline text-[13px] font-bold text-primary mb-0.5">PathForge Mobile App</h5>
+                <p className="text-[10px] text-slate-500 mb-2.5">Download the APK directly to install on your Android device.</p>
+                <a 
+                  href="/assets/api-link/app.apk" 
+                  download 
+                  className="inline-flex items-center gap-1.5 btn-premium-gradient w-full !py-2 !px-3 !rounded-lg text-[10px] font-bold justify-center"
+                >
+                  <span className="material-symbols-outlined text-xs">download</span>
+                  Download APK
+                </a>
+              </div>
             </div>
           </div>
 
