@@ -1,0 +1,10 @@
+2026-05-18 01:38:08.611 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - Starting MainFolderApplication using Java 25 with PID 106560 (D:\Spring\PathForgeSolutions\Backend\target\classes started by Admin in D:\Spring\PathForgeSolutions\Backend)
+2026-05-18 01:38:08.620 [restartedMain] DEBUG com.example.MainFolder.MainFolderApplication - Running with Spring Boot v3.5.4, Spring v6.2.9
+2026-05-18 01:38:08.621 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-18 01:38:11.062 [restartedMain] DEBUG c.e.MainFolder.Security.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-05-18 01:38:12.510 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-18 01:38:13.930 [restartedMain] INFO  com.example.MainFolder.Config.DotEnvConfig_Old - ✓ .env file loaded successfully
+2026-05-18 01:38:15.376 [restartedMain] INFO  c.e.MainFolder.Service.EmailNotificationService - EmailNotificationService initialized - Provider: brevo, Admin recipients: rakshitros1@gmail.com,sukanyapatil7875@gmail.com
+2026-05-18 01:38:15.376 [restartedMain] INFO  c.e.MainFolder.Service.EmailNotificationService - Brevo API configured - Sender: NOT CONFIGURED
+2026-05-18 01:38:15.439 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-18 01:38:16.179 [restartedMain] INFO  com.example.MainFolder.MainFolderApplication - Started MainFolderApplication in 8.185 seconds (process running for 8.928)

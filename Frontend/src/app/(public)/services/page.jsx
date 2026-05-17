@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { siteConfig } from '@/config/site.config';
 
 export default function Services() {
   useEffect(() => {
@@ -71,11 +72,11 @@ export default function Services() {
               </div>
             </div>
             <div className="relative w-full h-[300px] rounded-3xl overflow-hidden mt-6">
-              <img 
-                alt="Architecture Visualization" 
+              <img
+                alt="Architecture Visualization"
                 className="w-full h-full object-cover"
                 data-alt="A clean and professional architectural blueprint of a software system displayed on a large high-resolution digital screen. The screen is situated in a bright, modern IT consultancy office with floor-to-ceiling windows and minimal furniture. The lighting is soft and natural, emphasizing a calm, high-performance atmosphere. The color palette features deep blues and clean whites, aligning with a premium architectural glassmorphism aesthetic."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBszEhIIoGpyNx9TdsrzDgUPhkpQNcLNRaNXqcIjhqk54yEyLAc97bRUqvMlBilTU0ppGYAsGEjYJkUPeGVXqKn4jb-pdbB20GPswae01Pbob5UFW2QwIQuPu_bmfGf_vVM7F3ZZHLokWat3RIZCv0Kp3hl3zC6eoZQNNGMd5UNF5xdPnrZi6YxTG9NcmZU-OOyIY7GqaxB30FmDcma3svPZSxhv2Vzq7s1ReUZi1sKEQFtxkYWtOmsGXNGi3WZKxbHjS9fmkQkMAY" 
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBszEhIIoGpyNx9TdsrzDgUPhkpQNcLNRaNXqcIjhqk54yEyLAc97bRUqvMlBilTU0ppGYAsGEjYJkUPeGVXqKn4jb-pdbB20GPswae01Pbob5UFW2QwIQuPu_bmfGf_vVM7F3ZZHLokWat3RIZCv0Kp3hl3zC6eoZQNNGMd5UNF5xdPnrZi6YxTG9NcmZU-OOyIY7GqaxB30FmDcma3svPZSxhv2Vzq7s1ReUZi1sKEQFtxkYWtOmsGXNGi3WZKxbHjS9fmkQkMAY"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent"></div>
             </div>
@@ -116,7 +117,7 @@ export default function Services() {
             </div>
             <div className="bg-primary-container p-6 rounded-3xl">
               <p className="text-white text-label-sm font-label-sm uppercase mb-2">Outcome</p>
-              <p className="text-primary-fixed-dim text-body-md italic">"PathForge restructured our entire data pipeline, resulting in a 3x increase in processing speed."</p>
+              <p className="text-primary-fixed-dim text-body-md italic">"{siteConfig.shortName} restructured our entire data pipeline, resulting in a 3x increase in processing speed."</p>
             </div>
           </div>
 
@@ -133,11 +134,11 @@ export default function Services() {
                 <p className="text-body-sm text-on-surface-variant">Optimizing business processes with smart, self-correcting AI-driven workflows.</p>
               </div>
               <div className="mt-4">
-                <img 
-                  alt="AI Network" 
+                <img
+                  alt="AI Network"
                   className="w-full h-48 object-cover rounded-2xl"
                   data-alt="A sophisticated digital visualization of an AI neural network with glowing nodes and intricate connection lines. The graphic is clean and minimalist, rendered in shades of primary deep blue and soft cyan on a white background. The aesthetic is futuristic yet grounded in professional IT consultancy, appearing as a floating glass layer in a high-end technological environment."
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKLovGJVkaO6ZCbCKUbF64hHjL_BgzgqXcnQU6ZDi9i3kZjtB2WCqVtxBu0SWcFZvKEoyRNS_Pi_BVjvCkb1G6CXPKJNjiNkcQM8HEY8tINxUkvb_vUtmzd9qPvHpAPBi9f9eCbcFlJOeNBvMBpyE3kjPGbyZSr-2hIdB9SpokP_UiEnd5RBBbCAaeHNkE6VngfKUoKjUnmBJUuLngl7xioUTwncvBINJ4UymvOFgiKtXJkq2ciKaghWm0YNxaW5_dhhDVBgTVWNA" 
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKLovGJVkaO6ZCbCKUbF64hHjL_BgzgqXcnQU6ZDi9i3kZjtB2WCqVtxBu0SWcFZvKEoyRNS_Pi_BVjvCkb1G6CXPKJNjiNkcQM8HEY8tINxUkvb_vUtmzd9qPvHpAPBi9f9eCbcFlJOeNBvMBpyE3kjPGbyZSr-2hIdB9SpokP_UiEnd5RBBbCAaeHNkE6VngfKUoKjUnmBJUuLngl7xioUTwncvBINJ4UymvOFgiKtXJkq2ciKaghWm0YNxaW5_dhhDVBgTVWNA"
                 />
               </div>
             </div>

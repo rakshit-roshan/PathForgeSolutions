@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { siteConfig } from '@/config/site.config';
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -48,7 +49,6 @@ const Navbar = () => {
     { path: '/', label: 'Home', icon: 'home' },
     { path: '/services', label: 'Solutions', icon: 'widgets' },
     { path: '/internship', label: 'Mentorship', icon: 'school' },
-    { path: '/career-guidance', label: 'Advisory', icon: 'explore' },
     { path: '/about', label: 'About', icon: 'info' }
   ];
 
@@ -61,7 +61,6 @@ const Navbar = () => {
   // Mobile Sliding Drawer options (removes Home & Solutions to avoid redundancy, adds auth)
   const mobileDrawerLinks = [
     { path: '/internship', label: 'Mentorship', icon: 'school' },
-    { path: '/career-guidance', label: 'Advisory', icon: 'explore' },
     { path: '/about', label: 'About Us', icon: 'info' },
     { path: '/login', label: 'Sign In', icon: 'login' },
     { path: '/register', label: 'Sign Up', icon: 'person_add' }
@@ -69,11 +68,15 @@ const Navbar = () => {
 
   return (
     <>
-      {/* ── DESKTOP FLOATING NAVBAR ─────────────────────────────────────────── */}
-      <div className="hidden md:block fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-7xl z-50">
-        <nav className="rounded-full border border-white/80 bg-white/55 backdrop-blur-xl shadow-[0_40px_100px_rgba(10,33,86,0.05)] px-8 py-3 flex justify-between items-center transition-all duration-300">
-          <Link href="/" className="flex items-center gap-2 group" aria-label="PathForge Home">
-            <span className="text-2xl font-bold text-primary tracking-tight">PathForge</span>
+      {/* ── DESKTOP RECTANGULAR NAVBAR ─────────────────────────────────────────── */}
+      <header className={`hidden md:block fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-[0_4px_20px_rgba(10,33,86,0.05)] py-3' 
+          : 'bg-white/70 backdrop-blur-xl border-b border-slate-200/20 py-4'
+      }`}>
+        <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-2 group" aria-label={`${siteConfig.name} Home`}>
+            <span className="text-2xl font-bold text-primary tracking-tight">{siteConfig.shortName}</span>
           </Link>
 
           <div className="flex gap-8">
@@ -81,10 +84,10 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 href={link.path}
-                className={`font-label-md transition-all duration-300 hover:scale-105 ${
+                className={`font-label-md transition-all duration-300 hover:text-primary relative py-1 ${
                   isActive(link.path)
-                    ? 'text-primary font-semibold border-b-2 border-primary pb-0.5'
-                    : 'text-on-surface-variant hover:text-primary'
+                    ? 'text-primary font-semibold border-b-2 border-primary'
+                    : 'text-on-surface-variant hover:scale-105'
                 }`}
               >
                 {link.label}
@@ -104,7 +107,7 @@ const Navbar = () => {
               {isAppDropdownOpen && (
                 <div className="absolute right-0 top-full mt-3 w-80 bg-white/95 backdrop-blur-xl border border-slate-200/60 rounded-[32px] p-6 shadow-[0_20px_60px_rgba(10,33,86,0.15)] z-50 transition-all duration-300">
                   <div className="text-center">
-                    <h4 className="font-headline text-base font-bold text-[#0A2156] mb-2">Get PathForge Mobile</h4>
+                    <h4 className="font-headline text-base font-bold text-[#0A2156] mb-2">Get {siteConfig.shortName} Mobile</h4>
                     <p className="text-[11px] text-on-surface-variant mb-4">Scan the QR code to download the official Android APK directly to your device.</p>
                     
                     <div className="w-44 h-44 mx-auto bg-slate-50 border border-slate-100 rounded-2xl p-3 mb-4 flex items-center justify-center relative overflow-hidden">
@@ -141,14 +144,14 @@ const Navbar = () => {
               Consultation
             </Link>
           </div>
-        </nav>
-      </div>
+        </div>
+      </header>
 
       {/* ── MOBILE TOP HEADER (APP SHELL LOOK) ───────────────────────────────── */}
       <div className="md:hidden fixed top-0 left-0 w-full z-40 bg-white/90 backdrop-blur-xl border-b border-slate-200/50 px-4 py-3 flex justify-between items-center shadow-[0_2px_15px_rgba(0,0,0,0.02)]">
-        <Link href="/" className="flex items-center gap-1.5" aria-label="PathForge Mobile Home">
-          <img className="w-[20px] h-auto object-contain" src="/assets/images/Logo.png" alt="logo" onError={(e) => e.currentTarget.style.display = 'none'} />
-          <span className="text-lg font-bold text-primary tracking-tight">PathForge</span>
+        <Link href="/" className="flex items-center gap-1.5" aria-label={`${siteConfig.name} Mobile Home`}>
+          <img className="w-[20px] h-auto object-contain" src={siteConfig.logo} alt="logo" onError={(e) => e.currentTarget.style.display = 'none'} />
+          <span className="text-lg font-bold text-primary tracking-tight">{siteConfig.shortName}</span>
         </Link>
         <Link
           href="/login"
@@ -215,7 +218,7 @@ const Navbar = () => {
         >
           <div>
             <div className="flex justify-between items-center pb-6 border-b border-slate-100">
-              <span className="text-xl font-bold text-primary">PathForge</span>
+              <span className="text-xl font-bold text-primary">{siteConfig.shortName}</span>
               <button
                 onClick={() => setIsDrawerOpen(false)}
                 className="p-1 rounded-full hover:bg-slate-100 flex items-center justify-center"
@@ -245,7 +248,7 @@ const Navbar = () => {
               {/* Mobile app download link card */}
               <div className="mt-2 p-4 rounded-2xl bg-slate-50 border border-slate-100/80 text-center">
                 <span className="material-symbols-outlined text-xl text-primary mb-1.5 block">install_mobile</span>
-                <h5 className="font-headline text-[13px] font-bold text-primary mb-0.5">PathForge Mobile App</h5>
+                <h5 className="font-headline text-[13px] font-bold text-primary mb-0.5">{siteConfig.shortName} Mobile App</h5>
                 <p className="text-[10px] text-slate-500 mb-2.5">Download the APK directly to install on your Android device.</p>
                 <a 
                   href="/assets/api-link/app.apk" 
