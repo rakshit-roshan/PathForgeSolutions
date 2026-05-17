@@ -25,7 +25,6 @@ export default async function proxy(request: NextRequest) {
     "/about",
     "/services",
     "/internship",
-    "/career-guidance",
     "/job-consultancy",
     "/contact",
     "/login",

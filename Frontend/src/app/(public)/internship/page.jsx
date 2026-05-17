@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { siteConfig } from '@/config/site.config';
 
 export default function Page() {
   useEffect(() => {
@@ -9,7 +10,7 @@ export default function Page() {
     const initScrollReveal = () => {
       const toReveal = document.querySelectorAll('.reveal, .reveal-up');
       if (!toReveal.length) return;
-      
+
       const io = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -18,7 +19,7 @@ export default function Page() {
           }
         });
       }, { threshold: 0.12 });
-      
+
       toReveal.forEach((el) => io.observe(el));
     };
 
@@ -87,10 +88,10 @@ export default function Page() {
 
         {/*  Track Grid Section  */}
         <section className="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface-container-low rounded-[64px]">
-          <div className="text-center mb-20">
+          <div className="text-center mb-6">
             <h2 className="font-headline-xl text-headline-xl text-primary mb-4">Engineering Specializations</h2>
             <p className="text-body-md text-on-surface-variant max-w-2xl mx-auto">
-              Selected candidates choose a specialized track mentored by senior architects from PathForge’s core solutions team.
+              Selected candidates choose a specialized track mentored by senior architects from {siteConfig.shortName}’s core solutions team.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -206,7 +207,7 @@ export default function Page() {
                   <div className="space-y-4">
                     <div className="text-display-lg font-display-lg text-primary-fixed opacity-50">01</div>
                     <h4 className="font-headline-md text-primary">Onboarding</h4>
-                    <p className="text-body-sm text-on-surface-variant">Weeks 1-2: Immersion into PathForge tech stack, tooling, and culture.</p>
+                    <p className="text-body-sm text-on-surface-variant">Weeks 1-2: Immersion into {siteConfig.shortName}’s tech stack, tooling, and culture.</p>
                   </div>
                   <div className="space-y-4">
                     <div className="text-display-lg font-display-lg text-primary-fixed opacity-50">02</div>
@@ -234,8 +235,8 @@ export default function Page() {
           <div className="grid lg:grid-cols-3 grid-rows-2 gap-8 h-auto lg:h-[700px]">
             <div className="lg:col-span-2 glass-card p-16 rounded-[64px] flex flex-col justify-between overflow-hidden relative group">
               <div className="relative z-10">
-                <h2 className="font-display-lg text-headline-xl text-primary mb-8">PathForge Certified Architect</h2>
-                <p className="text-body-lg text-on-surface-variant max-w-xl">
+                <h2 className="font-headline-lg text-headline-xl text-primary mb-6">{siteConfig.shortName} Certified Architect</h2>
+                <p className="text-body-md text-on-surface-variant max-w-xl">
                   Our certification isn't a digital badge. It's a validated portfolio of enterprise code and a recommendation from the industry's elite architects.
                 </p>
               </div>

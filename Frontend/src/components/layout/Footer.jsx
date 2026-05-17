@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from "next/link";
+import { siteConfig } from '@/config/site.config';
 
 const Footer = () => {
   const [currentYear, setCurrentYear] = useState('2024');
@@ -14,7 +15,7 @@ const Footer = () => {
     <footer className="w-full rounded-t-[64px] bg-primary text-white border-t border-white/10 mt-16">
       <div className="flex flex-col md:flex-row justify-between gap-gutter px-margin-desktop py-12 max-w-container-max mx-auto">
         <div className="md:w-1/3">
-          <h2 className="text-headline-xl font-headline-xl text-white mb-6">PathForge</h2>
+          <h2 className="text-headline-xl font-headline-xl text-white mb-6">{siteConfig.shortName}</h2>
           <p className="text-body-md text-slate-300 leading-relaxed">
             Excellence in IT consultancy and professional growth. We build the systems that power the future.
           </p>
@@ -27,9 +28,6 @@ const Footer = () => {
             </Link>
             <Link href="/internship" className="text-slate-300 font-label-sm hover:text-white transition-colors">
               Mentorship
-            </Link>
-            <Link href="/career-guidance" className="text-slate-300 font-label-sm hover:text-white transition-colors">
-              Advisory
             </Link>
             <Link href="/about" className="text-slate-300 font-label-sm hover:text-white transition-colors">
               About Us
@@ -48,7 +46,7 @@ const Footer = () => {
       </div>
       <div className="max-w-container-max mx-auto px-margin-desktop py-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
         <p className="text-label-sm font-label-sm text-slate-400">
-          © {currentYear} PathForge Solutions. Excellence in Architecture.
+          © {currentYear} {siteConfig.name}. All rights reserved.
         </p>
         <div className="flex items-center gap-4 text-slate-400 text-xs">
           <span className="flex items-center gap-1.5 px-3 py-1 bg-white/5 rounded-lg">

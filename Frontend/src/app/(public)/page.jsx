@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import { siteConfig } from '@/config/site.config';
+import AnimatedCounter from '@/components/common/AnimatedCounter';
 
 export default function Page() {
     useEffect(() => {
@@ -78,7 +80,9 @@ export default function Page() {
                                     </div>
                                     <div>
                                         <div className="text-label-sm font-label-sm text-on-surface-variant">EFFICIENCY</div>
-                                        <div className="text-headline-md font-headline-md text-primary">+84%</div>
+                                        <div className="text-headline-md font-headline-md text-primary">
+                                            <AnimatedCounter end="+84%" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -126,15 +130,21 @@ export default function Page() {
                             </div>
                             <div className="flex gap-16 md:gap-24">
                                 <div className="text-center">
-                                    <div className="text-[64px] font-bold tracking-tighter leading-none mb-2">500+</div>
+                                    <div className="text-[64px] font-bold tracking-tighter leading-none mb-2">
+                                        <AnimatedCounter end="500+" />
+                                    </div>
                                     <div className="text-label-md font-label-md text-secondary-fixed-dim">PROFESSIONALS</div>
                                 </div>
                                 <div className="text-center">
-                                    <div className="text-[64px] font-bold tracking-tighter leading-none mb-2">150+</div>
+                                    <div className="text-[64px] font-bold tracking-tighter leading-none mb-2">
+                                        <AnimatedCounter end="150+" />
+                                    </div>
                                     <div className="text-label-md font-label-md text-secondary-fixed-dim">PROJECTS</div>
                                 </div>
                                 <div className="text-center hidden sm:block">
-                                    <div className="text-[64px] font-bold tracking-tighter leading-none mb-2">98%</div>
+                                    <div className="text-[64px] font-bold tracking-tighter leading-none mb-2">
+                                        <AnimatedCounter end="98%" />
+                                    </div>
                                     <div className="text-label-md font-label-md text-secondary-fixed-dim">SATISFACTION</div>
                                 </div>
                             </div>
@@ -225,7 +235,7 @@ export default function Page() {
                                 <div>
                                     <span className="material-symbols-outlined text-primary-container text-4xl mb-4">format_quote</span>
                                     <p className="font-display-lg text-headline-md italic text-primary leading-relaxed mb-6">
-                                        "PathForge didn't just help us scale; they redefined our entire approach to engineering culture. The transformation was profound and immediate."
+                                        "{siteConfig.shortName} didn't just help us scale; they redefined our entire approach to engineering culture. The transformation was profound and immediate."
                                     </p>
                                     <div>
                                         <h4 className="font-headline-md text-headline-md text-primary">Marcus Thorne</h4>

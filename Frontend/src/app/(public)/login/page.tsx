@@ -95,7 +95,7 @@ function LoginForm() {
 
   return (
     <div className="antialiased text-slate-800 bg-gradient-to-br from-slate-50 via-white to-indigo-50 min-h-screen flex flex-col">
-      <main className="flex-1 flex items-top justify-center h-full py-2 px-4 sm:px-6 lg:px-8 mt-[50px]">
+      <main className="flex-1 flex items-center justify-center h-full pt-[110px] md:pt-[130px] pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-6">
           {/* Logo and Header */}
           <div className="text-center">

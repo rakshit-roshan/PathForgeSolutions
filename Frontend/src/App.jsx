@@ -8,7 +8,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Internship from './pages/Internship';
-import CareerGuidance from './pages/CareerGuidance';
 import JobConsultancy from './pages/JobConsultancy';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
@@ -27,7 +26,7 @@ const LayoutWrapper = ({ children }) => {
   const { isAuthenticated } = useAuth();
 
   // Define routes that should show header and footer (public pages)
-  const publicRoutes = ['/', '/about', '/services', '/internship', '/career-guidance', '/job-consultancy', '/contact', '/login'];
+  const publicRoutes = ['/', '/about', '/services', '/internship', '/job-consultancy', '/contact', '/login'];
   const isPublicRoute = publicRoutes.includes(location.pathname);
 
   // If it's a dashboard route, don't show header and footer (let ProtectedRoute handle authentication)
@@ -62,7 +61,6 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/internship" element={<Internship />} />
-                <Route path="/career-guidance" element={<CareerGuidance />} />
                 <Route path="/job-consultancy" element={<JobConsultancy />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/login" element={<Login />} />

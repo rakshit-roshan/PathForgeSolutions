@@ -9,61 +9,60 @@
 
 export const siteConfig = {
   // ── BRAND ───────────────────────────────────────────────────────────
-  name:        "RasuTech Consulting",
-  shortName:   "RasuTech",
-  tagline:     "Build your tech career with a trusted IT partner",
+  name: "RasuTech Consulting",
+  shortName: "RasuTech Consulting",
+  tagline: "Build your tech career with a trusted IT partner",
   description: "We mentor students and professionals through real projects, internships, career guidance, and complete job application support.",
-  logo:        "/assets/images/Logo.png",
-  favicon:     "/favicon.ico",
+  logo: "/assets/images/Logo.png",
+  favicon: "/favicon.ico",
   foundedYear: 2022,
 
   // ── CONTACT ─────────────────────────────────────────────────────────
   contact: {
-    email:     "rakshitros1@gmail.com",
-    phone:     "+91 XXXXX XXXXX",     // ✏️ Update with real number
-    whatsapp:  "+91 XXXXX XXXXX",     // ✏️ Update with real WhatsApp
-    address:   "India",               // ✏️ Full address here
+    email: "rakshitros1@gmail.com",
+    phone: "+91 XXXXX XXXXX",     // ✏️ Update with real number
+    whatsapp: "+91 XXXXX XXXXX",     // ✏️ Update with real WhatsApp
+    address: "India",               // ✏️ Full address here
   },
 
   // ── SOCIAL LINKS ────────────────────────────────────────────────────
   social: {
-    twitter:   "",
-    linkedin:  "",
-    github:    "",
+    twitter: "",
+    linkedin: "",
+    github: "",
     instagram: "",
-    youtube:   "",
+    youtube: "",
   },
 
   // ── NAVIGATION ──────────────────────────────────────────────────────
   navLinks: [
-    { path: "/",                 label: "Home"            },
-    { path: "/about",            label: "About"           },
-    { path: "/services",         label: "Services"        },
-    { path: "/internship",       label: "Internship"      },
-    { path: "/career-guidance",  label: "Career Guidance" },
-    { path: "/job-consultancy",  label: "Job Consultancy" },
-    { path: "/contact",          label: "Contact"         },
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/services", label: "Services" },
+    { path: "/internship", label: "Internship" },
+    { path: "/job-consultancy", label: "Job Consultancy" },
+    { path: "/contact", label: "Contact" },
   ],
 
   // ── STATISTICS ──────────────────────────────────────────────────────
   stats: [
-    { number: "500+", label: "Students Mentored",  icon: "graduation-cap" },
-    { number: "150+", label: "Projects Completed", icon: "rocket"         },
-    { number: "95%",  label: "Success Rate",       icon: "target"         },
-    { number: "50+",  label: "Industry Partners",  icon: "handshake"      },
+    { number: "500+", label: "Students Mentored", icon: "graduation-cap" },
+    { number: "150+", label: "Projects Completed", icon: "rocket" },
+    { number: "95%", label: "Success Rate", icon: "target" },
+    { number: "50+", label: "Industry Partners", icon: "handshake" },
   ],
 
   // ── TEAM ────────────────────────────────────────────────────────────
   team: [
     {
-      name:  "Rakshit Roshan",
-      role:  "Founder • Full‑Stack Architect",
+      name: "Rakshit Roshan",
+      role: "Founder • Full‑Stack Architect",
       image: "/assets/images/team1.jpg",
       linkedin: "",
     },
     {
-      name:  "Sukanya Patil",
-      role:  "Co-Founder • Business Consultant",
+      name: "Sukanya Patil",
+      role: "Co-Founder • Business Consultant",
       image: "/assets/images/team2.jpg",
       linkedin: "",
     },
@@ -72,60 +71,54 @@ export const siteConfig = {
   // ── SERVICES ────────────────────────────────────────────────────────
   services: [
     {
-      title:       "Final Year Projects",
+      title: "Final Year Projects",
       description: "Guided research, architecture, and end-to-end build with documentation.",
-      path:        "/services#projects",
-      icon:        "graduation-cap",
+      path: "/services#projects",
+      icon: "graduation-cap",
     },
     {
-      title:       "Internships",
+      title: "Internships",
       description: "Structured training with live projects to build real-world skills.",
-      path:        "/internship",
-      icon:        "briefcase",
+      path: "/internship",
+      icon: "briefcase",
     },
     {
-      title:       "Career Guidance",
-      description: "Portfolio, resume, mock interviews, and learning path design.",
-      path:        "/career-guidance",
-      icon:        "users",
-    },
-    {
-      title:       "Job Consultancy",
+      title: "Job Consultancy",
       description: "Application assistance and interview scheduling made simple.",
-      path:        "/job-consultancy",
-      icon:        "calendar",
+      path: "/job-consultancy",
+      icon: "calendar",
     },
   ],
 
   // ── INTERNSHIP TRACKS ────────────────────────────────────────────────
   internshipTracks: [
-    { title: "Data & Gen-AI",        stack: "Python, Vector DB, LLMs",                              duration: "2-3 months" },
-    { title: "Full-Stack Web",       stack: "Suits to project needs",                                duration: "2-3 months" },
-    { title: "Frontend Development", stack: "HTML, CSS, Tailwind, JavaScript, React",               duration: "1-2 months" },
-    { title: "Backend Development",  stack: "Node.js, Express, MongoDB, SQL, Spring Boot",          duration: "2-3 months" },
-    { title: "UI / UX Design",       stack: "Figma, Canva",                                         duration: "1-2 months" },
-    { title: "Technical Writing",    stack: "Suits to project needs",                                duration: "1-2 months" },
+    { title: "Data & Gen-AI", stack: "Python, Vector DB, LLMs", duration: "2-3 months" },
+    { title: "Full-Stack Web", stack: "Suits to project needs", duration: "2-3 months" },
+    { title: "Frontend Development", stack: "HTML, CSS, Tailwind, JavaScript, React", duration: "1-2 months" },
+    { title: "Backend Development", stack: "Node.js, Express, MongoDB, SQL, Spring Boot", duration: "2-3 months" },
+    { title: "UI / UX Design", stack: "Figma, Canva", duration: "1-2 months" },
+    { title: "Technical Writing", stack: "Suits to project needs", duration: "1-2 months" },
   ],
 
   // ── TESTIMONIALS ─────────────────────────────────────────────────────
   testimonials: [
     {
-      name:    "Sarah Johnson",
-      role:    "Software Engineer at Microsoft",
+      name: "Sarah Johnson",
+      role: "Software Engineer at Microsoft",
       content: "RasuTech Consulting transformed my career. Their mentorship and real-world project experience gave me the confidence to land my dream job.",
-      rating:  5,
+      rating: 5,
     },
     {
-      name:    "Rajesh Kumar",
-      role:    "Full Stack Developer at Amazon",
+      name: "Rajesh Kumar",
+      role: "Full Stack Developer at Amazon",
       content: "The personalized guidance and live project exposure here is unmatched. I went from a confused graduate to a confident developer in just 6 months.",
-      rating:  5,
+      rating: 5,
     },
     {
-      name:    "Priya Patel",
-      role:    "DevOps Engineer at Google",
+      name: "Priya Patel",
+      role: "DevOps Engineer at Google",
       content: "The mentors here don't just teach code, they teach you how to think like an engineer. This mindset shift was crucial for my career growth.",
-      rating:  5,
+      rating: 5,
     },
   ],
 
@@ -148,13 +141,13 @@ export const siteConfig = {
 
   // ── SEO ─────────────────────────────────────────────────────────────
   seo: {
-    defaultTitle:       "RasuTech Consulting | IT Career & Internship Partner",
-    titleTemplate:      "%s | RasuTech Consulting",
+    defaultTitle: "RasuTech Consulting | IT Career & Internship Partner",
+    titleTemplate: "%s | RasuTech Consulting",
     defaultDescription: "MSME-registered IT consultancy offering internships, final year projects, career guidance, and job support in India.",
-    keywords:           ["internship", "IT consulting", "career guidance", "final year project", "mentorship", "India"],
-    ogImage:            "/assets/images/og-image.jpg",
-    siteUrl:            "https://rasutech.in",     // ✏️ Update with real domain
-    twitterHandle:      "@rasutech",
+    keywords: ["internship", "IT consulting", "career guidance", "final year project", "mentorship", "India"],
+    ogImage: "/assets/images/og-image.jpg",
+    siteUrl: "https://rasutech.in",     // ✏️ Update with real domain
+    twitterHandle: "@rasutech",
   },
 
   // ── FOOTER ──────────────────────────────────────────────────────────
@@ -177,10 +170,10 @@ export const siteConfig = {
 
   // ── RATINGS ─────────────────────────────────────────────────────────
   rating: {
-    score:  "4.9",
-    outOf:  "5",
-    count:  "200+",
-    label:  "student reviews",
+    score: "4.9",
+    outOf: "5",
+    count: "200+",
+    label: "student reviews",
   },
 } as const;
 
