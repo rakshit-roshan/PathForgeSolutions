@@ -6,6 +6,106 @@
   --color-brand-600: #4f46e5;
   --color-brand-700: #4338ca;
   --color-accent-500: #06b6d4;
+
+  /* Premium Responsive Spacing Tokens - Shrunk for compact layout density */
+  --spacing-unit: 8px;
+  --spacing-container-max: 1440px;
+  --spacing-margin-desktop: 32px;  /* Reduced from 64px for tighter margins */
+  --spacing-section-gap: 56px;     /* Significantly reduced from 128px to collapse empty space */
+  --spacing-gutter: 24px;          /* Reduced from 32px for closer items */
+  --spacing-margin-mobile: 16px;   /* Reduced from 24px */
+
+  /* Premium Responsive Typography Size Tokens - Reduced to prevent deep scrolling */
+  --font-size-label-sm: 11px;
+  --font-size-label-md: 13px;
+  --font-size-body-sm: 13px;
+  --font-size-body-md: 15px;
+  --font-size-body-lg: 16px;
+  --font-size-headline-md: 18px;   /* Reduced from 24px */
+  --font-size-headline-lg: 24px;   /* Reduced from 32px */
+  --font-size-headline-xl: 32px;   /* Reduced from 48px */
+  --font-size-headline-xl-mobile: 22px;
+  --font-size-display-lg: 38px;    /* Reduced from 64px to make heroes compact and above-fold */
+  --font-size-display-xl: 48px;    /* Reduced from 80px */
+
+  /* Typography Font Family Tokens */
+  --font-family-label-sm: "Inter", sans-serif;
+  --font-family-label-md: "Inter", sans-serif;
+  --font-family-body-sm: "Inter", sans-serif;
+  --font-family-body-md: "Inter", sans-serif;
+  --font-family-body-lg: "Inter", sans-serif;
+  --font-family-headline-md: "Manrope", sans-serif;
+  --font-family-headline-lg: "Manrope", sans-serif;
+  --font-family-headline-xl: "Manrope", sans-serif;
+  --font-family-headline-xl-mobile: "Manrope", sans-serif;
+  --font-family-display-lg: "Manrope", sans-serif;
+  --font-family-display-xl: "Manrope", sans-serif;
+
+  /* Custom HSL-Tailored Architectural Glassmorphism Colors */
+  --color-on-surface: #1b1b1f;
+  --color-on-primary-container: #788ac5;
+  --color-error: #ba1a1a;
+  --color-surface-variant: #e3e2e7;
+  --color-on-primary-fixed: #00174b;
+  --color-on-tertiary-fixed: #001848;
+  --color-on-secondary-fixed: #001849;
+  --color-on-error: #ffffff;
+  --color-surface: #fbf8fe;
+  --color-secondary-fixed-dim: #b2c5ff;
+  --color-background: #fbf8fe;
+  --color-inverse-primary: #b4c5ff;
+  --color-surface-container-highest: #e3e2e7;
+  --color-secondary-fixed: #dae2ff;
+  --color-surface-tint: #4a5c94;
+  --color-secondary-container: #a7bdfe;
+  --color-surface-container-low: #f5f3f8;
+  --color-on-background: #1b1b1f;
+  --color-error-container: #ffdad6;
+  --color-on-primary-fixed-variant: #32447a;
+  --color-inverse-surface: #303034;
+  --color-secondary: #465c97;
+  --color-tertiary-fixed-dim: #b2c5ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-tertiary-fixed: #dae2ff;
+  --color-on-tertiary: #ffffff;
+  --color-on-surface-variant: #45464f;
+  --color-surface-bright: #fbf8fe;
+  --color-surface-container-high: #e9e7ed;
+  --color-on-primary: #ffffff;
+  --color-surface-container: #efedf2;
+  --color-inverse-on-surface: #f2f0f5;
+  --color-on-error-container: #93000a;
+  --color-on-primary-fixed-dim: #b4c5ff;
+  --color-outline-variant: #c5c6d1;
+  --color-tertiary-container: #032159;
+  --color-primary: #000d32;
+  --color-outline: #757680;
+  --color-on-secondary-container: #344b84;
+  --color-tertiary: #000d30;
+  --color-primary-fixed: #dbe1ff;
+  --color-on-secondary-fixed-variant: #2e447e;
+  --color-on-tertiary-fixed-variant: #2e447d;
+  --color-on-secondary: #ffffff;
+  --color-primary-container: #0a2156;
+  --color-surface-dim: #dbd9de;
+}
+
+/* Glassmorphism card & text glow classes */
+.glass-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(10, 33, 86, 0.05);
+  border-right: 1px solid rgba(10, 33, 86, 0.05);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(165, 187, 252, 0.3);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 /* ── Custom CSS Variables ─────────────────────────────────────────── */
 :root {
@@ -230,3 +330,113 @@ tbody tr:last-child td {
 .section { padding: 4rem 1rem; }
 .section-sm { padding: 2.5rem 1rem; }
 .container { max-width: 80rem; margin: 0 auto; padding: 0 1rem; }
+
+/* ── Custom Utility Overrides for Tailwind CSS v4 Theme Compatibility ── */
+
+/* Color Utilities */
+.bg-primary { background-color: var(--color-primary) !important; }
+.bg-primary-container { background-color: var(--color-primary-container) !important; }
+.bg-primary-fixed { background-color: var(--color-primary-fixed) !important; }
+.bg-primary-fixed-dim { background-color: var(--color-on-primary-fixed-dim) !important; }
+.bg-secondary { background-color: var(--color-secondary) !important; }
+.bg-secondary-container { background-color: var(--color-secondary-container) !important; }
+.bg-secondary-fixed { background-color: var(--color-secondary-fixed) !important; }
+.bg-secondary-fixed-dim { background-color: var(--color-secondary-fixed-dim) !important; }
+.bg-tertiary { background-color: var(--color-tertiary) !important; }
+.bg-tertiary-container { background-color: var(--color-tertiary-container) !important; }
+.bg-background { background-color: var(--color-background) !important; }
+.bg-surface { background-color: var(--color-surface) !important; }
+.bg-surface-variant { background-color: var(--color-surface-variant) !important; }
+.bg-surface-container { background-color: var(--color-surface-container) !important; }
+.bg-surface-container-low { background-color: var(--color-surface-container-low) !important; }
+.bg-surface-container-lowest { background-color: var(--color-surface-container-lowest) !important; }
+.bg-surface-container-high { background-color: var(--color-surface-container-high) !important; }
+.bg-surface-container-highest { background-color: var(--color-surface-container-highest) !important; }
+
+.text-primary { color: var(--color-primary) !important; }
+.text-primary-container { color: var(--color-primary-container) !important; }
+.text-on-primary { color: var(--color-on-primary) !important; }
+.text-on-primary-fixed-variant { color: var(--color-on-primary-fixed-variant) !important; }
+.text-secondary { color: var(--color-secondary) !important; }
+.text-secondary-container { color: var(--color-on-secondary-container) !important; }
+.text-on-secondary { color: var(--color-on-secondary) !important; }
+.text-on-surface { color: var(--color-on-surface) !important; }
+.text-on-surface-variant { color: var(--color-on-surface-variant) !important; }
+.text-on-background { color: var(--color-on-background) !important; }
+.text-outline { color: var(--color-outline) !important; }
+.text-outline-variant { color: var(--color-outline-variant) !important; }
+
+/* Custom Spacing Overrides */
+.max-w-container-max {
+  max-width: var(--spacing-container-max) !important;
+}
+.px-margin-desktop {
+  padding-left: var(--spacing-margin-desktop) !important;
+  padding-right: var(--spacing-margin-desktop) !important;
+}
+.gap-gutter {
+  gap: var(--spacing-gutter) !important;
+}
+
+/* Custom Typography Utility Overrides */
+.font-label-sm {
+  font-family: var(--font-family-label-sm) !important;
+}
+.text-label-sm {
+  font-size: var(--font-size-label-sm) !important;
+}
+.font-label-md {
+  font-family: var(--font-family-label-md) !important;
+}
+.text-label-md {
+  font-size: var(--font-size-label-md) !important;
+}
+.font-body-sm {
+  font-family: var(--font-family-body-sm) !important;
+}
+.text-body-sm {
+  font-size: var(--font-size-body-sm) !important;
+}
+.font-body-md {
+  font-family: var(--font-family-body-md) !important;
+}
+.text-body-md {
+  font-size: var(--font-size-body-md) !important;
+}
+.font-body-lg {
+  font-family: var(--font-family-body-lg) !important;
+}
+.text-body-lg {
+  font-size: var(--font-size-body-lg) !important;
+}
+.font-headline-md {
+  font-family: var(--font-family-headline-md) !important;
+}
+.text-headline-md {
+  font-size: var(--font-size-headline-md) !important;
+}
+.font-headline-lg {
+  font-family: var(--font-family-headline-lg) !important;
+}
+.text-headline-lg {
+  font-size: var(--font-size-headline-lg) !important;
+}
+.font-headline-xl {
+  font-family: var(--font-family-headline-xl) !important;
+}
+.text-headline-xl {
+  font-size: var(--font-size-headline-xl) !important;
+}
+.font-display-lg {
+  font-family: var(--font-family-display-lg) !important;
+}
+.text-display-lg {
+  font-size: var(--font-size-display-lg) !important;
+}
+.font-display-xl {
+  font-family: var(--font-family-display-xl) !important;
+}
+.text-display-xl {
+  font-size: var(--font-size-display-xl) !important;
+}
+

@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect } from 'react';
-import { team1, team2, team3, Founder2, Founder3, checkIcon, msmeBadge, makeInIndiaBadge, certificateSample } from '@/utils/images';
+import { Founder2, Founder3 } from '@/utils/images';
 
-const About = () => {
+export default function About() {
   useEffect(() => {
     // Initialize scroll reveal animations
     const initScrollReveal = () => {
@@ -42,293 +42,222 @@ const About = () => {
     }
   ];
 
-  const whyChooseUs = [
-    'Real mentors, not generic courses',
-    'Live project experience',
-    'Career-first approach',
-    'Community and network'
-  ];
-
-  const achievements = [
-    { number: '500+', label: 'Students Mentored', icon: '👨‍🎓' },
-    { number: '150+', label: 'Projects Completed', icon: '🚀' },
-    { number: '95%', label: 'Success Rate', icon: '🎯' },
-    { number: '50+', label: 'Industry Partners', icon: '🤝' }
-  ];
-
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      role: 'Software Engineer at Microsoft',
-      content: 'RasuTech Consulting transformed my career. Their mentorship and real-world project experience gave me the confidence to land my dream job at Microsoft.',
-      rating: 5
-    },
-    {
-      name: 'Rajesh Kumar',
-      role: 'Full Stack Developer at Amazon',
-      content: 'The personalized guidance and live project exposure here is unmatched. I went from a confused graduate to a confident developer in just 6 months.',
-      rating: 5
-    },
-    {
-      name: 'Priya Patel',
-      role: 'DevOps Engineer at Google',
-      content: 'The mentors here don\'t just teach code, they teach you how to think like an engineer. This mindset shift was crucial for my career growth.',
-      rating: 5
-    }
-  ];
-
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 py-16">
-          <div className="text-center reveal-up">
-            <h1 className="text-6xl sm:text-6xl font-semibold text-slate-700 mb-6">
-              About RasuTech Consulting
-            </h1>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
-              A trusted MSME registered company dedicated to transforming careers through expert mentorship,
-              real-world project experience, and comprehensive career guidance.
-            </p>
-
-            {/* Rating Display */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                  </svg>
-                ))}
-              </div>
-              <span className="text-lg font-semibold text-slate-900">4.9/5</span>
-              <span className="text-slate-600">(200+ reviews)</span>
+      
+    <main>
+        {/*  Hero Section  */}
+        <section className="pt-20 md:pt-32 pb-8 px-margin-desktop max-w-container-max mx-auto">
+            <span className="inline-block bg-primary-fixed text-on-primary-fixed-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm mb-6">The Path Within</span>
+            <h1
+                className="font-display-lg text-display-lg md:text-display-xl text-primary mb-8 max-w-4xl leading-tight">
+                Architecting the future of IT intelligence.</h1>
+            <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">We don't just solve
+                problems; we forge sustainable ecosystems where technology and talent evolve in perfect harmony.</p>
+            <div className="w-full h-[360px] rounded-[32px] overflow-hidden glass-card p-3 mt-8">
+                <img className="w-full h-[336px] object-cover rounded-[24px]"
+                    data-alt="A grand, high-ceilinged modern architectural space with vast glass windows reflecting a serene twilight sky. The interior features minimalist furniture in deep blues and warm wood accents, bathed in soft, high-key ambient lighting that emphasizes transparency and structural depth. The atmosphere is professional yet peaceful, representing elite technological consulting excellence."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuKaROvVuXxalwbbwDpFrYjWWDJN1q2v1xjvFhH0kLN2WmuqImW1RQMwf_qYWc_iOCY4grRG8EL8KjYc5zs6lYFvLWQzLub5OZMizIxcqXOH6mjpTtRr_-bXo6ZcwVUPTxN6i25bK9R9B_DGkqQx3ysirTklTneP6wiI_YnvtFfvppbvEo-6RsODrHLi2ZqPya6tRBUaC_zyXNhGaBx-WqxkxNcHiVDSZ3E0aBLiCLnoPr-FGBn335mtW7uBjrSxs5Vx8_KkhkzMw" />
             </div>
-
-            {/* Government Badges */}
-            <div className="flex justify-center gap-8 flex-wrap">
-              {/* MSME Badge - Left */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg ring-1 ring-slate-200">
-                <img src={msmeBadge} alt="MSME Registered" className="w-80 h-52 mx-auto mb-3" />
-                <p className="text-sm font-medium text-slate-900">MSME Registered</p>
-                <p className="text-xs text-slate-600">Government of India</p>
-              </div>
-
-              {/* Make in India Badge - Right */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg ring-1 ring-slate-200">
-                <img src={makeInIndiaBadge} alt="Make in India" className="w-[28rem] h-52 mx-auto mb-3" />
-                <p className="text-sm font-medium text-slate-900">Make in India</p>
-                <p className="text-xs text-slate-600">Government of India</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Company Stats */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {achievements.map((achievement, index) => (
-              <div key={index} className="text-center reveal">
-                <div className="text-4xl mb-2">{achievement.icon}</div>
-                <div className="text-3xl font-bold text-slate-900 mb-1">{achievement.number}</div>
-                <div className="text-sm text-slate-600">{achievement.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="reveal">
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">Our Mission & Vision</h2>
-
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">Mission</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  To bridge the gap between academic learning and industry requirements by providing
-                  hands-on mentorship, real project exposure, and personalized career guidance that
-                  accelerates professional growth in the technology sector.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">Vision</h3>
-                <p className="text-slate-600 leading-relaxed">
-                  To become the leading career transformation platform where every motivated learner
-                  can confidently enter the tech industry with a strong portfolio, practical skills,
-                  and the right mindset for long-term success.
-                </p>
-              </div>
-            </div>
-
-            <div className="reveal">
-              <div className="bg-white rounded-2xl p-8 shadow-lg ring-1 ring-slate-200">
-                <h3 className="text-xl font-semibold text-slate-900 mb-6">Why Choose Us</h3>
-                <ul className="space-y-4">
-                  {whyChooseUs.map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <img src={checkIcon} className="w-5 h-5 mt-0.5 flex-shrink-0" alt="check" />
-                      <span className="text-slate-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-8 pt-6 border-t border-slate-200">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="flex items-center gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                        </svg>
-                      ))}
+        </section>
+        {/*  Our Journey Timeline (Asymmetric Bento)  */}
+        <section className="px-margin-desktop py-section-gap max-w-container-max mx-auto">
+            <h2 className="font-headline-xl text-headline-xl text-primary mb-16">Our Evolution</h2>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                {/*  Year 1  */}
+                <div className="md:col-span-4 glass-card p-12 rounded-[48px] flex flex-col justify-between min-h-[400px]">
+                    <div>
+                        <span className="font-display-lg text-display-lg text-primary/10 block mb-4">2016</span>
+                        <h3 className="font-headline-md text-headline-md text-primary mb-4">The Foundation</h3>
+                        <p className="text-on-surface-variant font-body-md">Started as a boutique architectural firm
+                            focusing on legacy system modernization for global finance.</p>
                     </div>
-                    <span className="font-semibold text-slate-900">4.9/5</span>
-                  </div>
-                  <p className="text-sm text-slate-600">Based on 200+ student reviews</p>
+                    <div className="h-1 bg-primary-fixed w-1/4 rounded-full"></div>
                 </div>
-              </div>
+                {/*  Year 2  */}
+                <div
+                    className="md:col-span-8 glass-card p-12 rounded-[48px] flex flex-col md:flex-row gap-8 min-h-[400px] mt-12 md:mt-0">
+                    <div className="md:w-1/2 flex flex-col justify-between">
+                        <div>
+                            <span className="font-display-lg text-display-lg text-primary/10 block mb-4">2019</span>
+                            <h3 className="font-headline-md text-headline-md text-primary mb-4">Scaling Intelligence</h3>
+                            <p className="text-on-surface-variant font-body-md">Pivoted to include "The Forge"—our
+                                proprietary mentorship ecosystem that bridges the gap between senior architecture and
+                                emerging talent.</p>
+                        </div>
+                        <div className="h-1 bg-primary-fixed w-full rounded-full"></div>
+                    </div>
+                    <div className="md:w-1/2 h-full rounded-[32px] overflow-hidden">
+                        <img className="w-full h-full object-cover"
+                            data-alt="A professional collaborative environment where a diverse group of engineers are engaged in a high-level technical discussion around a translucent glass table. The lighting is crisp and cool-toned, with deep blue accents reflecting off the glass surfaces. The mood is one of focused innovation and elite mentorship, emphasizing human connection within a high-tech setting."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3ZVUwDj0E3pveaCkHhTy0rPzO4nNZCb3BG9uwFYhl05b5QdNwaJMfnPP9FH_oOAZsZoUFNoo47C5cUIeMmiaRlcOhENtHzxpq3R2HCSJB74vVIFjiymQHRiZZ6ULVHc09H-hbL_UAR1LG597PtwA7CnfhOu3FxwnIwFUChoNIhwi58NZMBDoeltG5UgOb0cToyioASqNYs3RV_Fh03OKfkLd3qVZ0GERfOI-PBhD14RUX8o5KOgdUITPSeA8PnCB61hxxpSYLq0A" />
+                    </div>
+                </div>
+                {/*  Year 3  */}
+                <div
+                    className="md:col-span-12 glass-card p-12 rounded-[48px] flex flex-col md:flex-row items-center gap-12 mt-12">
+                    <div className="md:w-1/3">
+                        <span className="font-display-lg text-display-lg text-primary/10 block mb-4">2024</span>
+                        <h3 className="font-headline-md text-headline-md text-primary mb-4">PathForge Global</h3>
+                        <p className="text-on-surface-variant font-body-md">Today, we operate across three continents,
+                            managing IT landscapes for the Fortune 100 with a focus on ethical AI and structural
+                            resilience.</p>
+                    </div>
+                    <div className="md:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div className="text-center">
+                            <p className="font-display-lg text-headline-xl text-primary">500+</p>
+                            <p className="text-label-md font-label-md text-on-surface-variant uppercase">Projects</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="font-display-lg text-headline-xl text-primary">42</p>
+                            <p className="text-label-md font-label-md text-on-surface-variant uppercase">Awards</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="font-display-lg text-headline-xl text-primary">12k</p>
+                            <p className="text-label-md font-label-md text-on-surface-variant uppercase">Mentorships</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="font-display-lg text-headline-xl text-primary">99%</p>
+                            <p className="text-label-md font-label-md text-on-surface-variant uppercase">Retention</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Client Testimonials */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12 reveal">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">What Our Clients Say</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Don't just take our word for it. Here's what our successful graduates have to say.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg ring-1 ring-slate-200 reveal">
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                    </svg>
-                  ))}
+        </section>
+        {/*  Trust & Validation Section  */}
+        <section className="px-margin-desktop py-section-gap max-w-container-max mx-auto">
+            <div className="flex flex-col gap-16">
+                <div
+                    className="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-outline-variant pb-8">
+                    <div className="max-w-2xl">
+                        <h2 className="font-headline-xl text-headline-xl text-primary mb-4">Trust &amp; Validation</h2>
+                        <p className="font-body-lg text-on-surface-variant">Our commitment to structural integrity is
+                            validated by national recognitions and verified success metrics.</p>
+                    </div>
+                    <div className="flex gap-6">
+                        {/*  MSME Badge  */}
+                        <div className="glass-card px-6 py-4 rounded-2xl flex items-center gap-4 border-primary/10">
+                            <div className="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center">
+                                <span className="material-symbols-outlined text-primary">verified_user</span>
+                            </div>
+                            <div>
+                                <p className="font-label-md text-primary leading-tight">MSME Registered Company</p>
+                                <p className="text-[10px] font-label-sm text-on-surface-variant uppercase tracking-wider">
+                                    Govt. of India Certified</p>
+                            </div>
+                        </div>
+                        {/*  Make in India Badge  */}
+                        <div className="glass-card px-6 py-4 rounded-2xl flex items-center gap-4 border-primary/10">
+                            <div className="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center">
+                                <span className="material-symbols-outlined text-primary">language</span>
+                            </div>
+                            <div>
+                                <p className="font-label-md text-primary leading-tight">Make in India</p>
+                                <p className="text-[10px] font-label-sm text-on-surface-variant uppercase tracking-wider">
+                                    National Initiative Partner</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p className="text-slate-700 mb-6 leading-relaxed">"{testimonial.content}"</p>
-                <div>
-                  <p className="font-semibold text-slate-900">{testimonial.name}</p>
-                  <p className="text-sm text-slate-600">{testimonial.role}</p>
+                {/*  Core Trust Metrics Grid  */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div className="glass-card p-10 rounded-[40px] transition-all duration-500 hover:-translate-y-2 group">
+                        <div
+                            className="w-14 h-14 rounded-2xl bg-secondary-fixed mb-6 flex items-center justify-center transition-colors group-hover:bg-primary group-hover:text-white">
+                            <span className="material-symbols-outlined text-2xl">school</span>
+                        </div>
+                        <p className="font-display-lg text-headline-xl text-primary mb-1">500+</p>
+                        <p className="font-label-md text-on-surface-variant uppercase tracking-widest text-glow">Students
+                            Mentored</p>
+                    </div>
+                    <div className="glass-card p-10 rounded-[40px] transition-all duration-500 hover:-translate-y-2 group">
+                        <div
+                            className="w-14 h-14 rounded-2xl bg-secondary-fixed mb-6 flex items-center justify-center transition-colors group-hover:bg-primary group-hover:text-white">
+                            <span className="material-symbols-outlined text-2xl">terminal</span>
+                        </div>
+                        <p className="font-display-lg text-headline-xl text-primary mb-1">150+</p>
+                        <p className="font-label-md text-on-surface-variant uppercase tracking-widest text-glow">Production
+                            Projects</p>
+                    </div>
+                    <div className="glass-card p-10 rounded-[40px] transition-all duration-500 hover:-translate-y-2 group">
+                        <div
+                            className="w-14 h-14 rounded-2xl bg-secondary-fixed mb-6 flex items-center justify-center transition-colors group-hover:bg-primary group-hover:text-white">
+                            <span className="material-symbols-outlined text-2xl">trending_up</span>
+                        </div>
+                        <p className="font-display-lg text-headline-xl text-primary mb-1">95%</p>
+                        <p className="font-label-md text-on-surface-variant uppercase tracking-widest text-glow">Placement
+                            Success</p>
+                    </div>
+                    <div className="glass-card p-10 rounded-[40px] transition-all duration-500 hover:-translate-y-2 group">
+                        <div
+                            className="w-14 h-14 rounded-2xl bg-secondary-fixed mb-6 flex items-center justify-center transition-colors group-hover:bg-primary group-hover:text-white">
+                            <span className="material-symbols-outlined text-2xl">public</span>
+                        </div>
+                        <p className="font-display-lg text-headline-xl text-primary mb-1">50+</p>
+                        <p className="font-label-md text-on-surface-variant uppercase tracking-widest text-glow">Global
+                            Industry Partners</p>
+                    </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Certificate Showcase Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12 reveal">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Internship Completion Certificate</h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto mb-8">
-              Upon successful completion of our internship programs, interns receive professional certificates
-              that validate their skills and enhance their career prospects.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Certificate Image */}
-            <div className="reveal">
-              <div className="bg-slate-50 rounded-2xl p-6 shadow-lg ring-1 ring-slate-200">
-                <img
-                  src={certificateSample}
-                  alt="RasuTech Consulting Internship Certificate Sample"
-                  className="w-full h-auto rounded-xl shadow-md hover:shadow-lg transition-shadow"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
             </div>
-
-            {/* Certificate Benefits */}
-            <div className="reveal">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Certificate Benefits & Features</h3>
-
-              <div className="space-y-6">
-                <div className="bg-gradient-to-r from-indigo-50 to-cyan-50 rounded-xl p-6">
-                  <h4 className="text-lg font-semibold text-slate-900 mb-3">Professional Recognition</h4>
-                  <ul className="space-y-2 text-slate-700">
-                    <li className="flex items-center gap-2">
-                      <img src={checkIcon} className="w-4 h-4 text-indigo-600" alt="check" />
-                      Industry-standard certificate design
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <img src={checkIcon} className="w-4 h-4 text-indigo-600" alt="check" />
-                      MSME registered company validation
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <img src={checkIcon} className="w-4 h-4 text-indigo-600" alt="check" />
-                      Unique certificate number for verification
-                    </li>
-                  </ul>
+        </section>
+        {/*  Mentorship Methodology (The Path Metaphor)  */}
+        <section className="bg-primary py-section-gap px-margin-desktop">
+            <div className="max-w-container-max mx-auto">
+                <div className="flex flex-col md:flex-row gap-24 items-start">
+                    <div className="md:w-1/2 sticky top-48">
+                        <h2 className="font-headline-xl text-headline-xl text-white mb-8">The Methodology of Excellence</h2>
+                        <p className="font-body-lg text-body-lg text-primary-fixed-dim/80 mb-12">Our consulting isn't a
+                            transaction; it's a structural transformation based on four pillars of progress.</p>
+                        <button
+                            className="border border-white/20 text-white px-10 py-4 rounded-full font-label-md hover:bg-white hover:text-primary transition-all">Download
+                            Protocol Whitepaper</button>
+                    </div>
+                    <div className="md:w-1/2 relative">
+                        {/*  Vertical Path Line  */}
+                        <div className="absolute left-6 top-0 bottom-0 w-px bg-secondary-fixed-dim opacity-30"></div>
+                        <div className="space-y-24">
+                            {/*  Node 1  */}
+                            <div className="relative pl-16 group">
+                                <div
+                                    className="absolute left-[20px] top-2 w-2 h-2 rounded-full bg-secondary-fixed shadow-[0_0_15px_rgba(178,197,255,0.8)] transition-all group-hover:scale-150">
+                                </div>
+                                <h4 className="font-headline-md text-headline-md text-white mb-4">Deep Diagnosis</h4>
+                                <p className="text-body-md text-primary-fixed-dim/70">We begin with a forensic audit of
+                                    current infrastructure, identifying the hidden frictions that stall innovation.</p>
+                            </div>
+                            {/*  Node 2  */}
+                            <div className="relative pl-16 group">
+                                <div
+                                    className="absolute left-[20px] top-2 w-2 h-2 rounded-full bg-secondary-fixed shadow-[0_0_15px_rgba(178,197,255,0.8)] transition-all group-hover:scale-150">
+                                </div>
+                                <h4 className="font-headline-md text-headline-md text-white mb-4">Forge &amp; Scale</h4>
+                                <p className="text-body-md text-primary-fixed-dim/70">Custom engineering of solutions that
+                                    don't just solve today's bugs but anticipate tomorrow's scale.</p>
+                            </div>
+                            {/*  Node 3  */}
+                            <div className="relative pl-16 group">
+                                <div
+                                    className="absolute left-[20px] top-2 w-2 h-2 rounded-full bg-secondary-fixed shadow-[0_0_15px_rgba(178,197,255,0.8)] transition-all group-hover:scale-150">
+                                </div>
+                                <h4 className="font-headline-md text-headline-md text-white mb-4">Talent Integration</h4>
+                                <p className="text-body-md text-primary-fixed-dim/70">Embedding our mentorship protocol into
+                                    your team to ensure the knowledge remains after we leave.</p>
+                            </div>
+                            {/*  Node 4  */}
+                            <div className="relative pl-16 group">
+                                <div
+                                    className="absolute left-[20px] top-2 w-2 h-2 rounded-full bg-secondary-fixed shadow-[0_0_15px_rgba(178,197,255,0.8)] transition-all group-hover:scale-150">
+                                </div>
+                                <h4 className="font-headline-md text-headline-md text-white mb-4">Sustained Evolution</h4>
+                                <p className="text-body-md text-primary-fixed-dim/70">Continuous architectural oversight and
+                                    periodic adjustments to keep the ecosystem optimized.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-xl p-6">
-                  <h4 className="text-lg font-semibold text-slate-900 mb-3">Career Enhancement</h4>
-                  <ul className="space-y-2 text-slate-700">
-                    <li className="flex items-center gap-2">
-                      <img src={checkIcon} className="w-4 h-4 text-indigo-600" alt="check" />
-                      Validates real-world project experience
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <img src={checkIcon} className="w-4 h-4 text-indigo-600" alt="check" />
-                      Enhances resume and LinkedIn profile
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <img src={checkIcon} className="w-4 h-4 text-indigo-600" alt="check" />
-                      Industry mentor endorsement
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6">
-                  <h4 className="text-lg font-semibold text-slate-900 mb-3">Additional Perks</h4>
-                  <ul className="space-y-2 text-slate-700">
-                    <li className="flex items-center gap-2">
-                      <img src={checkIcon} className="w-4 h-4 text-indigo-600" alt="check" />
-                      Letter of Recommendation (LOR)
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <img src={checkIcon} className="w-4 h-4 text-indigo-600" alt="check" />
-                      Portfolio review and optimization
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <img src={checkIcon} className="w-4 h-4 text-indigo-600" alt="check" />
-                      Job placement assistance
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="mt-8 p-6 bg-gradient-to-r from-indigo-600 to-cyan-500 rounded-xl text-white">
-                <h4 className="text-lg font-semibold mb-2">Ready to Earn Your Certificate?</h4>
-                <p className="text-white/90 mb-4">
-                  Join our internship programs and get certified by industry experts with real project experience.
-                </p>
-                <a
-                  href="/internship"
-                  className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-indigo-600 font-semibold shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  View Internship Tracks
-                </a>
-              </div>
             </div>
-          </div>
-        </div>
-      </section>
-
+        </section>
+        
       {/* Team Section */}
       <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4">
@@ -354,7 +283,6 @@ const About = () => {
                 <p className="text-lg font-medium text-slate-600 mb-4">{member.role}</p>
                 <p className="text-slate-600 leading-relaxed mb-6 px-4">{member.bio}</p>
                 <div className="flex justify-center gap-4">
-                  {/* LinkedIn Logo with Link */}
                   <a
                     href={member.linkedin}
                     target="_blank"
@@ -370,34 +298,45 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-indigo-600 to-cyan-500">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <div className="reveal">
-            <h2 className="text-3xl font-bold text-white mb-4">Ready to Transform Your Career?</h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Join hundreds of successful professionals who started their journey with RasuTech Consulting.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-white text-indigo-600 font-semibold shadow-lg hover:shadow-xl transition-shadow"
-              >
-                Start Your Journey
-              </a>
-              <a
-                href="/services"
-                className="inline-flex items-center justify-center px-8 py-3 rounded-lg border-2 border-white text-white font-semibold hover:bg-white hover:text-indigo-600 transition-colors"
-              >
-                Explore Services
-              </a>
+{/*  Values Section (Bento Grid)  */}
+        <section className="px-margin-desktop py-section-gap bg-surface-container-low rounded-t-[64px]">
+            <div className="max-w-container-max mx-auto">
+                <div className="text-center mb-16">
+                    <h2 className="font-headline-xl text-headline-xl text-primary mb-4">Our Core Directives</h2>
+                    <p className="text-body-lg text-on-surface-variant">Principles that guide every line of code and every
+                        strategic consultation.</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="bg-white p-12 rounded-[48px] shadow-sm hover:shadow-xl transition-shadow duration-500">
+                        <div className="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center mb-8">
+                            <span className="material-symbols-outlined text-primary text-3xl">verified</span>
+                        </div>
+                        <h4 className="font-headline-md text-headline-md text-primary mb-4">Radical Integrity</h4>
+                        <p className="text-on-surface-variant">We prioritize long-term system health over short-term
+                            quarterly gains. We tell the truths that others avoid.</p>
+                    </div>
+                    <div className="bg-white p-12 rounded-[48px] shadow-sm hover:shadow-xl transition-shadow duration-500">
+                        <div className="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center mb-8">
+                            <span className="material-symbols-outlined text-primary text-3xl">architecture</span>
+                        </div>
+                        <h4 className="font-headline-md text-headline-md text-primary mb-4">Structural Serenity</h4>
+                        <p className="text-on-surface-variant">Complexity is the enemy. Our designs aim for a "quiet power"
+                            where high-stakes systems feel manageable and calm.</p>
+                    </div>
+                    <div className="bg-white p-12 rounded-[48px] shadow-sm hover:shadow-xl transition-shadow duration-500">
+                        <div className="w-16 h-16 rounded-2xl bg-secondary-container flex items-center justify-center mb-8">
+                            <span className="material-symbols-outlined text-primary text-3xl">group</span>
+                        </div>
+                        <h4 className="font-headline-md text-headline-md text-primary mb-4">Human-First High Tech</h4>
+                        <p className="text-on-surface-variant">Technology is a tool for human flourishing. We mentor talent
+                            to become the architects of their own future.</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </section>
+        </section>
+    </main>
+    {/*  Footer  */}
+    
     </>
   );
-};
-
-export default About;
+}

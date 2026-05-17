@@ -242,52 +242,57 @@ const Contact = () => {
 
   return (
     <>
-      {/* Header Section */}
-      <section className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 border-b border-slate-200/60">
-        <div className="max-w-7xl mx-auto px-4 py-16">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-5xl sm:text-6xl font-semibold text-slate-900 bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-800 bg-clip-text text-transparent">
-              Get in touch
-            </h1>
-            <p className="mt-4 text-lg text-slate-600">Ready to start your journey? We're here to help you succeed.</p>
-            <p className="mt-2 text-slate-500">We usually respond within 24 hours.</p>
-          </div>
+      {/* Hero Section */}
+      <section className="pt-20 md:pt-32 pb-8 px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+        <div className="max-w-3xl">
+          <span className="inline-block bg-primary-fixed text-on-primary-fixed-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm mb-6">
+            Get In Touch
+          </span>
+          <h1 className="font-display-xl text-display-xl text-primary mb-6 tracking-tighter leading-tight">
+            Get in touch
+          </h1>
+          <p className="font-body-lg text-body-lg text-on-surface-variant mb-4">
+            Ready to start your journey? We're here to help you succeed.
+          </p>
+          <p className="font-body-sm text-body-sm text-on-surface-variant/75">
+            We usually respond within 24 hours.
+          </p>
         </div>
       </section>
 
       {/* Contact Form and Information */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-3 gap-12">
+      <section className="pb-24 px-margin-desktop max-w-container-max mx-auto">
+        <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 p-8 reveal">
+            <div className="glass-card rounded-[40px] p-8 md:p-10 reveal">
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-slate-900">Send us a message</h2>
-                <p className="mt-2 text-slate-600">Tell us about your needs and we'll get back to you soon.</p>
+                <h2 className="text-headline-lg font-headline-lg text-primary mb-2">Send us a message</h2>
+                <p className="text-body-md text-on-surface-variant">Tell us about your needs and we'll get back to you soon.</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Basic Information */}
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="block text-sm font-semibold text-slate-700">Full Name *</label>
+                    <label htmlFor="name" className="block text-label-sm font-label-sm text-primary">Full Name *</label>
                     <input 
                       id="name" 
                       name="name" 
                       type="text" 
                       required 
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 placeholder:text-slate-400" 
+                      className="w-full px-4 py-3 rounded-xl border border-primary/10 bg-white/55 focus:bg-white focus:border-primary/30 focus:ring-4 focus:ring-primary/5 transition-all duration-200 placeholder:text-on-surface-variant/40" 
                       placeholder="Enter your full name"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="email" className="block text-sm font-semibold text-slate-700">Email Address *</label>
+                    <label htmlFor="email" className="block text-label-sm font-label-sm text-primary">Email Address *</label>
                     <input 
                       id="email" 
                       name="email" 
                       type="email" 
                       required 
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 placeholder:text-slate-400" 
+                      className="w-full px-4 py-3 rounded-xl border border-primary/10 bg-white/55 focus:bg-white focus:border-primary/30 focus:ring-4 focus:ring-primary/5 transition-all duration-200 placeholder:text-on-surface-variant/40" 
                       placeholder="your.email@example.com"
                     />
                   </div>
@@ -295,35 +300,33 @@ const Contact = () => {
 
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="phone" className="block text-sm font-semibold text-slate-700">Phone Number *</label>
+                    <label htmlFor="phone" className="block text-label-sm font-label-sm text-primary">Phone Number *</label>
                     <input 
                       id="phone" 
                       name="phone" 
                       type="tel" 
                       required
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 placeholder:text-slate-400" 
-                      placeholder="+1 (234) 567-8900"
+                      className="w-full px-4 py-3 rounded-xl border border-primary/10 bg-white/55 focus:bg-white focus:border-primary/30 focus:ring-4 focus:ring-primary/5 transition-all duration-200 placeholder:text-on-surface-variant/40" 
+                      placeholder="+91 9709203002"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="block text-sm font-semibold text-slate-700">Service Type *</label>
+                    <label className="block text-label-sm font-label-sm text-primary">Service Type *</label>
                     <div className="relative" ref={serviceDropdownRef}>
                       <button 
                         type="button"
                         onClick={() => setServiceDropdownOpen(!serviceDropdownOpen)}
-                        className={`w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 hover:bg-white hover:border-slate-300 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 text-left flex items-center justify-between group ${serviceDropdownOpen ? 'ring-4 ring-blue-500/20 border-blue-500' : ''}`}
+                        className={`w-full px-4 py-3 rounded-xl border border-primary/10 bg-white/55 hover:bg-white/80 focus:bg-white focus:border-primary/30 focus:ring-4 focus:ring-primary/5 transition-all duration-200 text-left flex items-center justify-between group ${serviceDropdownOpen ? 'ring-4 ring-primary/10 border-primary/30' : ''}`}
                       >
-                        <span className={selectedService ? 'text-slate-900' : 'text-slate-400'}>
+                        <span className={selectedService ? 'text-primary font-medium' : 'text-on-surface-variant/40'}>
                           {getSelectedServiceLabel()}
                         </span>
-                        <svg className="w-5 h-5 text-slate-400 group-hover:text-slate-600 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
+                        <span className="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-colors">arrow_drop_down</span>
                       </button>
                       <input type="hidden" name="subject" value={selectedService} />
                       
                       {serviceDropdownOpen && (
-                        <div className="absolute z-50 w-full mt-2 bg-white rounded-xl shadow-2xl shadow-slate-200/50 border border-slate-100">
+                        <div className="absolute z-50 w-full mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_40px_100px_rgba(10,33,86,0.1)] border border-primary/10 overflow-hidden">
                           <div className="p-2">
                             <div className="relative mb-2">
                               <input 
@@ -331,11 +334,9 @@ const Contact = () => {
                                 placeholder="Search services..." 
                                 value={serviceSearch}
                                 onChange={(e) => setServiceSearch(e.target.value)}
-                                className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                                className="w-full pl-9 pr-4 py-2 text-sm border border-primary/10 rounded-lg focus:border-primary/30 focus:ring-2 focus:ring-primary/5 transition-all duration-200"
                               />
-                              <svg className="absolute right-3 top-2.5 w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                              </svg>
+                              <span className="material-symbols-outlined absolute left-3 top-2 w-4 h-4 text-on-surface-variant/40">search</span>
                             </div>
                             <div className="max-h-60 overflow-y-auto space-y-1">
                               {filteredServiceOptions.map((option) => (
@@ -343,7 +344,7 @@ const Contact = () => {
                                   key={option.value}
                                   type="button" 
                                   onClick={() => handleServiceChange(option.value)}
-                                  className="w-full px-3 py-2.5 text-left rounded-lg hover:bg-blue-50 hover:text-blue-700 transition-all duration-150 flex items-center gap-3 group"
+                                  className="w-full px-3 py-2 text-left rounded-lg hover:bg-primary-fixed hover:text-on-primary-fixed-variant transition-all duration-150 flex items-center gap-3 group"
                                 >
                                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors duration-150 ${getColorClasses(option.color)}`}>
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -351,8 +352,8 @@ const Contact = () => {
                                     </svg>
                                   </div>
                                   <div>
-                                    <div className="font-medium text-slate-900">{option.label}</div>
-                                    <div className="text-xs text-slate-500">{option.description}</div>
+                                    <div className="font-semibold text-primary text-sm">{option.label}</div>
+                                    <div className="text-xs text-on-surface-variant/60">{option.description}</div>
                                   </div>
                                 </button>
                               ))}
@@ -366,29 +367,27 @@ const Contact = () => {
 
                 {/* Dynamic Internship Fields */}
                 {showInternshipFields && (
-                  <div className="space-y-6 p-6 bg-blue-50/50 rounded-2xl border border-blue-100">
-                    <h3 className="text-lg font-semibold text-blue-900">Internship Details</h3>
+                  <div className="space-y-6 p-6 bg-primary-fixed rounded-3xl border border-primary/10">
+                    <h3 className="text-headline-md font-headline-md text-primary">Internship Details</h3>
                     
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="block text-sm font-semibold text-slate-700">Preferred Track *</label>
+                        <label className="block text-label-sm font-label-sm text-primary">Preferred Track *</label>
                         <div className="relative" ref={trackDropdownRef}>
                           <button 
                             type="button"
                             onClick={() => setTrackDropdownOpen(!trackDropdownOpen)}
-                            className={`w-full px-4 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 text-left flex items-center justify-between group ${trackDropdownOpen ? 'ring-4 ring-blue-500/20 border-blue-500' : ''}`}
+                            className={`w-full px-4 py-3 rounded-xl border border-primary/10 bg-white hover:bg-slate-50 focus:border-primary/30 focus:ring-4 focus:ring-primary/5 transition-all duration-200 text-left flex items-center justify-between group ${trackDropdownOpen ? 'ring-4 ring-primary/10 border-primary/30' : ''}`}
                           >
-                            <span className={selectedTrack ? 'text-slate-900' : 'text-slate-400'}>
+                            <span className={selectedTrack ? 'text-primary font-medium' : 'text-on-surface-variant/40'}>
                               {getSelectedTrackLabel()}
                             </span>
-                            <svg className="w-5 h-5 text-slate-400 group-hover:text-slate-600 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
+                            <span className="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-colors">arrow_drop_down</span>
                           </button>
                           <input type="hidden" name="internship-track" value={selectedTrack} />
                           
                           {trackDropdownOpen && (
-                            <div className="absolute z-50 w-full mt-2 bg-white rounded-xl shadow-2xl shadow-slate-200/50 border border-slate-100">
+                            <div className="absolute z-50 w-full mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_40px_100px_rgba(10,33,86,0.1)] border border-primary/10 overflow-hidden">
                               <div className="p-2">
                                 <div className="relative mb-2">
                                   <input 
@@ -396,11 +395,9 @@ const Contact = () => {
                                     placeholder="Search tracks..." 
                                     value={trackSearch}
                                     onChange={(e) => setTrackSearch(e.target.value)}
-                                    className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+                                    className="w-full pl-9 pr-4 py-2 text-sm border border-primary/10 rounded-lg focus:border-primary/30 focus:ring-2 focus:ring-primary/5 transition-all duration-200"
                                   />
-                                  <svg className="absolute right-3 top-2.5 w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                  </svg>
+                                  <span className="material-symbols-outlined absolute left-3 top-2 w-4 h-4 text-on-surface-variant/40">search</span>
                                 </div>
                                 <div className="max-h-60 overflow-y-auto space-y-1">
                                   {filteredTrackOptions.map((option) => (
@@ -408,7 +405,7 @@ const Contact = () => {
                                       key={option.value}
                                       type="button" 
                                       onClick={() => handleTrackChange(option.value)}
-                                      className="w-full px-3 py-2.5 text-left rounded-lg hover:bg-blue-50 hover:text-blue-700 transition-all duration-150 flex items-center gap-3 group"
+                                      className="w-full px-3 py-2 text-left rounded-lg hover:bg-primary-fixed hover:text-on-primary-fixed-variant transition-all duration-150 flex items-center gap-3 group"
                                     >
                                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors duration-150 ${getColorClasses(option.color)}`}>
                                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -416,8 +413,8 @@ const Contact = () => {
                                         </svg>
                                       </div>
                                       <div>
-                                        <div className="font-medium text-slate-900">{option.label}</div>
-                                        <div className="text-xs text-slate-500">{option.description}</div>
+                                        <div className="font-semibold text-primary text-sm">{option.label}</div>
+                                        <div className="text-xs text-on-surface-variant/60">{option.description}</div>
                                       </div>
                                     </button>
                                   ))}
@@ -428,24 +425,22 @@ const Contact = () => {
                         </div>
                       </div>
                       <div className="space-y-2">
-                        <label className="block text-sm font-semibold text-slate-700">Preferred Duration</label>
+                        <label className="block text-label-sm font-label-sm text-primary">Preferred Duration</label>
                         <div className="relative" ref={durationDropdownRef}>
                           <button 
                             type="button"
                             onClick={() => setDurationDropdownOpen(!durationDropdownOpen)}
-                            className={`w-full px-4 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 text-left flex items-center justify-between group ${durationDropdownOpen ? 'ring-4 ring-blue-500/20 border-blue-500' : ''}`}
+                            className={`w-full px-4 py-3 rounded-xl border border-primary/10 bg-white hover:bg-slate-50 focus:border-primary/30 focus:ring-4 focus:ring-primary/5 transition-all duration-200 text-left flex items-center justify-between group ${durationDropdownOpen ? 'ring-4 ring-primary/10 border-primary/30' : ''}`}
                           >
-                            <span className={selectedDuration ? 'text-slate-900' : 'text-slate-400'}>
+                            <span className={selectedDuration ? 'text-primary font-medium' : 'text-on-surface-variant/40'}>
                               {getSelectedDurationLabel()}
                             </span>
-                            <svg className="w-5 h-5 text-slate-400 group-hover:text-slate-600 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                            </svg>
+                            <span className="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-colors">arrow_drop_down</span>
                           </button>
                           <input type="hidden" name="duration" value={selectedDuration} />
                           
                           {durationDropdownOpen && (
-                            <div className="absolute z-50 w-full mt-2 bg-white rounded-xl shadow-2xl shadow-slate-200/50 border border-slate-100">
+                            <div className="absolute z-50 w-full mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_40px_100px_rgba(10,33,86,0.1)] border border-primary/10 overflow-hidden">
                               <div className="p-2 space-y-1">
                                 {durationOptions.map((option) => (
                                   <button 
@@ -455,7 +450,7 @@ const Contact = () => {
                                       setSelectedDuration(option.value);
                                       setDurationDropdownOpen(false);
                                     }}
-                                    className="w-full px-3 py-2.5 text-left rounded-lg hover:bg-blue-50 hover:text-blue-700 transition-all duration-150 flex items-center gap-3 group"
+                                    className="w-full px-3 py-2 text-left rounded-lg hover:bg-primary-fixed hover:text-on-primary-fixed-variant transition-all duration-150 flex items-center gap-3 group"
                                   >
                                     <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors duration-150 ${getColorClasses(option.color)}`}>
                                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -463,8 +458,8 @@ const Contact = () => {
                                       </svg>
                                     </div>
                                     <div>
-                                      <div className="font-medium text-slate-900">{option.label}</div>
-                                      <div className="text-xs text-slate-500">{option.description}</div>
+                                      <div className="font-semibold text-primary text-sm">{option.label}</div>
+                                      <div className="text-xs text-on-surface-variant/60">{option.description}</div>
                                     </div>
                                   </button>
                                 ))}
@@ -477,12 +472,12 @@ const Contact = () => {
 
                     {showCustomIdea && (
                       <div className="space-y-2">
-                        <label htmlFor="custom-idea" className="block text-sm font-semibold text-slate-700">Describe Your Project Idea *</label>
+                        <label htmlFor="custom-idea" className="block text-label-sm font-label-sm text-primary">Describe Your Project Idea *</label>
                         <textarea 
                           id="custom-idea" 
                           name="custom-idea" 
                           rows="4" 
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 placeholder:text-slate-400" 
+                          className="w-full px-4 py-3 rounded-xl border border-primary/10 bg-white focus:border-primary/30 focus:ring-4 focus:ring-primary/5 transition-all duration-200 placeholder:text-on-surface-variant/40" 
                           placeholder="Tell us about your project idea, goals, and what you'd like to learn..."
                           required
                         ></textarea>
@@ -490,24 +485,22 @@ const Contact = () => {
                     )}
 
                     <div className="space-y-2">
-                      <label className="block text-sm font-semibold text-slate-700">Experience Level</label>
+                      <label className="block text-label-sm font-label-sm text-primary">Experience Level</label>
                       <div className="relative" ref={experienceDropdownRef}>
                         <button 
                           type="button"
                           onClick={() => setExperienceDropdownOpen(!experienceDropdownOpen)}
-                          className={`w-full px-4 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 hover:border-slate-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 text-left flex items-center justify-between group ${experienceDropdownOpen ? 'ring-4 ring-blue-500/20 border-blue-500' : ''}`}
+                          className={`w-full px-4 py-3 rounded-xl border border-primary/10 bg-white hover:bg-slate-50 focus:border-primary/30 focus:ring-4 focus:ring-primary/5 transition-all duration-200 text-left flex items-center justify-between group ${experienceDropdownOpen ? 'ring-4 ring-primary/10 border-primary/30' : ''}`}
                         >
-                          <span className={selectedExperience ? 'text-slate-900' : 'text-slate-400'}>
+                          <span className={selectedExperience ? 'text-primary font-medium' : 'text-on-surface-variant/40'}>
                             {getSelectedExperienceLabel()}
                           </span>
-                          <svg className="w-5 h-5 text-slate-400 group-hover:text-slate-600 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                          </svg>
+                          <span className="material-symbols-outlined text-on-surface-variant/40 group-hover:text-primary transition-colors">arrow_drop_down</span>
                         </button>
                         <input type="hidden" name="experience-level" value={selectedExperience} />
                         
                         {experienceDropdownOpen && (
-                          <div className="absolute z-50 w-full mt-2 bg-white rounded-xl shadow-2xl shadow-slate-200/50 border border-slate-100">
+                          <div className="absolute z-50 w-full mt-2 bg-white/95 backdrop-blur-xl rounded-2xl shadow-[0_40px_100px_rgba(10,33,86,0.1)] border border-primary/10 overflow-hidden">
                             <div className="p-2 space-y-1">
                               {experienceOptions.map((option) => (
                                 <button 
@@ -517,7 +510,7 @@ const Contact = () => {
                                     setSelectedExperience(option.value);
                                     setExperienceDropdownOpen(false);
                                   }}
-                                  className="w-full px-3 py-2.5 text-left rounded-lg hover:bg-blue-50 hover:text-blue-700 transition-all duration-150 flex items-center gap-3 group"
+                                  className="w-full px-3 py-2.5 text-left rounded-lg hover:bg-primary-fixed hover:text-on-primary-fixed-variant transition-all duration-150 flex items-center gap-3 group"
                                 >
                                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors duration-150 ${getColorClasses(option.color)}`}>
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -525,8 +518,8 @@ const Contact = () => {
                                     </svg>
                                   </div>
                                   <div>
-                                    <div className="font-medium text-slate-900">{option.label}</div>
-                                    <div className="text-xs text-slate-500">{option.description}</div>
+                                    <div className="font-semibold text-primary text-sm">{option.label}</div>
+                                    <div className="text-xs text-on-surface-variant/60">{option.description}</div>
                                   </div>
                                 </button>
                               ))}
@@ -540,20 +533,20 @@ const Contact = () => {
 
                 {/* Message */}
                 <div className="space-y-2">
-                  <label htmlFor="message" className="block text-sm font-semibold text-slate-700">Message *</label>
+                  <label htmlFor="message" className="block text-label-sm font-label-sm text-primary">Message *</label>
                   <textarea 
                     id="message" 
                     name="message" 
                     rows="5" 
                     required 
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all duration-200 placeholder:text-slate-400" 
+                    className="w-full px-4 py-3 rounded-xl border border-primary/10 bg-white/55 focus:bg-white focus:border-primary/30 focus:ring-4 focus:ring-primary/5 transition-all duration-200 placeholder:text-on-surface-variant/40" 
                     placeholder="Tell us more about your requirements, goals, or any specific questions you have..."
                   ></textarea>
                 </div>
 
                 {/* Preferred Contact Method */}
                 <div className="space-y-2">
-                  <label className="block text-sm font-semibold text-slate-700">Preferred Contact Method *</label>
+                  <label className="block text-label-sm font-label-sm text-primary">Preferred Contact Method *</label>
                   <div className="grid sm:grid-cols-3 gap-4">
                     {contactMethodOptions.map((option) => (
                       <label key={option.value} className="relative cursor-pointer group">
@@ -567,8 +560,8 @@ const Contact = () => {
                         />
                         <div className={`p-4 rounded-xl border-2 transition-all duration-200 ${
                           preferredContactMethod === option.value 
-                            ? 'border-blue-500 bg-blue-50 shadow-md' 
-                            : 'border-slate-200 bg-slate-50 hover:border-slate-300 hover:bg-white'
+                            ? 'border-primary bg-primary-fixed shadow-md' 
+                            : 'border-primary/10 bg-white/55 hover:border-primary/35 hover:bg-white'
                         }`}>
                           <div className="flex items-center gap-3">
                             <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors duration-150 ${
@@ -581,13 +574,13 @@ const Contact = () => {
                               </svg>
                             </div>
                             <div className="flex-1">
-                              <div className={`font-medium transition-colors duration-200 ${
-                                preferredContactMethod === option.value ? 'text-blue-900' : 'text-slate-900'
+                              <div className={`font-semibold text-sm transition-colors duration-200 ${
+                                preferredContactMethod === option.value ? 'text-primary' : 'text-primary'
                               }`}>
                                 {option.label}
                               </div>
                               <div className={`text-xs transition-colors duration-200 ${
-                                preferredContactMethod === option.value ? 'text-blue-700' : 'text-slate-500'
+                                preferredContactMethod === option.value ? 'text-on-primary-fixed-variant' : 'text-on-surface-variant/60'
                               }`}>
                                 {option.description}
                               </div>
@@ -601,25 +594,27 @@ const Contact = () => {
 
                 {/* Phone Call Scheduling Fields */}
                 {preferredContactMethod === 'phone-call' && (
-                  <div className="space-y-4 p-4 bg-green-50 rounded-xl border border-green-200">
-                    <h4 className="text-sm font-semibold text-green-900">📞 Schedule Your Free Consultation Call</h4>
+                  <div className="space-y-4 p-5 bg-primary-fixed rounded-2xl border border-primary/10">
+                    <h4 className="text-label-md font-label-md text-primary flex items-center gap-2">
+                      <span className="material-symbols-outlined">phone_callback</span> Schedule Your Free Consultation Call
+                    </h4>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
-                        <label htmlFor="preferred-date" className="block text-sm font-medium text-green-800">Preferred Date</label>
+                        <label htmlFor="preferred-date" className="block text-xs font-semibold text-primary">Preferred Date</label>
                         <input 
                           id="preferred-date" 
                           name="preferred-date" 
                           type="date" 
                           min={new Date().toISOString().split('T')[0]}
-                          className="w-full px-3 py-2 rounded-lg border border-green-200 bg-white focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition-all duration-200" 
+                          className="w-full px-3 py-2 rounded-lg border border-primary/10 bg-white focus:border-primary/30 focus:ring-2 focus:ring-primary/5 transition-all duration-200 text-sm" 
                         />
                       </div>
                       <div className="space-y-2">
-                        <label htmlFor="preferred-time" className="block text-sm font-medium text-green-800">Preferred Time</label>
+                        <label htmlFor="preferred-time" className="block text-xs font-semibold text-primary">Preferred Time</label>
                         <select 
                           id="preferred-time" 
                           name="preferred-time"
-                          className="w-full px-3 py-2 rounded-lg border border-green-200 bg-white focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition-all duration-200"
+                          className="w-full px-3 py-2 rounded-lg border border-primary/10 bg-white focus:border-primary/30 focus:ring-2 focus:ring-primary/5 transition-all duration-200 text-sm"
                         >
                           <option value="">Select time</option>
                           <option value="9:00 AM">9:00 AM</option>
@@ -634,7 +629,7 @@ const Contact = () => {
                         </select>
                       </div>
                     </div>
-                    <p className="text-xs text-green-700">
+                    <p className="text-xs text-on-surface-variant/70">
                       💡 We'll confirm your call time via email and phone. Our team will call you for a free 15-minute consultation.
                     </p>
                   </div>
@@ -647,24 +642,21 @@ const Contact = () => {
                     name="consent" 
                     type="checkbox" 
                     required
-                    className="mt-1 rounded border-slate-300 text-blue-600 focus:ring-blue-500 focus:ring-2" 
+                    className="mt-1 rounded border-primary/10 text-primary focus:ring-primary/20" 
                   />
-                  <label htmlFor="consent" className="text-sm text-slate-600">
-                    I agree to be contacted regarding my inquiry and understand that my information will be handled according to your 
-                    <a href="#" className="text-blue-600 hover:text-blue-700 underline">privacy policy</a>.
+                  <label htmlFor="consent" className="text-xs text-on-surface-variant/80">
+                    I agree to be contacted regarding my inquiry and understand that my information will be handled according to your{' '}
+                    <a href="#" className="text-primary underline">privacy policy</a>.
                   </label>
                 </div>
 
-                
                 <div className="text-sm"></div>
 
                 {/* Success/Error Messages */}
                 {submitMessage && (
                   <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
                     <div className="flex items-center gap-2">
-                      <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                      </svg>
+                      <span className="material-symbols-outlined text-green-600">check_circle</span>
                       <p className="text-green-800 font-medium">Success!</p>
                     </div>
                     <p className="text-green-700 text-sm mt-1">{submitMessage}</p>
@@ -674,9 +666,7 @@ const Contact = () => {
                 {submitError && (
                   <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
                     <div className="flex items-center gap-2">
-                      <svg className="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                      </svg>
+                      <span className="material-symbols-outlined text-red-600">error</span>
                       <p className="text-red-800 font-medium">Error!</p>
                     </div>
                     <p className="text-red-700 text-sm mt-1">{submitError}</p>
@@ -687,10 +677,10 @@ const Contact = () => {
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className={`w-full inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold shadow-lg transition-all duration-200 ${
+                  className={`w-full inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold shadow-lg transition-all duration-200 ${
                     isSubmitting 
                       ? 'bg-gray-400 text-gray-200 cursor-not-allowed' 
-                      : 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-[1.02] transform'
+                      : 'bg-primary text-white hover:bg-primary-container hover:scale-[1.02] transform'
                   }`}
                 >
                   {isSubmitting ? (
@@ -702,23 +692,17 @@ const Contact = () => {
                     </>
                   ) : preferredContactMethod === 'phone-call' ? (
                     <>
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                      </svg>
+                      <span className="material-symbols-outlined text-lg mr-2">phone_callback</span>
                       Schedule Free Call
                     </>
                   ) : preferredContactMethod === 'whatsapp' ? (
                     <>
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-                      </svg>
+                      <span className="material-symbols-outlined text-lg mr-2">chat</span>
                       Start WhatsApp Chat
                     </>
                   ) : (
                     <>
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                      </svg>
+                      <span className="material-symbols-outlined text-lg mr-2">send</span>
                       Send Message
                     </>
                   )}
@@ -730,41 +714,34 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="reveal">
-              <div className="bg-white rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-4">Contact Information</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                      <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                      </svg>
+              <div className="glass-card rounded-[32px] p-8">
+                <h3 className="text-xl font-bold text-primary mb-6">Contact Information</h3>
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-primary-fixed text-on-primary-fixed-variant rounded-full flex items-center justify-center">
+                      <span className="material-symbols-outlined">mail</span>
                     </div>
                     <div>
-                      <p className="font-semibold text-slate-900">Email</p>
-                      <p className="text-slate-600">rakshitros1@gmail.com</p>
+                      <p className="font-semibold text-primary">Email</p>
+                      <p className="text-on-surface-variant/80 text-sm">rakshitros1@gmail.com</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                      <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                      </svg>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-primary-fixed text-on-primary-fixed-variant rounded-full flex items-center justify-center">
+                      <span className="material-symbols-outlined">call</span>
                     </div>
                     <div>
-                      <p className="font-semibold text-slate-900">Phone</p>
-                      <p className="text-slate-600">+91 9709203002</p>
+                      <p className="font-semibold text-primary">Phone</p>
+                      <p className="text-on-surface-variant/80 text-sm">+91 9709203002</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
-                      <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                      </svg>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-primary-fixed text-on-primary-fixed-variant rounded-full flex items-center justify-center">
+                      <span className="material-symbols-outlined">location_on</span>
                     </div>
                     <div>
-                      <p className="font-semibold text-slate-900">Location</p>
-                      <p className="text-slate-600">Andheri East, Mumbai, India</p>
+                      <p className="font-semibold text-primary">Location</p>
+                      <p className="text-on-surface-variant/80 text-sm">Andheri East, Mumbai, India</p>
                     </div>
                   </div>
                 </div>
@@ -772,9 +749,9 @@ const Contact = () => {
             </div>
 
             <div className="reveal">
-              <div className="bg-white rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 overflow-hidden">
-                <div className="px-6 pt-4 pb-2 flex items-center justify-between">
-                  <h3 className="text-xl font-bold text-slate-900">Office Location</h3>
+              <div className="glass-card rounded-[32px] overflow-hidden">
+                <div className="px-6 pt-5 pb-3 flex items-center justify-between border-b border-primary/5">
+                  <h3 className="text-lg font-bold text-primary">Office Location</h3>
                   <button 
                     onClick={() => {
                       const iframe = document.getElementById('office-map');
@@ -782,12 +759,10 @@ const Contact = () => {
                         iframe.src = iframe.src;
                       }
                     }}
-                    className="inline-flex items-center gap-2 px-3 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold text-primary bg-primary-fixed rounded-lg hover:scale-105 transition-transform"
                     title="Reset map to office location"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                    </svg>
+                    <span className="material-symbols-outlined text-sm">my_location</span>
                     Recenter
                   </button>
                 </div>
@@ -807,35 +782,27 @@ const Contact = () => {
             </div>
 
             <div className="reveal">
-              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-3">Why Choose RasuTech Consulting?</h3>
-                <div className="space-y-3 text-blue-100">
-                  <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                    </svg>
-                    <span className="text-sm">MSME Registered Company</span>
+              <div className="bg-primary text-white rounded-[32px] p-8">
+                <h3 className="text-headline-md font-headline-md mb-4">Why Choose PathForge Solutions?</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-on-primary-container text-lg">verified</span>
+                    <span className="text-sm font-medium">MSME Registered Company</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                    </svg>
-                    <span className="text-sm">500+ Students Mentored</span>
+                  <div className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-on-primary-container text-lg">verified</span>
+                    <span className="text-sm font-medium">500+ Students Mentored</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                    </svg>
-                    <span className="text-sm">95% Success Rate</span>
+                  <div className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-on-primary-container text-lg">verified</span>
+                    <span className="text-sm font-medium">95% Success Rate</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-blue-200" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-                    </svg>
-                    <span className="text-sm">Real Project Experience</span>
+                  <div className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-on-primary-container text-lg">verified</span>
+                    <span className="text-sm font-medium">Real Project Experience</span>
                   </div>
                 </div>
-                <p className="text-blue-200 text-sm mt-4">
+                <p className="text-on-primary-container text-xs mt-6">
                   💡 Fill out the form to get started with your preferred contact method!
                 </p>
               </div>
