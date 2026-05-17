@@ -10,18 +10,25 @@ export default function Page() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
             <div className="lg:col-span-7">
                 <span className="inline-block bg-primary-fixed text-on-primary-fixed-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm mb-6">EXECUTIVE CAREER ADVISORY</span>
-                <h1 className="text-display-lg font-display-lg text-primary mb-8 leading-[1.1]">The Architecture of <span
-                        className="text-on-primary-container">Career Ascent</span></h1>
+                <h1 className="font-headline text-5xl md:text-7xl font-extrabold text-[#0A2156] leading-[1.1] tracking-tight mb-8">
+                  The Architecture of <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">Career Ascent</span>
+                </h1>
                 <p className="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mb-10">We engineer professional
                     trajectories for the elite tier of IT leadership. From portfolio optimization to executive
                     roadmapping, we build the scaffolding for your next decade of growth.</p>
                 <div className="flex flex-wrap gap-4">
-                    <button
-                        className="bg-primary text-white px-8 py-4 rounded-xl font-label-md hover:bg-primary-container transition-colors ambient-shadow">Start
-                        Your Roadmap</button>
-                    <button
-                        className="glass-card px-8 py-4 rounded-xl font-label-md text-primary border border-primary/10 hover:bg-white/80 transition-colors">View
-                        Methodology</button>
+                    <Link
+                        href="/contact"
+                        className="btn-premium-gradient"
+                    >
+                        Start Your Roadmap
+                    </Link>
+                    <Link
+                        href="/about"
+                        className="glass-card px-8 py-2.5 rounded-[12px] font-label-sm text-primary border border-primary/10 hover:bg-white/80 transition-colors flex items-center justify-center"
+                    >
+                        View Methodology
+                    </Link>
                 </div>
             </div>
             <div className="lg:col-span-5 relative">

@@ -33,8 +33,8 @@ export default function Services() {
           <div className="flex flex-col md:flex-row items-end gap-gutter">
             <div className="md:w-2/3">
               <span className="inline-block bg-primary-fixed text-on-primary-fixed-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm mb-6">Engineered Excellence</span>
-              <h1 className="font-display-xl text-display-xl text-primary mb-8 tracking-tighter leading-tight">
-                Architecting the <br />Future of Tech Talent.
+              <h1 className="font-headline text-5xl md:text-7xl font-extrabold text-[#0A2156] leading-[1.1] tracking-tight mb-8">
+                Architecting the <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">Future</span> of Tech Talent.
               </h1>
             </div>
             <div className="md:w-1/3 mb-4">

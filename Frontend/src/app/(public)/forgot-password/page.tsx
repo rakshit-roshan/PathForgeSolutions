@@ -50,7 +50,7 @@ export default function ForgotPasswordPage() {
               <p className="text-xs text-slate-500 mb-6 italic">
                 (Check your server console since this is a local development environment!)
               </p>
-              <Link href="/login" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-700 hover:to-cyan-600 shadow-lg transition-all duration-200">
+              <Link href="/login" className="group relative w-full flex justify-center btn-premium-gradient !py-2.5 !px-4 !rounded-lg text-sm transition-all duration-200">
                 Return to login
               </Link>
             </div>
@@ -96,7 +96,7 @@ export default function ForgotPasswordPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-700 hover:to-cyan-600 shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50"
+                className="group relative w-full flex justify-center btn-premium-gradient !py-2.5 !px-4 !rounded-lg text-sm transition-all duration-200 disabled:opacity-50"
               >
                 {isLoading ? ( 
                   <>

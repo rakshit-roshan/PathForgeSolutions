@@ -248,8 +248,8 @@ const Contact = () => {
           <span className="inline-block bg-primary-fixed text-on-primary-fixed-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm mb-6">
             Get In Touch
           </span>
-          <h1 className="font-display-xl text-display-xl text-primary mb-6 tracking-tighter leading-tight">
-            Get in touch
+          <h1 className="font-headline text-5xl md:text-7xl font-extrabold text-[#0A2156] leading-[1.1] tracking-tight mb-8">
+            Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">Touch</span>
           </h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant mb-4">
             Ready to start your journey? We're here to help you succeed.
@@ -680,7 +680,7 @@ const Contact = () => {
                   className={`w-full inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold shadow-lg transition-all duration-200 ${
                     isSubmitting 
                       ? 'bg-gray-400 text-gray-200 cursor-not-allowed' 
-                      : 'bg-primary text-white hover:bg-primary-container hover:scale-[1.02] transform'
+                      : 'btn-premium-gradient w-full py-4 text-base'
                   }`}
                 >
                   {isSubmitting ? (

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 const JobConsultancy = () => {
   useEffect(() => {
@@ -27,10 +28,17 @@ const JobConsultancy = () => {
   return (
     <>
       {/* Header Section */}
-      <section className="bg-slate-50 border-b border-slate-200/60">
-        <div className="max-w-7xl mx-auto px-4 py-12">
-          <h1 className="text-4xl sm:text-5xl font-semibold text-slate-600">Job Consultancy</h1>
-          <p className="mt-3 text-slate-600 max-w-3xl">Focus on interviews while we take care of the logistics.</p>
+      <section className="relative pt-20 md:pt-32 pb-8 px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+        <div className="max-w-3xl">
+          <span className="inline-block bg-primary-fixed text-on-primary-fixed-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm mb-6">
+            Elite Placement
+          </span>
+          <h1 className="font-headline text-5xl md:text-7xl font-extrabold text-[#0A2156] leading-[1.1] tracking-tight mb-8">
+            Job <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">Consultancy</span>
+          </h1>
+          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            Focus on interviews while we take care of all the application logistics and pipeline management.
+          </p>
         </div>
       </section>
 
@@ -45,9 +53,9 @@ const JobConsultancy = () => {
               <li>Call scheduling and coordination</li>
               <li>Interview prep & follow‑ups</li>
             </ol>
-            <a href="/contact" className="mt-6 inline-flex items-center justify-center px-5 py-2.5 rounded-md ring-1 ring-slate-300 hover:bg-slate-50">
+            <Link href="/contact" className="mt-6 btn-premium-gradient">
               Talk to us
-            </a>
+            </Link>
           </div>
           <div className="reveal">
             <div className="rounded-2xl bg-gradient-to-r from-indigo-600 to-cyan-500 p-8 text-white">

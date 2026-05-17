@@ -50,8 +50,8 @@ export default function About() {
         <section className="pt-20 md:pt-32 pb-8 px-margin-desktop max-w-container-max mx-auto">
             <span className="inline-block bg-primary-fixed text-on-primary-fixed-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm mb-6">The Path Within</span>
             <h1
-                className="font-display-lg text-display-lg md:text-display-xl text-primary mb-8 max-w-4xl leading-tight">
-                Architecting the future of IT intelligence.</h1>
+                className="font-headline text-5xl md:text-7xl font-extrabold text-[#0A2156] leading-[1.1] tracking-tight mb-8 max-w-4xl">
+                Architecting the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">Future</span> of IT Intelligence.</h1>
             <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-8">We don't just solve
                 problems; we forge sustainable ecosystems where technology and talent evolve in perfect harmony.</p>
             <div className="w-full h-[360px] rounded-[32px] overflow-hidden glass-card p-3 mt-8">

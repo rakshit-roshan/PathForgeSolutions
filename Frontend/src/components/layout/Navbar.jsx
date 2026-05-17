@@ -96,7 +96,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/contact"
-              className="bg-gradient-to-r from-primary to-primary-container text-white px-6 py-2 rounded-full font-headline font-bold text-sm shadow-md hover:opacity-90 transition-all active:scale-[0.98]"
+              className="btn-premium-gradient"
             >
               Consultation
             </Link>
@@ -112,7 +112,7 @@ const Navbar = () => {
         </Link>
         <Link
           href="/login"
-          className="bg-gradient-to-r from-primary to-primary-container text-white px-4 py-1.5 rounded-full font-headline font-bold text-xs shadow-sm hover:opacity-90 transition-all active:scale-[0.98]"
+          className="btn-premium-gradient !py-1.5 !px-4 !text-xs !rounded-full"
         >
           Login
         </Link>
@@ -207,7 +207,7 @@ const Navbar = () => {
           <div className="border-t border-slate-100 pt-6 flex flex-col gap-3">
             <Link
               href="/contact"
-              className="w-full text-center py-2.5 rounded-xl bg-gradient-to-r from-primary to-primary-container text-white font-headline font-bold text-sm shadow-md hover:opacity-90 transition-all active:scale-[0.98]"
+              className="w-full text-center btn-premium-gradient"
               onClick={() => setIsDrawerOpen(false)}
             >
               Get Consultation

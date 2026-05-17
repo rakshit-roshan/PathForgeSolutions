@@ -45,7 +45,7 @@ export default function Page() {
               <div className="flex items-center gap-6">
                 <Link
                   href="/contact"
-                  className="bg-gradient-to-r from-primary to-primary-container text-white px-8 py-3.5 rounded-full font-headline font-bold text-base shadow-md hover:opacity-90 transition-all active:scale-[0.98] hover:-translate-y-0.5"
+                  className="btn-premium-gradient !py-3.5 !px-8 !text-base"
                 >
                   Explore Careers
                 </Link>

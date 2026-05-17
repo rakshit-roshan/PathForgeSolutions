@@ -440,3 +440,59 @@ tbody tr:last-child td {
   font-size: var(--font-size-display-xl) !important;
 }
 
+/* ── Premium Custom Gradient Button Override ── */
+.btn-premium-gradient {
+  background-image: linear-gradient(to right, #465c97, #a5bbfc) !important;
+  color: #ffffff !important;
+  padding-block: 0.5rem !important; /* py-2 */
+  padding-inline: 1.5rem !important; /* px-6 */
+  border-radius: 0.75rem !important; /* .rounded-full -> .75rem override */
+  font-family: "Manrope", sans-serif !important; /* font-headline */
+  font-weight: 700 !important; /* font-bold */
+  font-size: 0.875rem !important; /* text-sm */
+  line-height: 1.25rem !important;
+  box-shadow: 0 4px 8px 0 rgba(10, 33, 86, 0.08) !important; /* shadow-md override */
+  transition: all 0.2s ease-in-out !important; /* transition-all override */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.btn-premium-gradient:hover {
+  opacity: 0.9 !important;
+  box-shadow: 0 6px 12px 0 rgba(10, 33, 86, 0.12) !important;
+  transform: translateY(-1px);
+}
+
+.btn-premium-gradient:active {
+  transform: scale(0.98) !important;
+}
+
+/* ── Premium Custom Gradient Text Clip Override ── */
+.text-transparent, text-transparent {
+    color: #0000 !important;
+    -webkit-text-fill-color: transparent !important;
+}
+.bg-clip-text {
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+}
+.to-primary-container {
+    --tw-gradient-to: #a5bbfc !important;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+.from-primary {
+    --tw-gradient-from: #465c97 !important;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+.bg-gradient-to-r {
+    background-image: linear-gradient(to right, var(--tw-gradient-from, #465c97), var(--tw-gradient-to, #a5bbfc)) !important;
+}
+
+/* ── Explicit Headline Font Override ── */
+.font-headline {
+    font-family: "Manrope", sans-serif !important;
+}
+
+
