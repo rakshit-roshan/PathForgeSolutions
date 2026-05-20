@@ -41,6 +41,13 @@ public class DailyLogService {
             log.setPlanTomorrow(dto.getPlanTomorrow());
             log.setMood(dto.getMood());
 
+            if (dto.getTools() != null && !dto.getTools().isEmpty()) {
+                log.setTools(String.join(",", dto.getTools()));
+            } else {
+                log.setTools("");
+            }
+            log.setStatus("PENDING");
+
             return dailyLogRepository.save(log);
         }
         throw new RuntimeException("User not found");

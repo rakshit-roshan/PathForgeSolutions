@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AdminSuite | Employee Daily Log Console</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "secondary": "#505f76",
+                        "primary": "#003ec7",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "outline": "#737688",
+                        "on-surface-variant": "#434656",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdbd2",
+                        "on-primary-fixed-variant": "#0038b6",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "inverse-surface": "#2d3133",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#952200",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline-variant": "#c3c5d9",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#001452",
+                        "surface-tint": "#004ced",
+                        "tertiary-container": "#bf3003",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "inverse-primary": "#b7c4ff",
+                        "primary-fixed": "#dde1ff",
+                        "tertiary-fixed-dim": "#ffb4a1",
+                        "surface-bright": "#f7f9fb",
+                        "background": "#f7f9fb",
+                        "on-primary-container": "#dfe3ff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "primary-container": "#0052ff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-container": "#54647a",
+                        "on-tertiary-fixed-variant": "#891e00",
+                        "on-secondary-fixed": "#0b1c30",
+                        "secondary-container": "#d0e1fb",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#ffddd5",
+                        "on-tertiary-fixed": "#3c0800",
+                        "surface-container": "#eceef0",
+                        "primary-fixed-dim": "#b7c4ff",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "container-max-width": "1440px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "title-md": ["Inter"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .glass-card-inner {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+    <!-- SideNavBar Shell -->
+    <aside
+        class="fixed h-full w-[280px] left-0 top-0 bg-white/70 backdrop-blur-xl border-r border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.04)] flex flex-col p-6 z-50">
+        <div class="mb-10">
+            <h1 class="font-headline-md text-headline-md font-bold text-primary">AdminSuite</h1>
+            <p class="text-secondary font-label-md">Enterprise Management</p>
+        </div>
+        <nav class="flex-1 space-y-2">
+            <!-- Logs is active -->
+            <a class="flex items-center gap-3 p-3 duration-200 ease-in-out hover:bg-primary/5 transition-colors text-secondary"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                <span class="font-body-md">Metrics</span>
+            </a>
+            <a class="flex items-center gap-3 p-3 duration-200 ease-in-out text-primary font-bold border-r-2 border-primary bg-primary/5 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+                <span class="font-body-md">Logs</span>
+            </a>
+            <a class="flex items-center gap-3 p-3 duration-200 ease-in-out hover:bg-primary/5 transition-colors text-secondary"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="description">description</span>
+                <span class="font-body-md">Documents</span>
+            </a>
+            <a class="flex items-center gap-3 p-3 duration-200 ease-in-out hover:bg-primary/5 transition-colors text-secondary"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+                <span class="font-body-md">Profile</span>
+            </a>
+        </nav>
+        <div class="mt-auto space-y-2">
+            <a class="flex items-center gap-3 p-3 duration-200 ease-in-out hover:bg-primary/5 transition-colors text-secondary"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                <span class="font-body-md">Settings</span>
+            </a>
+            <a class="flex items-center gap-3 p-3 duration-200 ease-in-out hover:bg-primary/5 transition-colors text-secondary"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="help">help</span>
+                <span class="font-body-md">Support</span>
+            </a>
+        </div>
+    </aside>
+    <!-- TopNavBar Shell -->
+    <header
+        class="fixed top-0 right-0 w-[calc(100%-280px)] bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 flex justify-between items-center px-margin-desktop h-16 z-40">
+        <div class="flex items-center flex-1 max-w-xl">
+            <div class="relative w-full">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline"
+                    data-icon="search">search</span>
+                <input
+                    class="w-full bg-surface-container border-none rounded-full py-2 pl-10 pr-4 focus:ring-2 focus:ring-primary/20 transition-all font-body-md"
+                    placeholder="Search entries, tasks or tools..." type="text" />
+            </div>
+        </div>
+        <div class="flex items-center gap-6">
+            <button class="relative scale-95 active:scale-90 hover:text-primary transition-all">
+                <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+                <span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+            </button>
+            <button class="scale-95 active:scale-90 hover:text-primary transition-all">
+                <span class="material-symbols-outlined" data-icon="apps">apps</span>
+            </button>
+            <div class="h-8 w-8 rounded-full bg-primary-fixed overflow-hidden border border-outline-variant/30">
+                <img alt="User Profile" class="w-full h-full object-cover"
+                    data-alt="A professional headshot of a modern office worker in a clean, minimalist setting. The lighting is soft and natural, reflecting a bright, light-mode design system. The individual has a confident yet approachable expression, fitting a premium enterprise software interface aesthetic with neutral tones and sharp clarity."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRldnaQ6NCOFH9SPAzvwR9ViGs85PxQf0lOeC9S5ClcIkWc9KOjuCEvNVHXe-OXMLxlTnHdX7R5mzySgVaCGwPU5KM_p_ymakzYaZlAFudFIaFxiCsRbl9QSxd-djRZ8p9Q4-lnMo-U8QfZY7vwCUBUtDzvkYWYDdgepGH0vlI3J3WtmlXoNLpoZIyS5ADIamfEoEvTu36_BeajCNQsHbZ93RytT-z_cv9ov1FNUePENBTEGjE9uqsB6t02uXE4adp46MUq-tPYtA" />
+            </div>
+        </div>
+    </header>
+    <!-- Main Content Canvas -->
+    <main class="ml-[280px] pt-24 px-margin-desktop pb-12">
+        <!-- Header Section -->
+        <div class="mb-10">
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">Daily Log Console</h2>
+            <p class="text-secondary font-body-lg">Record your progress, tools, and mental wellbeing for today.</p>
+        </div>
+        <div class="grid grid-cols-12 gap-gutter">
+            <!-- Log Form Section (Bento Grid Item 1) -->
+            <div class="col-span-12 lg:col-span-7">
+                <div class="glass-card glass-card-inner rounded-xl p-8 h-full">
+                    <div class="flex justify-between items-center mb-8">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary"
+                                data-icon="history_edu">history_edu</span>
+                            <h3 class="font-title-md text-title-md">New Entry</h3>
+                        </div>
+                        <div class="px-4 py-1.5 bg-primary/10 rounded-full flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-[16px]"
+                                data-icon="today">today</span>
+                            <span class="text-primary font-label-md">TODAY, OCT 24</span>
+                        </div>
+                    </div>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-2 gap-gutter">
+                            <div class="space-y-2">
+                                <label class="font-label-md text-secondary block">Hours Worked</label>
+                                <input
+                                    class="w-full bg-white/50 border border-outline-variant/30 rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+                                    placeholder="8.0" step="0.5" type="number" />
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-label-md text-secondary block">Work Date</label>
+                                <div class="relative">
+                                    <input
+                                        class="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg py-3 px-4 text-on-surface-variant cursor-not-allowed"
+                                        disabled="" type="text" value="Oct 24, 2023" />
+                                    <span
+                                        class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant"
+                                        data-icon="lock">lock</span>
+                                </div>
+                                <p class="text-caption text-outline">New logs restricted to current day.</p>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="font-label-md text-secondary block">Tasks Done</label>
+                            <textarea
+                                class="w-full bg-white/50 border border-outline-variant/30 rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+                                placeholder="Briefly describe your accomplishments..." rows="4"></textarea>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="font-label-md text-secondary block">Tools Utilized</label>
+                            <div class="flex flex-wrap gap-2 mb-2">
+                                <span
+                                    class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-caption flex items-center gap-1">VS
+                                    Code <span class="material-symbols-outlined text-[14px] cursor-pointer"
+                                        data-icon="close">close</span></span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-caption flex items-center gap-1">Figma
+                                    <span class="material-symbols-outlined text-[14px] cursor-pointer"
+                                        data-icon="close">close</span></span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-caption flex items-center gap-1">Jira
+                                    <span class="material-symbols-outlined text-[14px] cursor-pointer"
+                                        data-icon="close">close</span></span>
+                            </div>
+                            <input
+                                class="w-full bg-white/50 border border-outline-variant/30 rounded-lg py-3 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+                                placeholder="Add tool and press enter..." type="text" />
+                        </div>
+                        <div class="space-y-4">
+                            <label class="font-label-md text-secondary block">Daily Mood &amp; Stress Tracking</label>
+                            <div class="flex justify-between gap-4">
+                                <button
+                                    class="flex-1 py-4 border border-outline-variant/30 rounded-xl hover:border-primary transition-all group flex flex-col items-center gap-2"
+                                    type="button">
+                                    <span class="material-symbols-outlined text-outline group-hover:text-primary"
+                                        data-icon="sentiment_very_satisfied">sentiment_very_satisfied</span>
+                                    <span class="font-label-md text-secondary group-hover:text-primary">Focused</span>
+                                </button>
+                                <button
+                                    class="flex-1 py-4 border border-outline-variant/30 rounded-xl hover:border-primary transition-all group flex flex-col items-center gap-2 bg-primary/5 border-primary"
+                                    type="button">
+                                    <span class="material-symbols-outlined text-primary"
+                                        data-icon="sentiment_satisfied">sentiment_satisfied</span>
+                                    <span class="font-label-md text-primary">Balanced</span>
+                                </button>
+                                <button
+                                    class="flex-1 py-4 border border-outline-variant/30 rounded-xl hover:border-primary transition-all group flex flex-col items-center gap-2"
+                                    type="button">
+                                    <span class="material-symbols-outlined text-outline group-hover:text-primary"
+                                        data-icon="sentiment_neutral">sentiment_neutral</span>
+                                    <span class="font-label-md text-secondary group-hover:text-primary">Stressed</span>
+                                </button>
+                                <button
+                                    class="flex-1 py-4 border border-outline-variant/30 rounded-xl hover:border-primary transition-all group flex flex-col items-center gap-2"
+                                    type="button">
+                                    <span class="material-symbols-outlined text-outline group-hover:text-primary"
+                                        data-icon="sentiment_dissatisfied">sentiment_dissatisfied</span>
+                                    <span class="font-label-md text-secondary group-hover:text-primary">Burnt Out</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <button
+                                class="w-full bg-primary text-on-primary py-4 rounded-lg font-title-md hover:shadow-lg hover:shadow-primary/20 transition-all flex justify-center items-center gap-2"
+                                type="submit">
+                                <span class="material-symbols-outlined" data-icon="send">send</span>
+                                Submit Daily Log
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Side Bento Column -->
+            <div class="col-span-12 lg:col-span-5 space-y-gutter">
+                <!-- Status Feed Card -->
+                <div class="glass-card rounded-xl overflow-hidden flex flex-col">
+                    <div class="p-6 border-b border-outline-variant/30 flex justify-between items-center bg-white/40">
+                        <h3 class="font-title-md text-title-md">Recent Activity</h3>
+                        <button class="text-primary font-label-md hover:underline">View All</button>
+                    </div>
+                    <div class="divide-y divide-outline-variant/20 max-h-[480px] overflow-y-auto">
+                        <!-- Feed Item 1 -->
+                        <div class="p-6 hover:bg-primary/5 transition-colors group">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="text-secondary font-label-md">Oct 23, 2023</span>
+                                <span
+                                    class="px-2 py-0.5 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded text-caption font-bold">Pending
+                                    Revision</span>
+                            </div>
+                            <h4
+                                class="font-body-md font-semibold text-on-surface group-hover:text-primary transition-colors">
+                                Refactoring Auth Module</h4>
+                            <p class="text-caption text-secondary mt-1 line-clamp-2">Completed the login flow redesign
+                                and migrated the session handler to the new Redis cluster...</p>
+                            <div class="mt-3 flex items-center gap-4">
+                                <span class="flex items-center gap-1 text-caption text-outline">
+                                    <span class="material-symbols-outlined text-[14px]"
+                                        data-icon="schedule">schedule</span> 7.5 hrs
+                                </span>
+                                <span class="flex items-center gap-1 text-caption text-outline">
+                                    <span class="material-symbols-outlined text-[14px]" data-icon="build">build</span> 4
+                                    Tools
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Feed Item 2 -->
+                        <div class="p-6 hover:bg-primary/5 transition-colors group">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="text-secondary font-label-md">Oct 22, 2023</span>
+                                <span
+                                    class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed-variant rounded text-caption font-bold">Approved</span>
+                            </div>
+                            <h4
+                                class="font-body-md font-semibold text-on-surface group-hover:text-primary transition-colors">
+                                API Documentation &amp; Unit Tests</h4>
+                            <p class="text-caption text-secondary mt-1 line-clamp-2">Wrote comprehensive documentation
+                                for the V2 endpoint and achieved 98% test coverage...</p>
+                            <div class="mt-3 flex items-center gap-4">
+                                <span class="flex items-center gap-1 text-caption text-outline">
+                                    <span class="material-symbols-outlined text-[14px]"
+                                        data-icon="schedule">schedule</span> 8.0 hrs
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Feed Item 3 -->
+                        <div class="p-6 hover:bg-primary/5 transition-colors group">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="text-secondary font-label-md">Oct 21, 2023</span>
+                                <span
+                                    class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed-variant rounded text-caption font-bold">Approved</span>
+                            </div>
+                            <h4
+                                class="font-body-md font-semibold text-on-surface group-hover:text-primary transition-colors">
+                                Team Onboarding Workshop</h4>
+                            <p class="text-caption text-secondary mt-1 line-clamp-2">Facilitated the technical deep dive
+                                for new engineering hires on the frontend architecture...</p>
+                            <div class="mt-3 flex items-center gap-4">
+                                <span class="flex items-center gap-1 text-caption text-outline">
+                                    <span class="material-symbols-outlined text-[14px]"
+                                        data-icon="schedule">schedule</span> 6.0 hrs
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Productivity Stats Card (Glassmorphic Accent) -->
+                <div
+                    class="glass-card glass-card-inner rounded-xl p-6 bg-gradient-to-br from-primary/10 to-transparent relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h4 class="font-title-md text-title-md mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary"
+                                data-icon="trending_up">trending_up</span>
+                            Weekly Focus
+                        </h4>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-caption font-bold mb-1">
+                                    <span class="text-secondary">HOURS LOGGED</span>
+                                    <span class="text-primary">31.5 / 40h</span>
+                                </div>
+                                <div class="w-full bg-white/30 h-2 rounded-full">
+                                    <div class="bg-primary h-full rounded-full" style="width: 78.75%"></div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white/50 p-4 rounded-lg border border-white/20">
+                                    <span class="block text-caption text-secondary mb-1">STRESS AVG</span>
+                                    <span class="text-title-md font-bold text-on-surface">Balanced</span>
+                                </div>
+                                <div class="bg-white/50 p-4 rounded-lg border border-white/20">
+                                    <span class="block text-caption text-secondary mb-1">STREAK</span>
+                                    <span class="text-title-md font-bold text-on-surface">12 Days</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Abstract Background Element -->
+                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 3D Virtual Card Accent (Decorative Info Card) -->
+        <div class="mt-gutter grid grid-cols-1 md:grid-cols-3 gap-gutter">
+            <div
+                class="glass-card p-6 rounded-xl border-t-2 border-primary/20 bg-gradient-to-tr from-white/70 to-primary/5">
+                <span class="material-symbols-outlined text-primary mb-3 block"
+                    data-icon="tips_and_updates">tips_and_updates</span>
+                <h5 class="font-body-md font-bold mb-2">Pro Tip</h5>
+                <p class="text-caption text-secondary">Log your tools to help us optimize license allocations and
+                    identify training opportunities.</p>
+            </div>
+            <div
+                class="glass-card p-6 rounded-xl border-t-2 border-tertiary/20 bg-gradient-to-tr from-white/70 to-tertiary/5">
+                <span class="material-symbols-outlined text-tertiary mb-3 block" data-icon="rule">rule</span>
+                <h5 class="font-body-md font-bold mb-2">Submission Rule</h5>
+                <p class="text-caption text-secondary">Daily logs must be submitted before 8 PM local time. Late entries
+                    require manager override.</p>
+            </div>
+            <div
+                class="glass-card p-6 rounded-xl border-t-2 border-secondary/20 bg-gradient-to-tr from-white/70 to-secondary/5">
+                <span class="material-symbols-outlined text-secondary mb-3 block"
+                    data-icon="support_agent">support_agent</span>
+                <h5 class="font-body-md font-bold mb-2">Need Help?</h5>
+                <p class="text-caption text-secondary">If you're facing technical issues with the log console, contact
+                    HR Systems support immediately.</p>
+            </div>
+        </div>
+    </main>
+    <!-- FAB for quick action (Only relevant on mobile or as global quick log) -->
+    <button
+        class="md:hidden fixed bottom-6 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center z-50">
+        <span class="material-symbols-outlined" data-icon="add">add</span>
+    </button>
+</body>
+
+</html>

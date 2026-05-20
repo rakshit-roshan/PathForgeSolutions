@@ -1,0 +1,428 @@
+/* ==========================================================================
+   PathForge — Premium Glassmorphism Design System (sampleUI Match)
+   Primary: #003ec7 | Surface: #f7f9fb | Font: Inter
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+:root {
+  --pf-primary: #003ec7;
+  --pf-primary-hover: #0038b6;
+  --pf-primary-light: rgba(0, 62, 199, 0.06);
+  --pf-primary-container: #0052ff;
+  --pf-secondary: #505f76;
+  --pf-surface: #f7f9fb;
+  --pf-surface-low: #f2f4f6;
+  --pf-surface-container: #eceef0;
+  --pf-surface-high: #e6e8ea;
+  --pf-surface-highest: #e0e3e5;
+  --pf-outline: #737688;
+  --pf-outline-variant: #c3c5d9;
+  --pf-on-surface: #191c1e;
+  --pf-on-surface-variant: #434656;
+  --pf-tertiary: #952200;
+  --pf-error: #ba1a1a;
+  --pf-error-container: #ffdad6;
+  --pf-glass-bg: rgba(255, 255, 255, 0.70);
+  --pf-glass-border: rgba(255, 255, 255, 0.20);
+  --pf-shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --pf-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.04);
+  --pf-shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Base Reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+.dashboard-canvas {
+  background-color: var(--pf-surface) !important;
+  color: var(--pf-on-surface) !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Glass Cards ── */
+.glass-card {
+  background: var(--pf-glass-bg) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--pf-glass-border) !important;
+  box-shadow: var(--pf-shadow-md) !important;
+  border-radius: 16px;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.glass-card:hover {
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Legacy alias */
+.glass-panel { }
+.glass-panel {
+  background: var(--pf-glass-bg) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+  box-shadow: var(--pf-shadow-sm) !important;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+/* ── Sidebar ── */
+.sidebar-glass {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-right: 1px solid rgba(0, 62, 199, 0.06) !important;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.03) !important;
+}
+
+/* ── Top Header ── */
+.dashboard-topbar {
+  background: rgba(247, 249, 251, 0.88) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--pf-outline-variant) !important;
+}
+
+/* ── Skeleton Shimmer ── */
+@keyframes pf-shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--pf-surface-container) 25%,
+    var(--pf-surface-high) 37%,
+    var(--pf-surface-container) 63%
+  );
+  background-size: 800px 100%;
+  animation: pf-shimmer 1.5s infinite linear;
+  border-radius: 8px;
+}
+.shimmer-light-bg {
+  background: linear-gradient(90deg,
+    rgba(0,0,0,0.02) 25%, rgba(0,0,0,0.06) 37%, rgba(0,0,0,0.02) 63%);
+  background-size: 200% 100%;
+  animation: pf-shimmer 1.4s infinite linear;
+}
+
+/* ── 3D ID Card idle float animation ── */
+@keyframes id-float {
+  0%   { transform: perspective(900px) rotateX(1.5deg)  rotateY(-2deg)  scale3d(1,1,1); }
+  25%  { transform: perspective(900px) rotateX(-1.5deg) rotateY(2.5deg) scale3d(1,1,1); }
+  50%  { transform: perspective(900px) rotateX(2deg)    rotateY(-1.5deg) scale3d(1,1,1); }
+  75%  { transform: perspective(900px) rotateX(-1deg)   rotateY(2deg)   scale3d(1,1,1); }
+  100% { transform: perspective(900px) rotateX(1.5deg)  rotateY(-2deg)  scale3d(1,1,1); }
+}
+
+
+.perspective-wrap {
+  perspective: 1200px;
+}
+.id-card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.45s ease;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.92) 0%,
+    rgba(221,225,255,0.45) 50%,
+    rgba(0,62,199,0.06) 100%
+  );
+  box-shadow:
+    20px 20px 60px rgba(0,62,199,0.08),
+    -5px -5px 20px rgba(255,255,255,0.7),
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    inset 0 -1px 0 rgba(0,0,0,0.04);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+/* ── Progress Ring Animation ── */
+@keyframes ring-fill {
+  from { stroke-dashoffset: var(--ring-circ); }
+  to   { stroke-dashoffset: var(--ring-offset); }
+}
+.progress-ring-fill {
+  animation: ring-fill 1.2s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+
+/* ── Bar Chart Bars ── */
+@keyframes bar-rise {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+.chart-bar {
+  transform-origin: bottom;
+  animation: bar-rise 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+
+/* ── Detail Drawer (slide-out from right) ── */
+.detail-drawer {
+  background: rgba(255,255,255,0.97) !important;
+  backdrop-filter: blur(40px) !important;
+  -webkit-backdrop-filter: blur(40px) !important;
+  border-left: 1px solid rgba(0,62,199,0.06) !important;
+  box-shadow: -12px 0 48px rgba(0,0,0,0.08) !important;
+}
+.drawer-glass-light {
+  background: rgba(255,255,255,0.98) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-left: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: -10px 0 40px rgba(0,0,0,0.08) !important;
+}
+
+/* ── Fade-in animation ── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out both;
+}
+
+/* ── Slide-in from right ── */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+/* ── Counter number animation ── */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-count-up {
+  animation: count-up 0.5s ease-out both;
+}
+
+/* ── Status dot pulse ── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.2); }
+}
+.status-pulse {
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+/* ── Custom Scrollbar ── */
+.custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--pf-outline-variant);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--pf-outline);
+}
+
+/* ── Toggle Switch ── */
+.toggle-track {
+  width: 44px; height: 24px;
+  background: var(--pf-outline-variant);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.toggle-track.on { background: var(--pf-primary); }
+.toggle-thumb {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 20px; height: 20px;
+  background: white;
+  border-radius: 10px;
+  transition: left 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+.toggle-track.on .toggle-thumb { left: 22px; }
+
+/* ── Mobile Bottom Navigation (visibility controlled by md:hidden in JSX) ── */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 64px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.04);
+  z-index: 40;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.mobile-bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--pf-secondary);
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: color 0.15s ease, background 0.15s ease;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  text-decoration: none;
+}
+.mobile-bottom-nav-item.active {
+  color: var(--pf-primary);
+}
+.mobile-bottom-nav-item-icon {
+  width: 20px; height: 20px;
+}
+
+
+
+
+/* ── Notification Badge ── */
+.notif-badge {
+  position: absolute;
+  top: -2px; right: -2px;
+  width: 8px; height: 8px;
+  background: var(--pf-error);
+  border-radius: 50%;
+  border: 1.5px solid white;
+}
+
+/* ── Input Focus Styles ── */
+.pf-input {
+  background: rgba(255,255,255,0.6);
+  border: 1px solid var(--pf-outline-variant);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--pf-on-surface);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  width: 100%;
+  outline: none;
+}
+.pf-input:focus {
+  border-color: var(--pf-primary);
+  box-shadow: 0 0 0 3px rgba(0,62,199,0.10);
+}
+
+/* ── Primary Button ── */
+.pf-btn-primary {
+  background: var(--pf-primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: filter 0.15s, box-shadow 0.15s, transform 0.1s;
+  box-shadow: 0 4px 12px rgba(0,62,199,0.20);
+}
+.pf-btn-primary:hover { filter: brightness(1.08); }
+.pf-btn-primary:active { transform: scale(0.97); }
+
+/* ── Ghost Button ── */
+.pf-btn-ghost {
+  background: transparent;
+  color: var(--pf-on-surface-variant);
+  border: 1px solid var(--pf-outline-variant);
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.pf-btn-ghost:hover {
+  background: var(--pf-surface-low);
+  border-color: var(--pf-outline);
+}
+
+/* ── Table Row Hover ── */
+.pf-table-row { transition: background 0.15s ease; }
+.pf-table-row:hover { background: rgba(0,62,199,0.03) !important; cursor: pointer; }
+
+/* ── Status Badges ── */
+.badge-active   { background:#dcfce7; color:#15803d; }
+.badge-pending  { background:#fef9c3; color:#854d0e; }
+.badge-onhold   { background:#f1f5f9; color:#475569; }
+.badge-error    { background: var(--pf-error-container); color: var(--pf-error); }
+.badge-issued   { background:#dbeafe; color:#1e40af; }
+.badge-suspended{ background:#fee2e2; color:#991b1b; }
+
+/* ── Timeline ── */
+.timeline-line {
+  position: relative;
+  padding-left: 28px;
+}
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  left: 7px; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--pf-outline-variant);
+  border-radius: 1px;
+}
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px var(--pf-primary);
+  background: var(--pf-primary);
+}
+
+/* ── Notification & Apps Dropdowns (Ice-Blue Glassmorphism) ── */
+.notif-dropdown, .apps-dropdown {
+  background: rgba(228, 235, 253, 0.85) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.90) !important;
+  box-shadow: 0 20px 45px -5px rgba(0, 62, 199, 0.12) !important;
+  border-radius: 16px;
+}
+
+/* ── Mood Selector ── */
+.mood-btn {
+  flex: 1;
+  padding: 12px 8px;
+  border: 1.5px solid var(--pf-outline-variant);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: transparent;
+  font-family: inherit;
+}
+.mood-btn:hover {
+  border-color: var(--pf-primary);
+  background: var(--pf-primary-light);
+}
+.mood-btn.selected {
+  border-color: var(--pf-primary);
+  background: var(--pf-primary-light);
+}
+
+/* ── PDF Section ── */
+.pdf-preview {
+  background: white;
+  border: 1px solid var(--pf-outline-variant);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}

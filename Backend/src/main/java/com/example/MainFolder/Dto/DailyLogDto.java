@@ -11,4 +11,5 @@ public class DailyLogDto {
     private String challenges;
     private String planTomorrow;
     private String mood;
+    private java.util.List<String> tools;
 }
