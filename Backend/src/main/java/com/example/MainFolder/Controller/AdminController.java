@@ -101,4 +101,59 @@ public class AdminController {
         user.setPassword(null);
         return ResponseEntity.ok(user);
     }
+
+    @GetMapping("/logs")
+    public ResponseEntity<?> getAllLogsForReview() {
+        List<DailyLogEntity> logs = dailyLogRepository.findAll();
+        List<Map<String, Object>> response = new java.util.ArrayList<>();
+        
+        for (DailyLogEntity log : logs) {
+            Optional<UserEntity> userOpt = userRepository.findById(log.getCandidateId());
+            if (userOpt.isPresent()) {
+                UserEntity user = userOpt.get();
+                Map<String, Object> map = new java.util.HashMap<>();
+                map.put("id", log.getId().toString());
+                map.put("candidateId", user.getId().toString());
+                map.put("employee", user.getUsername());
+                
+                int weekNum = log.getLogDate().get(java.time.temporal.ChronoField.ALIGNED_WEEK_OF_YEAR);
+                map.put("week", "Week " + weekNum);
+                map.put("hours", log.getHoursWorked());
+                map.put("tasks", log.getTasksDone());
+                map.put("mood", log.getMood());
+                map.put("submitted", log.getLogDate().toString());
+                map.put("status", log.getStatus());
+                map.put("revisionNote", log.getRevisionNote());
+                
+                List<String> toolsList = new java.util.ArrayList<>();
+                if (log.getTools() != null && !log.getTools().isEmpty()) {
+                    for (String t : log.getTools().split(",")) {
+                        toolsList.add(t.trim());
+                    }
+                }
+                map.put("tools", toolsList);
+                response.add(map);
+            }
+        }
+        return ResponseEntity.ok(response);
+    }
+
+    @PutMapping("/logs/{id}/status")
+    public ResponseEntity<?> updateLogStatus(@PathVariable Long id, @RequestBody Map<String, String> body) {
+        Optional<DailyLogEntity> logOpt = dailyLogRepository.findById(id);
+        if (logOpt.isEmpty()) return ResponseEntity.notFound().build();
+        
+        String status = body.get("status");
+        if (status == null) return ResponseEntity.badRequest().body("Status is required");
+        
+        DailyLogEntity log = logOpt.get();
+        log.setStatus(status);
+        
+        if (body.containsKey("revisionNote")) {
+            log.setRevisionNote(body.get("revisionNote"));
+        }
+        
+        dailyLogRepository.save(log);
+        return ResponseEntity.ok(log);
+    }
 }

@@ -1,7 +1,7 @@
 // TypeScript type definitions for the entire application
 
 export type UserRole = "ADMIN" | "CANDIDATE";
-export type InternshipStatus = "ACTIVE" | "COMPLETED" | "ON_HOLD";
+export type InternshipStatus = "PENDING" | "ACTIVE" | "COMPLETED" | "ON_HOLD";
 export type LogMood = "GREAT" | "GOOD" | "NEUTRAL" | "DIFFICULT";
 
 export interface User {
@@ -13,6 +13,12 @@ export interface User {
   internshipTrack?: string;
   status?: InternshipStatus;
   createdAt?: string;
+  collegeName?: string;
+  bio?: string;
+  profilePic?: string;
+  twoFactorEnabled?: boolean;
+  internshipDurationMonths?: number;
+  disabled?: boolean;
 }
 
 export interface AuthState {
@@ -46,6 +52,9 @@ export interface DailyLog {
   mood?: LogMood;
   createdAt: string;
   updatedAt?: string;
+  tools?: string[];
+  status?: string;
+  revisionNote?: string;
 }
 
 export interface DailyLogCreateDto {
@@ -55,6 +64,7 @@ export interface DailyLogCreateDto {
   challenges?: string;
   planTomorrow?: string;
   mood?: LogMood;
+  tools?: string[];
 }
 
 export interface CandidateDetail extends User {

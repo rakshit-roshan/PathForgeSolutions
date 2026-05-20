@@ -33,6 +33,13 @@ public class DailyLogEntity {
 
     private String mood; // "GREAT", "GOOD", "NEUTRAL", "DIFFICULT"
 
+    private String tools = ""; // Comma-separated list of tools utilized
+
+    private String status = "PENDING"; // "PENDING", "APPROVED", "REVISION"
+
+    @Column(length = 1000)
+    private String revisionNote;
+
     @Column(updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
     

@@ -157,6 +157,18 @@ export const adminAPI = {
   /** Admin stats */
   getStats: (): Promise<AxiosResponse<AdminStats>> =>
     apiClient.get("/api/admin/stats"),
+
+  /** Get all submitted logs for review */
+  getAllLogs: (): Promise<AxiosResponse<any[]>> =>
+    apiClient.get("/api/admin/logs"),
+
+  /** Update candidate daily log status (approve/revision) */
+  updateLogStatus: (
+    id: number | string,
+    status: "APPROVED" | "PENDING" | "REVISION",
+    revisionNote?: string
+  ): Promise<AxiosResponse<any>> =>
+    apiClient.put(`/api/admin/logs/${id}/status`, { status, revisionNote }),
 };
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -188,6 +200,35 @@ export const contactAPI = {
 
   healthCheck: (): Promise<AxiosResponse<string>> =>
     apiClient.get("/api/contact/health"),
+};
+
+// ═══════════════════════════════════════════════════════════════════════
+// SECURITY & PROFILE API
+// ═══════════════════════════════════════════════════════════════════════
+export const securityAPI = {
+  /** Generate and send 2FA OTP code */
+  generate2faOtp: (): Promise<AxiosResponse<{ message: string }>> =>
+    apiClient.post("/api/security/2fa/generate"),
+
+  /** Verify 2FA OTP code and toggle 2FA */
+  verify2faOtp: (otp: string): Promise<AxiosResponse<{ message: string; twoFactorEnabled: boolean }>> =>
+    apiClient.post("/api/security/2fa/verify", { otp }),
+
+  /** 2-Step Login check using OTP */
+  login2faVerify: (email: string, otp: string): Promise<AxiosResponse<{ token: string; user: User }>> =>
+    apiClient.post("/api/security/2fa/login-verify", { email, otp }),
+
+  /** Admin toggles candidate account suspension */
+  toggleSuspension: (id: number, disabled: boolean): Promise<AxiosResponse<{ message: string; disabled: boolean }>> =>
+    apiClient.put(`/api/security/admin/candidates/${id}/suspend`, { disabled }),
+
+  /** Admin updates candidate remaining months and 2FA override states */
+  updateLifecycle: (id: number, data: { durationMonths?: number; twoFactorEnabled?: boolean; status?: string; internshipTrack?: string }): Promise<AxiosResponse<User>> =>
+    apiClient.put(`/api/security/admin/candidates/${id}/lifecycle`, data),
+
+  /** Candidate updates profile picture, biography, and university info */
+  updateProfile: (data: { collegeName?: string; bio?: string; profilePic?: string }): Promise<AxiosResponse<User>> =>
+    apiClient.put("/api/security/profile", data),
 };
 
 export default apiClient;

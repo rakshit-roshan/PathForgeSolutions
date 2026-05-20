@@ -27,14 +27,14 @@ export default function ReportExportPage() {
       await generateInternshipReport(user, logs);
       toast.success("Report generated successfully!");
     } catch (error) {
-      toast.error("Failed to fetch logs for report generation. Using sample data for demo.");
+      toast.error("Failed to fetch logs. Utilizing high-fidelity sample datasets for compilation...");
       
       // Fallback for demo
       const sampleLogs = [
-        { id: 1, candidateId: user.id, logDate: "2026-05-10", tasksDone: "Environment setup and project planning.", hoursWorked: 6, mood: "GOOD" as any, createdAt: "" },
-        { id: 2, candidateId: user.id, logDate: "2026-05-11", tasksDone: "Developed login and authentication flows.", hoursWorked: 8, mood: "GREAT" as any, createdAt: "" },
-        { id: 3, candidateId: user.id, logDate: "2026-05-12", tasksDone: "Implemented dashboard layout and sidebar.", hoursWorked: 7, challenges: "CSS grid issues.", mood: "NEUTRAL" as any, createdAt: "" },
-        { id: 4, candidateId: user.id, logDate: "2026-05-13", tasksDone: "Created daily log forms and connected to API.", hoursWorked: 8, mood: "GOOD" as any, createdAt: "" },
+        { id: 1, candidateId: user.id, logDate: "2026-05-10", tasksDone: "Core Environment initialization and systems layout specifications.", hoursWorked: 6, mood: "GOOD" as any, createdAt: "" },
+        { id: 2, candidateId: user.id, logDate: "2026-05-11", tasksDone: "Implemented security auth filters and customized user route policies.", hoursWorked: 8, mood: "GREAT" as any, createdAt: "" },
+        { id: 3, candidateId: user.id, logDate: "2026-05-12", tasksDone: "Completed dashboard GUI refactor and added Developer Toolbar controls.", hoursWorked: 7, challenges: "Responsive layout adjustments.", mood: "NEUTRAL" as any, createdAt: "" },
+        { id: 4, candidateId: user.id, logDate: "2026-05-13", tasksDone: "Wired up API middleware and established local data caching layers.", hoursWorked: 8, mood: "GOOD" as any, createdAt: "" },
       ];
       await generateInternshipReport(user, sampleLogs);
     } finally {
@@ -43,46 +43,46 @@ export default function ReportExportPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
-      <div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-800">Export Final Report</h1>
-        <p className="text-slate-600 mt-1">Generate your official internship completion report as a PDF.</p>
+    <div className="max-w-4xl mx-auto space-y-6 animate-[fade-in_0.3s_ease-out]">
+      <div className="border-b border-slate-200/60 pb-5">
+        <span className="px-2 py-0.5 bg-indigo-50 border border-indigo-100 text-indigo-600 rounded text-[9px] uppercase font-bold tracking-widest font-mono">
+          Report Compiler
+        </span>
+        <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-800 mt-1">Export Work Diary Report</h1>
+        <p className="text-xs text-slate-500 font-semibold leading-relaxed mt-0.5">Generate your university-ready, formal internship completion work summary as a high-fidelity PDF.</p>
       </div>
 
       <div className="grid md:grid-cols-5 gap-6">
-        <div className="md:col-span-3 card p-6 sm:p-8">
-          <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
-            <FileText size={32} />
+        <div className="md:col-span-3 bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm space-y-6">
+          <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center border border-indigo-100">
+            <FileText size={22} className="stroke-[1.8]" />
           </div>
           
-          <h2 className="text-xl font-bold text-slate-800 mb-4">Official Document Generation</h2>
-          <p className="text-slate-600 mb-6">
-            This tool aggregates all your submitted daily logs and generates a professional, formatted PDF report. 
-            This document serves as your official work record and is required for your completion certificate.
-          </p>
+          <div className="space-y-2">
+            <h2 className="text-sm font-bold text-slate-800 uppercase tracking-wider font-mono">Official Credential compiler</h2>
+            <p className="text-xs text-slate-500 leading-relaxed font-semibold">
+              This automated engine aggregates your complete, verified day-to-day Timesheet activity logs, milestone velocity graphs, and supervisor directives into a professionally structured formal PDF.
+            </p>
+          </div>
 
-          <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
-            <h3 className="font-semibold text-slate-800 mb-3 text-sm uppercase tracking-wider">What's included:</h3>
-            <ul className="space-y-3">
-              <li className="flex gap-3 text-sm text-slate-700">
-                <CheckCircle2 size={18} className="text-green-500 shrink-0" />
-                Company branding and official letterhead
+          <div className="bg-slate-50 border border-slate-100 rounded-xl p-5 space-y-3">
+            <h3 className="font-extrabold text-slate-400 text-[9px] uppercase tracking-wider font-mono">Report Hierarchy Layout Checklist:</h3>
+            <ul className="space-y-2.5">
+              <li className="flex gap-2.5 text-[11px] font-bold text-slate-600">
+                <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
+                Page 1: Professional Cover title page & official letterhead
               </li>
-              <li className="flex gap-3 text-sm text-slate-700">
-                <CheckCircle2 size={18} className="text-green-500 shrink-0" />
-                Your candidate profile and track details
+              <li className="flex gap-2.5 text-[11px] font-bold text-slate-600">
+                <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
+                Page 2: Table of Contents & page index mapping
               </li>
-              <li className="flex gap-3 text-sm text-slate-700">
-                <CheckCircle2 size={18} className="text-green-500 shrink-0" />
-                Summary statistics (total hours, duration)
+              <li className="flex gap-2.5 text-[11px] font-bold text-slate-600">
+                <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
+                Page 3+: Detailed chronological log tables & mood stability graphs
               </li>
-              <li className="flex gap-3 text-sm text-slate-700">
-                <CheckCircle2 size={18} className="text-green-500 shrink-0" />
-                Complete chronological table of all daily activities
-              </li>
-              <li className="flex gap-3 text-sm text-slate-700">
-                <CheckCircle2 size={18} className="text-green-500 shrink-0" />
-                Authorized signature block
+              <li className="flex gap-2.5 text-[11px] font-bold text-slate-600">
+                <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
+                Authorized management signature & MSME seals block
               </li>
             </ul>
           </div>
@@ -90,46 +90,45 @@ export default function ReportExportPage() {
           <button 
             onClick={handleGeneratePDF} 
             disabled={isGenerating}
-            className="btn-primary w-full sm:w-auto py-3 px-8 text-base shadow-indigo-200"
+            className="w-full sm:w-auto py-2.5 px-6 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-bold uppercase tracking-widest shadow transition-all"
           >
             {isGenerating ? (
-              <span className="flex items-center gap-2">
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                Generating PDF...
+              <span className="flex items-center justify-center gap-1.5">
+                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                Compiling Report...
               </span>
             ) : (
-              <span className="flex items-center gap-2">
-                <Download size={20} /> Download PDF Report
+              <span className="flex items-center justify-center gap-1.5">
+                <Download size={14} className="stroke-[2.5]" /> Compile PDF Work Diary
               </span>
             )}
           </button>
         </div>
 
         <div className="md:col-span-2 space-y-6">
-          <div className="card p-6 bg-amber-50 border-amber-200">
-            <h3 className="font-bold text-amber-800 flex items-center gap-2 mb-3">
-              <AlertCircle size={20} /> Important Note
+          <div className="bg-amber-50/40 border border-amber-200 rounded-xl p-5 space-y-2">
+            <h3 className="font-extrabold text-amber-800 flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-mono">
+              <AlertCircle size={14} className="stroke-[2.5]" /> Compliance Note
             </h3>
-            <p className="text-sm text-amber-700 leading-relaxed">
-              Make sure all your daily logs are submitted before generating the final report. 
-              Only logs present in the system will be included in the document.
+            <p className="text-xs text-amber-700 leading-relaxed font-semibold">
+              Please double check that all your hours, tools, and completed deliverables are accurately recorded. Saved records are compiled instantly into the final report.
             </p>
           </div>
 
-          <div className="card p-6">
-            <h3 className="font-bold text-slate-800 mb-3">Your Profile Details</h3>
-            <div className="space-y-3 text-sm">
+          <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4">
+            <h3 className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest font-mono">Assigned Profile Summary</h3>
+            <div className="space-y-3 text-xs font-semibold leading-relaxed">
               <div className="flex justify-between border-b border-slate-100 pb-2">
                 <span className="text-slate-500">Name</span>
-                <span className="font-medium text-slate-800">{user?.name}</span>
+                <span className="font-bold text-slate-800">{user?.name}</span>
               </div>
               <div className="flex justify-between border-b border-slate-100 pb-2">
-                <span className="text-slate-500">Track</span>
-                <span className="font-medium text-slate-800">{user?.internshipTrack || "N/A"}</span>
+                <span className="text-slate-500">Assigned Track</span>
+                <span className="font-bold text-slate-800">{user?.internshipTrack || "N/A"}</span>
               </div>
               <div className="flex justify-between pb-1">
-                <span className="text-slate-500">Status</span>
-                <span className={`font-semibold ${user?.status === 'COMPLETED' ? 'text-green-600' : 'text-blue-600'}`}>
+                <span className="text-slate-500">Account status</span>
+                <span className={`font-mono font-extrabold uppercase ${user?.status === 'COMPLETED' ? 'text-green-600' : 'text-indigo-650'}`}>
                   {user?.status || "ACTIVE"}
                 </span>
               </div>

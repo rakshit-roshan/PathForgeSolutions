@@ -24,11 +24,33 @@ public class UserEntity {
 
     private String role = "CANDIDATE"; // "ADMIN" or "CANDIDATE"
 
-    private String status = "ACTIVE"; // "ACTIVE", "COMPLETED", "ON_HOLD"
+    private String status = "PENDING"; // Default to PENDING for new signups
+
+    private String employeeCode;
     
     private LocalDate joiningDate;
     
     private String internshipTrack;
+
+    private String collegeName;
+
+    @Column(length = 2000)
+    private String bio;
+
+    @Column(length = 1048576) // Support Base64 image
+    private String profilePic;
+
+    private Boolean twoFactorEnabled = false;
+
+    private String twoFactorSecret;
+
+    private LocalDateTime twoFactorExpiry;
+
+    private Integer internshipDurationMonths = 3;
+
+    private LocalDateTime lastConnected;
+
+    private Boolean disabled = false;
 
     private String resetToken;
     

@@ -23,6 +23,9 @@ public class UserService {
     @Autowired
     private JwtUtil jwtUtil;
 
+    @Autowired
+    private EmailNotificationService emailNotificationService;
+
     @jakarta.annotation.PostConstruct
     public void seedAdmin() {
         if (userRepository.findByEmail("admin@rasutech.in").isEmpty()) {
@@ -32,6 +35,7 @@ public class UserService {
             admin.setPassword(passwordEncoder.encode("admin123"));
             admin.setRole("ADMIN");
             admin.setStatus("ACTIVE");
+            admin.setEmployeeCode("PF-2026-ADMIN");
             admin.setJoiningDate(LocalDate.now());
             userRepository.save(admin);
             System.out.println("========== ADMIN SEEDED: admin@rasutech.in / admin123 ==========");
@@ -48,10 +52,9 @@ public class UserService {
         userEntity.setEmail(userRequestDto.getEmail());
         userEntity.setPassword(passwordEncoder.encode(userRequestDto.getPassword()));
         
-        // Example: Default role CANDIDATE. In real app, you might get this from request or enforce it.
-        // Also joiningDate could be set to now.
         userEntity.setRole("CANDIDATE");
-        userEntity.setStatus("ACTIVE");
+        userEntity.setStatus("PENDING");
+        userEntity.setEmployeeCode("PF-2026-" + (new java.util.Random().nextInt(9000) + 1000));
         userEntity.setJoiningDate(LocalDate.now());
 
         userRepository.save(userEntity);
@@ -70,8 +73,49 @@ public class UserService {
         }
         
         UserEntity user = userOptional.get();
+
+        if (Boolean.TRUE.equals(user.getDisabled())) {
+            return new AuthResponseDto(null, null, "Account suspended. Please contact your administrator.");
+        }
         
         if(passwordEncoder.matches(loginRequestDto.getPassword(), user.getPassword())){
+            user.setLastConnected(java.time.LocalDateTime.now());
+            userRepository.save(user);
+            
+            // If candidate has 2FA enabled, prevent direct token delivery.
+            // We notify the frontend to initiate OTP verification challenge instead.
+            if (Boolean.TRUE.equals(user.getTwoFactorEnabled())) {
+                // Generate a login OTP secret
+                String otp = String.format("%06d", new java.util.Random().nextInt(1000000));
+                user.setTwoFactorSecret(otp);
+                user.setTwoFactorExpiry(java.time.LocalDateTime.now().plusMinutes(5));
+                userRepository.save(user);
+
+                // Dispatch OTP email
+                String subject = "🔐 PathForge: Login Verification OTP";
+                String body = String.format(
+                    "Hello %s,\n\n" +
+                    "Your 6-digit login verification OTP is: %s\n\n" +
+                    "This code will expire in 5 minutes.\n\n" +
+                    "Best regards,\n" +
+                    "PathForge Security Team",
+                    user.getUsername(), otp
+                );
+                try {
+                    emailNotificationService.sendSimpleEmail(user.getEmail(), subject, body);
+                    System.out.println("========== LOGIN 2FA CHALLENGE OTP: " + otp + " DISPATCHED INBOX ==========");
+                } catch (Exception e) {
+                    System.out.println("========== LOGIN 2FA MOCK: " + otp + " (PROVIDER EXCEPTION) ==========");
+                }
+                
+                UserEntity mockUser = new UserEntity();
+                mockUser.setEmail(user.getEmail());
+                mockUser.setRole(user.getRole());
+                mockUser.setUsername(user.getUsername());
+                mockUser.setTwoFactorEnabled(true);
+                return new AuthResponseDto(null, mockUser, "2FA_REQUIRED");
+            }
+            
             String token = jwtUtil.generateToken(user);
             return new AuthResponseDto(token, user, "Login successful");
         } else {

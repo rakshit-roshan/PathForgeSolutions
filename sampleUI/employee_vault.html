@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Employee Profile &amp; Digital ID | AdminSuite</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .perspective-container {
+            perspective: 1200px;
+        }
+
+        .id-card-3d {
+            transform: rotateY(-15deg) rotateX(10deg);
+            transition: transform 0.5s ease;
+            transform-style: preserve-3d;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(221, 225, 255, 0.4) 100%);
+            box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.05), -5px -5px 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .id-card-3d:hover {
+            transform: rotateY(-5deg) rotateX(5deg);
+        }
+
+        .beveled-edge {
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .signature-font {
+            font-family: 'Inter', sans-serif;
+            font-style: italic;
+            font-weight: 300;
+            letter-spacing: -0.05em;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "secondary": "#505f76",
+                        "primary": "#003ec7",
+                        "secondary-fixed-dim": "#b7c8e1",
+                        "outline": "#737688",
+                        "on-surface-variant": "#434656",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdbd2",
+                        "on-primary-fixed-variant": "#0038b6",
+                        "secondary-fixed": "#d3e4fe",
+                        "on-secondary-fixed-variant": "#38485d",
+                        "inverse-surface": "#2d3133",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#952200",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline-variant": "#c3c5d9",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#001452",
+                        "surface-tint": "#004ced",
+                        "tertiary-container": "#bf3003",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "inverse-primary": "#b7c4ff",
+                        "primary-fixed": "#dde1ff",
+                        "tertiary-fixed-dim": "#ffb4a1",
+                        "surface-bright": "#f7f9fb",
+                        "background": "#f7f9fb",
+                        "on-primary-container": "#dfe3ff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "primary-container": "#0052ff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-container": "#54647a",
+                        "on-tertiary-fixed-variant": "#891e00",
+                        "on-secondary-fixed": "#0b1c30",
+                        "secondary-container": "#d0e1fb",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#ffddd5",
+                        "on-tertiary-fixed": "#3c0800",
+                        "surface-container": "#eceef0",
+                        "primary-fixed-dim": "#b7c4ff",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "container-max-width": "1440px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "title-md": ["Inter"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "500" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background text-on-surface">
+    <!-- TopNavBar -->
+    <nav
+        class="fixed top-0 right-0 w-[calc(100%-280px)] bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 flex justify-between items-center px-margin-desktop h-16 z-40">
+        <div class="flex items-center gap-4">
+            <div class="relative flex items-center">
+                <span class="material-symbols-outlined absolute left-3 text-outline" data-icon="search">search</span>
+                <input
+                    class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant/30 rounded-lg font-body-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all w-64"
+                    placeholder="Search resources..." type="text" />
+            </div>
+        </div>
+        <div class="flex items-center gap-6">
+            <button
+                class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all active:scale-90"
+                data-icon="notifications">notifications</button>
+            <button
+                class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all active:scale-90"
+                data-icon="apps">apps</button>
+            <div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant">
+                <img alt="User Profile"
+                    data-alt="A professional headshot of a senior male executive in his late 40s with a warm, confident expression. He is wearing a tailored charcoal suit against a clean, minimalist architectural background with soft natural lighting and a cool color palette. The image has a high-end editorial feel with shallow depth of field and sharp focus on his features."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKkSsqnkolUwa2YTKpM3X1eubD3iZCNezDqasPW2Uyardk0ZYqrGAdwwidOtTarsn2Np1raiTkVaq1KYBTLv9VmoqoegUgUtIOnEGVezCoDU3gino2ZycxlDQtKlGhCDsug6DjFhJY2FlQJJ2cW1zjfgehl7WvJVQofv8XsrdWEGGXOcVmrgWEMc5rZ_78AhdXaeaXYmdivSUp3YFg9xURSWjeNkbTEXUwxqKz7pmMEaKFDMsR71cC0ZJNtjxRBVtPr1vpVVejp_0" />
+            </div>
+        </div>
+    </nav>
+    <!-- SideNavBar -->
+    <aside
+        class="fixed h-full w-[280px] left-0 top-0 bg-white/70 backdrop-blur-xl border-r border-white/20 shadow-[0_10px_30px_rgba(0,0,0,0.04)] flex flex-col p-6 z-50">
+        <div class="mb-10">
+            <h1 class="font-headline-md text-headline-md font-bold text-primary">AdminSuite</h1>
+            <p class="text-secondary font-body-md">Enterprise Management</p>
+        </div>
+        <div class="flex-1 space-y-2">
+            <a class="flex items-center gap-3 px-4 py-3 text-secondary font-body-md hover:bg-primary/5 transition-colors rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                <span>Metrics</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-secondary font-body-md hover:bg-primary/5 transition-colors rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+                <span>Logs</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-secondary font-body-md hover:bg-primary/5 transition-colors rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="description">description</span>
+                <span>Documents</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-primary font-bold border-r-2 border-primary bg-primary/5 rounded-l-lg"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="account_circle"
+                    data-weight="fill">account_circle</span>
+                <span>Profile</span>
+            </a>
+        </div>
+        <div class="pt-6 border-t border-outline-variant/30 space-y-2">
+            <a class="flex items-center gap-3 px-4 py-3 text-secondary font-body-md hover:bg-primary/5 transition-colors rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                <span>Settings</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-secondary font-body-md hover:bg-primary/5 transition-colors rounded-lg"
+                href="#">
+                <span class="material-symbols-outlined" data-icon="help">help</span>
+                <span>Support</span>
+            </a>
+        </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="ml-[280px] pt-24 px-margin-desktop pb-margin-desktop">
+        <div class="max-w-[1200px] mx-auto">
+            <!-- Header Section -->
+            <div class="mb-10">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Employee Profile</h2>
+                <p class="font-body-lg text-on-surface-variant">Manage your digital identity and security credentials.
+                </p>
+            </div>
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-12 gap-gutter">
+                <!-- 3D Card Section - Focal Point -->
+                <div
+                    class="col-span-12 lg:col-span-7 flex flex-col items-center justify-center min-h-[500px] glass-card rounded-xl p-12 relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50 pointer-events-none">
+                    </div>
+                    <div class="perspective-container">
+                        <!-- Digital ID Card -->
+                        <div
+                            class="id-card-3d w-[420px] h-[260px] rounded-2xl p-8 flex flex-col justify-between beveled-edge relative overflow-hidden backdrop-blur-3xl">
+                            <!-- Background Accent -->
+                            <div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+                            <div class="flex justify-between items-start z-10">
+                                <div class="flex flex-col">
+                                    <span class="font-label-md text-primary uppercase tracking-widest mb-1">Corporate
+                                        ID</span>
+                                    <div class="h-10 w-auto">
+                                        <h3 class="font-headline-md text-primary font-extrabold tracking-tighter">
+                                            AdminSuite</h3>
+                                    </div>
+                                </div>
+                                <div
+                                    class="w-12 h-12 bg-white/60 rounded-lg flex items-center justify-center border border-white/40 shadow-sm">
+                                    <span class="material-symbols-outlined text-primary text-3xl"
+                                        data-icon="token">token</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-6 items-end z-10">
+                                <div class="flex-shrink-0">
+                                    <div
+                                        class="w-20 h-24 rounded-lg bg-surface-container-highest border border-white/50 overflow-hidden shadow-inner">
+                                        <img alt="Card Avatar" class="w-full h-full object-cover grayscale"
+                                            data-alt="A professional close-up shot of a modern professional, centered perfectly for an ID badge. The lighting is bright and even, highlighting facial features with clarity. The background is a soft, solid neutral grey, matching an ultra-modern minimalist aesthetic. The image is rendered with a clean, digital sharpness."
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7pw6z2M6jHIzZa5tfAAC5MZ3tFSuNiDxbBx1ookRjzH52skl5_pS7V84b03jgpJ3qqQGn8-eHfHZ1mLIA-6APCjEmmqO_AEw6Ig-8utq3mmVfep3b2TmKaNLMdAk4uuB-zujHCVgxl-hINbAyQ5dsb_9Hbfa6gCNNsKk05pj7WwEOGP_OhbtdahykxF_Wb6p2yUTSHoDT_foi5TJuoZram97-J86gEB0C5LHgd_80MRnyXlE8ehZj0iQfeN4GC3jhFqVXURyPXDI" />
+                                    </div>
+                                </div>
+                                <div class="flex-grow">
+                                    <p class="font-headline-md text-on-surface font-bold leading-tight">Marcus
+                                        Richardson</p>
+                                    <p class="font-body-md text-secondary leading-none mb-4">Senior UX Architect</p>
+                                    <div
+                                        class="flex justify-between items-center border-t border-outline-variant/30 pt-3">
+                                        <div>
+                                            <p class="font-label-md text-outline uppercase tracking-wider">Employee Code
+                                            </p>
+                                            <p class="font-title-md text-on-surface font-mono">AS-99281-MR</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="font-label-md text-outline uppercase tracking-wider mb-1">
+                                                Signature</p>
+                                            <p class="signature-font text-primary text-xl">M. Richardson</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 flex gap-4">
+                        <button
+                            class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md flex items-center gap-2 hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95 shadow-lg shadow-primary/20">
+                            <span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+                            EXPORT DIGITAL CARD
+                        </button>
+                        <button
+                            class="bg-white/50 text-secondary border border-outline-variant/30 px-6 py-2.5 rounded-lg font-label-md flex items-center gap-2 hover:bg-primary/5 hover:text-primary transition-all active:scale-95">
+                            <span class="material-symbols-outlined text-[18px]" data-icon="share">share</span>
+                            SHARE ACCESS
+                        </button>
+                    </div>
+                </div>
+                <!-- Profile Info & Settings Section -->
+                <div class="col-span-12 lg:col-span-5 space-y-gutter">
+                    <!-- Basic Info Card -->
+                    <div class="glass-card rounded-xl p-8">
+                        <div class="flex items-center justify-between mb-8">
+                            <h3 class="font-title-md text-on-surface font-bold">Profile Information</h3>
+                            <button class="text-primary font-label-md hover:underline">Edit Info</button>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-6">
+                                <div class="relative group">
+                                    <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary/20 p-1">
+                                        <img alt="Large Profile" class="w-full h-full rounded-full object-cover"
+                                            data-alt="A clean, minimalist profile photo upload preview showing a sophisticated male professional. The lighting is soft and professional, emphasizing a modern corporate aesthetic. The background is a neutral off-white with subtle glassmorphic elements in the periphery."
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF8w5MDED7P0f1-jjRjKPWP1jo6HN_NoHAfJQ4NlbSkelX5KN7INTYnpm_kmHlHCMFbhAk7ug4ha7-QSAqAH4t7ALa_6Wf6CRr2vIZR_FhSpMMNcd8HZfr0VYCj32aptlvuReB_uCEo0lqScz-tpdbQ2ksgjuxicnA8j8M20KUxRE83GKd9jYJSpBQ4kN_UMo-_zwgzpYOV3ZfpcmPuuQQOaNf7MocZZI2VVHTjJsws58l0B3lWhACjgN_Q9tCy7oGv2rzHS_tyTg" />
+                                    </div>
+                                    <button
+                                        class="absolute bottom-0 right-0 bg-primary text-white p-1.5 rounded-full border-2 border-white flex items-center justify-center hover:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-[16px]"
+                                            data-icon="photo_camera">photo_camera</span>
+                                    </button>
+                                </div>
+                                <div>
+                                    <p class="font-headline-md text-on-surface font-bold">Marcus Richardson</p>
+                                    <p class="font-body-md text-secondary">Senior UX Architect • Design Dept.</p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 gap-4">
+                                <div>
+                                    <label
+                                        class="font-label-md text-outline uppercase block mb-1">College/Institution</label>
+                                    <input
+                                        class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 font-body-md text-on-surface focus:outline-none"
+                                        readonly="" type="text" value="Stanford Graduate School of Design" />
+                                </div>
+                                <div>
+                                    <label class="font-label-md text-outline uppercase block mb-1">Corporate
+                                        Email</label>
+                                    <input
+                                        class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg px-4 py-3 font-body-md text-on-surface focus:outline-none"
+                                        readonly="" type="email" value="m.richardson@adminsuite.com" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Security & 2FA Card -->
+                    <div class="glass-card rounded-xl p-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="material-symbols-outlined text-primary"
+                                data-icon="verified_user">verified_user</span>
+                            <h3 class="font-title-md text-on-surface font-bold">Security Settings</h3>
+                        </div>
+                        <div class="space-y-6">
+                            <div
+                                class="flex items-center justify-between p-4 bg-primary/5 rounded-lg border border-primary/10">
+                                <div>
+                                    <p class="font-title-md text-primary font-bold">2-Factor Authentication</p>
+                                    <p class="font-body-md text-secondary">Receive OTP via registered email</p>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input checked="" class="sr-only peer" type="checkbox" />
+                                    <div
+                                        class="w-11 h-6 bg-outline-variant/40 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary">
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="space-y-4">
+                                <button
+                                    class="w-full flex items-center justify-between p-3 border border-outline-variant/30 rounded-lg hover:bg-surface-container-high transition-colors text-on-surface">
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-secondary"
+                                            data-icon="lock_reset">lock_reset</span>
+                                        <span class="font-body-md">Reset Security Password</span>
+                                    </div>
+                                    <span class="material-symbols-outlined text-outline"
+                                        data-icon="chevron_right">chevron_right</span>
+                                </button>
+                                <button
+                                    class="w-full flex items-center justify-between p-3 border border-outline-variant/30 rounded-lg hover:bg-surface-container-high transition-colors text-on-surface">
+                                    <div class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-secondary"
+                                            data-icon="devices">devices</span>
+                                        <span class="font-body-md">Manage Trusted Devices</span>
+                                    </div>
+                                    <span class="material-symbols-outlined text-outline"
+                                        data-icon="chevron_right">chevron_right</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mt-gutter">
+                <div class="glass-card rounded-xl p-6 flex items-center gap-4 border-l-4 border-l-primary">
+                    <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary" data-icon="history">history</span>
+                    </div>
+                    <div>
+                        <p class="font-label-md text-outline uppercase">Last Login</p>
+                        <p class="font-title-md text-on-surface font-bold">Today, 08:42 AM</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex items-center gap-4 border-l-4 border-l-tertiary">
+                    <div class="w-12 h-12 rounded-lg bg-tertiary/10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-tertiary" data-icon="timer">timer</span>
+                    </div>
+                    <div>
+                        <p class="font-label-md text-outline uppercase">Session Timeout</p>
+                        <p class="font-title-md text-on-surface font-bold">45 Minutes</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-xl p-6 flex items-center gap-4 border-l-4 border-l-secondary">
+                    <div class="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-secondary"
+                            data-icon="assignment_ind">assignment_ind</span>
+                    </div>
+                    <div>
+                        <p class="font-label-md text-outline uppercase">ID Status</p>
+                        <p class="font-title-md text-on-surface font-bold text-primary">Active Verified</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
